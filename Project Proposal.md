@@ -13,8 +13,8 @@ Use case: Plan a vacation easily and intuitively
 <br> Functionality: Generate a multi-day vacation plan for any popular destination
 
 ### Key features
-- Splash page with google maps search for a destination, includes trip dates
-- Site autopopulates an itenerary for days with destinations from an attraction api
+- Splash page with Google maps search for a destination, includes trip dates
+- Site autopopulates an itenerary for days with destinations from an attractions API
 - Trip summary page with visual overview of destinations and trip schedule
 
 ### *Bonus features*
