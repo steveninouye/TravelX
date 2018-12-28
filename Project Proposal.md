@@ -10,7 +10,7 @@ This problem can be decomposed into three parts:
 
 ## Functionality and MVP
 Use case: Plan a vacation easily and intuitively
-Functionality: Generate a multi-day vacation plan for any popular destination
+<br> Functionality: Generate a multi-day vacation plan for any popular destination
 
 ### Key features
 - Splash page with google maps search for a destination, includes trip dates
@@ -26,13 +26,13 @@ Functionality: Generate a multi-day vacation plan for any popular destination
 - Choose a customized vacation plan based on popular categories
 
 ## Technologies and Technical Challenges
-- Backend: MongoDB, 
-- Frontend: (Pending decision on UI Framework) 
+Backend: MongoDB, 
+<br> Frontend: (Pending decision on UI Framework) 
 
 ## Things Accomplished Over the Weekend
 
 ## Group Members and Work Breakdown
-- Cacacho, Taran
-- Jaffe, Micah
-- Inouye, I
-- Stroud, Josh
+Cacacho, Taran
+<br> Jaffe, Micah
+<br> Inouye, I
+<br> Stroud, Josh
