@@ -32,7 +32,7 @@ Functionality: Generate a multi-day vacation plan for any popular destination
 ## Things Accomplished Over the Weekend
 
 ## Group Members and Work Breakdown
-Cacacho, Taran
-Jaffe, Micah
-Inouye, I
-Stroud, Josh
+- Cacacho, Taran
+- Jaffe, Micah
+- Inouye, I
+- Stroud, Josh
