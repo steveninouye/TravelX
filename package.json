@@ -1,0 +1,26 @@
+{
+  "name": "travelx",
+  "version": "1.0.0",
+  "description": "A travel recommendation site that suggests pre-bundled packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fwep/TravelX.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fwep/TravelX/issues"
+  },
+  "homepage": "https://github.com/Fwep/TravelX#readme",
+  "dependencies": {
+    "webpack": "^4.28.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "webpack-cli": "^3.1.2"
+  }
+}
