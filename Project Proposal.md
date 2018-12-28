@@ -40,61 +40,69 @@ Stroud, Josh
 
 (Delete before official proposal submission)
 ==============================
-UI Frameworks/Libraries:
-Material UI https://v0.material-ui.com
-Pros
-Thorough and simple to understand documentation
-Allows theme-ing (dark mode, light mode, etc)
-Allows for a lot of customization
-A lot of subtle animations are standard
-A lot of components have beautiful box shadows and 3d styling
-Cons
-Bloats the application
-React Bootstrap https://react-bootstrap.github.io
-Pros
-The most well known JavaScript Framework (it was the first)
-Decent UI
-A lot of standard components
-Moderate Customization
-Cons
-Bloats application
-OK Documentation
-Few animations
-A lot of components are flat (2d)
-Semantic UI React https://react.semantic-ui.com
-Pros
-More welcoming UI (colors, font, buttons) than Bootstrap
-A lot more components to choose from
-Good animations
-Good Documentation
-Cons
-Bloats application
-A lot of components are flat (2d)
-Limited Customization
-React Styled Components https://www.styled-components.com/
-Pros
-Stops the effects of cascading styles from component to component
-Complete customization of component styles
-Allows reuse of component styles from component to component
-Recommended by React Developers
-No bloating of application
-Cons
-Styles will need to be created from scratch
-React Emotion https://emotion.sh/
-Pros
-Stops the effects of cascading styles from component to component
-Complete customization of component styles
-Allows reuse of component styles from component to component
-Faster/lighter than Styled Components
-Cons
-Less Documentation than Styled components
+### UI Frameworks/Libraries:
+#### Material UI https://v0.material-ui.com
+_Pros_
+- Thorough and simple to understand documentation
+- Allows theme-ing (dark mode, light mode, etc)
+- Allows for a lot of customization
+- A lot of subtle animations are standard
+- A lot of components have beautiful box shadows and 3d styling
 
-React Emotion vs. Styled Components
+_Cons_
+- Bloats the application
+
+#### React Bootstrap https://react-bootstrap.github.io
+_Pros_
+- The most well known JavaScript Framework (it was the first)
+- Decent UI
+- A lot of standard components
+- Moderate Customization
+
+_Cons_
+- Bloats application
+- OK Documentation
+- Few animations
+- A lot of components are flat (2d)
+
+#### Semantic UI React https://react.semantic-ui.com
+_Pros_
+- More welcoming UI (colors, font, buttons) than Bootstrap
+- A lot more components to choose from
+- Good animations
+- Good Documentation
+
+_Cons_
+- Bloats application
+- A lot of components are flat (2d)
+- Limited Customization
+
+#### React Styled Components https://www.styled-components.com/
+_Pros_
+- Stops the effects of cascading styles from component to component
+- Complete customization of component styles
+- Allows reuse of component styles from component to component
+- Recommended by React Developers
+- No bloating of application
+
+_Cons_
+- Styles will need to be created from scratch
+
+#### React Emotion https://emotion.sh/
+_Pros_
+- Stops the effects of cascading styles from component to component
+- Complete customization of component styles
+- Allows reuse of component styles from component to component
+- Faster/lighter than Styled Components
+
+_Cons_
+- Less Documentation than Styled components
+
+#### React Emotion vs. Styled Components
 In summary, there really isn't much of a difference between the 2.  Emotion is slightly faster/lighter and able to be used with other frameworks/libraries.  Styled Components has a larger community and can be used with React Native.
 https://npmcharts.com/compare/emotion,styled-components
 From a Styled Components Developer 3 months ago
-With v4 we are about as fast at mounting and faster at updating dynamic styles than react-emotion, so the performance argument no longer holds up
-emotion offers multiple different APIs to style your app, ranging from the `css` prop to the styled-components-like API. We aim to let users fall down the pit of success by only exposing a single, recommended way of doing things that'll usually mean you end up with "good code". As far as I understand emotion is more focused on letting you ship as quickly as possible. That being said, our users have built tons of different libraries on top of styled-components that expose different APIs, like styled-system to get a "css-prop-like" API.
+With v4 we are about as fast at mounting and faster at updating dynamic styles than react-emotion, so the performance argument no longer holds up emotion offers multiple different APIs to style your app, ranging from the `css` prop to the styled-components-like API. We aim to let users fall down the pit of success by only exposing a single, recommended way of doing things that'll usually mean you end up with "good code". As far as I understand emotion is more focused on letting you ship as quickly as possible. That being said, our users have built tons of different libraries on top of styled-components that expose different APIs, like styled-system to get a "css-prop-like" API.
 emotion's CSS insertion core can be used outside of React, where styled-components is only focused on usage with React
 emotion generates source maps for the generated CSS in development mode, we don't (yet, but it's one of our next priorities after this release)
 Bundle size wise, a lot of the "extra" code in styled-components is to make sure we insert classes in the right order to avoid specificity issues. (although our bundle size isn't much bigger anymore) react-emotion delegates that to userland and expects you to compose classes in the right order and to make sure you don't have specificity issues. That's how they can ship less code overall, they just don't handle that case at all. (see this issue in the emotion repo)
