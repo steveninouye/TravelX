@@ -26,8 +26,8 @@ Functionality: Generate a multi-day vacation plan for any popular destination
 - Choose a customized vacation plan based on popular categories
 
 ## Technologies and Technical Challenges
-Backend: MongoDB, 
-Frontend: (Pending decision on UI Framework) 
+- Backend: MongoDB, 
+- Frontend: (Pending decision on UI Framework) 
 
 ## Things Accomplished Over the Weekend
 
