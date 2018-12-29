@@ -42,6 +42,14 @@ module.exports = {
    devtool: 'source-map',
    devServer: {
       contentBase: path.resolve(__dirname, 'client', 'dist'),
-      stats: 'errors-only'
+      port: 3000,
+      compress: true,
+      open: true,
+      stats: {
+         colors: true,
+         errors: true,
+         warnings: true
+      },
+      proxy: [{ context: ['/api'], target: 'http://localhost:8080' }]
    }
 };
