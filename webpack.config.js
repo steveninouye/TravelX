@@ -1,45 +1,47 @@
 const path = require('path');
-
-const CLIENT_DEST = path.join(__dirname, './client/dist');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-   entry: ['babel-polyfill', './client/src/index.js'],
-   output: { path: CLIENT_DEST, filename: 'bundle.js' },
+   entry: './client/src/App.jsx',
+   output: {
+      path: path.resolve(__dirname, 'client', 'dist'),
+      filename: 'bundle.js'
+   },
    module: {
       rules: [
          {
-            test: /.jsx?$/,
-            exclude: /node_modules/,
+            test: /\.(js|jsx)$/,
+            exclude: /(node_modules)/,
             use: {
                loader: 'babel-loader',
-               options: {
-                  presets: ['env', 'react']
+               query: {
+                  presets: ['@babel/env', '@babel/react']
                }
             }
          },
          {
-            test: /\.(png|jpg|gif)$/,
-            use: {
-               loader: 'file-loader',
-               options: {
-                  publicPath: '/dist/images',
-                  outputPath: 'images'
-               }
-            }
+            test: /\.html$/,
+            use: ['html-loader']
          },
          {
-            test: /\.(pdf)$/,
-            use: {
-               loader: 'file-loader',
-               options: {
-                  publicPath: '/dist/docs',
-                  outputPath: 'docs'
+            test: /\.(jpeg|jpg|png)$/,
+            use: [
+               {
+                  loader: 'file-loader',
+                  options: {
+                     name: '[name].[ext]',
+                     outputPath: 'img/',
+                     publicPath: 'img/'
+                  }
                }
-            }
+            ]
          }
       ]
    },
-   resolve: {
-      extensions: ['.js', '.jsx']
+   plugins: [new HtmlWebpackPlugin({ template: 'client/src/index.html' })],
+   devtool: 'source-map',
+   devServer: {
+      contentBase: path.resolve(__dirname, 'client', 'dist'),
+      stats: 'errors-only'
    }
 };
