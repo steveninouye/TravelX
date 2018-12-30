@@ -1,23 +1,18 @@
 import '@babel/polyfill';
 import { join } from 'path';
 import express from 'express';
-import morgan from 'morgan';
-import routes from './routes';
-import configurePassport from '../config/passport';
 
-const CLIENT_PATH = join(__dirname, '../../client');
+import routes from './api';
 
-let app = express();
-
-app.use(morgan('dev'));
-app.use(express.json());
-app.use(express.static(CLIENT_PATH));
-
-configurePassport(app);
+const app = express();
 app.use('/api', routes);
 
+app.get('/', (req, res) => {
+   res.json('this working');
+});
 
-let PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
+
 app.listen(PORT, () => {
    console.log(`Server listening on port ${PORT}`);
 });

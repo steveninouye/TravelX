@@ -5,7 +5,7 @@
    "main": "index.js",
    "scripts": {
       "start": "webpack -p",
-      "dev": "webpack-dev-server --mode=development"
+      "dev": "concurrently -r -k \"webpack-dev-server --mode=development\" \"babel ./server/src -w -d ./server/lib\" \"nodemon ./server/lib/index.js\""
    },
    "repository": {
       "type": "git",
@@ -35,6 +35,7 @@
       "react": "^16.7.0",
       "react-dom": "^16.7.0",
       "react-router-dom": "^4.3.1",
+      "redux-thunk": "^2.3.0",
       "rimraf": "^2.6.2",
       "webpack": "^4.28.2",
       "webpack-cli": "^3.1.2"
@@ -42,6 +43,7 @@
    "devDependencies": {
       "concurrently": "^4.1.0",
       "nodemon": "^1.18.9",
+      "redux-logger": "^3.0.6",
       "webpack-dev-server": "^3.1.14"
    }
 }
