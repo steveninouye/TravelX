@@ -10,12 +10,12 @@ module.exports = {
    module: {
       rules: [
          {
-            test: /\.(js|jsx)$/,
+            test: [/\.jsx$/, /\.js$/],
             exclude: /(node_modules)/,
             use: {
                loader: 'babel-loader',
-               query: {
-                  presets: ['@babel/env', '@babel/react']
+               options: {
+                  presets: ['@babel/preset-env', '@babel/preset-react']
                }
             }
          },
@@ -38,6 +38,9 @@ module.exports = {
          }
       ]
    },
+   resolve: {
+      extensions: ['.jsx', '.js']
+   },
    plugins: [new HtmlWebpackPlugin({ template: 'client/src/index.html' })],
    devtool: 'source-map',
    devServer: {
@@ -45,11 +48,7 @@ module.exports = {
       port: 3000,
       compress: true,
       open: true,
-      stats: {
-         colors: true,
-         errors: true,
-         warnings: true
-      },
+      stats: 'errors-only',
       proxy: [{ context: ['/api'], target: 'http://localhost:8080' }]
    }
 };

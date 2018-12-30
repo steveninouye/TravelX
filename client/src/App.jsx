@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+import Root from './components/Root';
 
-import axios from 'axios'
+import axios from 'axios';
 window.axios = axios;
 
-
 document.addEventListener('DOMContentLoaded', () => {
-   ReactDom.render(<h1>Hello Wor!</h1>, document.getElementById('root'));
+   ReactDom.render(<Root />, document.getElementById('root'));
 });
