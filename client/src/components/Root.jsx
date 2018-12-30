@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { HelloWorld } from '../styles/heading';
+
 const Root = (props) => (
    <>
-      <h1>Hello World</h1>
+      <HelloWorld>Hello World</HelloWorld>
    </>
 );
 
