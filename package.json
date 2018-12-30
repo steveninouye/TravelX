@@ -4,8 +4,13 @@
    "description": "A travel recommendation site that suggests pre-bundled packages",
    "main": "index.js",
    "scripts": {
-      "start": "webpack -p",
-      "dev": "concurrently -r -k \"webpack-dev-server --mode=development\" \"babel ./server/src -w -d ./server/lib\" \"nodemon ./server/lib/index.js\""
+      "start": "npm run clean && npm run build && node ./server/lib/index.js",
+      "clean": "rimraf ./client/dist && rimraf ./server/lib",
+      "build": "babel ./server/src -d ./server/lib && webpack -p",
+      "dev": "concurrently -r -k \"npm run react:dev-server\" \"npm run compile:dev-server\" \"npm run start:dev-server\"",
+      "react:dev-server": "webpack-dev-server --mode=development",
+      "compile:dev-server": "babel ./server/src -w -d ./server/lib",
+      "start:dev-server": "nodemon ./server/lib/index.js"
    },
    "repository": {
       "type": "git",
