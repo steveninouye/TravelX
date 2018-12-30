@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { AuthRoute, ProtectedRoute } from '../utils/routes_utils';
 import HelloWorld from './HelloWorld';
+// import { AuthRoute, ProtectedRoute } from '../utils/routes_utils';
 // import SignUpFormContainer from './user/SignUpFormContainer';
 // import LogInFormContainer from './session/LogInFormContainer';
 // import Page404Container from './404/Page404Container';
@@ -12,7 +12,7 @@ import HelloWorld from './HelloWorld';
 // import ProductResultsRoot from './productResults/ProductResultsRoot';
 // import ProductDetailsContainer from './product_details/ProductDetailsContainer';
 
-const RootRoutes = () => {
+const Router = () => {
    return (
       <>
          <Switch>
@@ -28,8 +28,7 @@ const RootRoutes = () => {
             <AuthRoute path="/signin" component={LogInFormContainer} />
             <Route path="*" component={Page404Container} /> */}
          </Switch>
-         <HomeFooter />
       </>
    );
 };
-export default RootRoutes;
+export default Router;
