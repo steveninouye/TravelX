@@ -1,11 +1,15 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-import { HelloWorld } from '../styles/heading';
+import RootRoutes from './RootRoutes';
 
-const Root = (props) => (
-   <>
-      <HelloWorld>Hello World</HelloWorld>
-   </>
+const Root = ({ store }) => (
+   <Provider store={store}>
+      <BrowserRouter>
+         <RootRoutes />
+      </BrowserRouter>
+   </Provider>
 );
 
 export default Root;
