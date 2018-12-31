@@ -1,11 +1,12 @@
 import Validator from 'validator';
-import { validText } from './data_conversion';
+
+import { ensureStrType } from './data_conversion';
 
 module.exports = function(data) {
-   let { handle, email, password } = data;
-   validText(handle, email, password);
+   ensureStrType(data, 'handle', 'email', 'password');
+   const { handle, email, password } = data;
 
-   let errors = {};
+   const errors = {};
 
    if (!Validator.isEmail(email)) {
       errors.email = 'Email is invalid';

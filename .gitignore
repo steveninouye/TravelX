@@ -1,4 +1,4 @@
-node_modules
+node_modules/
 keys.js
-client/dist
-server/dist
+client/dist/
+server/dist/

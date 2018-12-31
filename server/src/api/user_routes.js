@@ -1,19 +1,30 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import passport from 'passport';
 
-import keys from '../config/keys';
-import validateRegisterInput from '../../utils/register';
-import validateLoginInput from '../../utils/login';
+import { secretOrKey } from '../config/keys';
+import User from '../models/Users';
+import validateRegisterInput from '../utils/registration_validations';
+import validateLoginInput from '../utils/login_validations';
 
-const User = require('../../models/Users');
 const router = express.Router();
+
+router.get(
+   '/protected',
+   passport.authenticate('jwt', { session: false }),
+   (req, res) => {
+      console.log('req: ', req);
+      console.log('res: ', res);
+      res.json('this is the response');
+   }
+);
 
 router.get('/', (req, res) => {
    res.json('this is user route');
 });
 
-router.get('/register', (req, res) => {
+router.post('/register', (req, res) => {
    const { errors, isValid } = validateRegisterInput(req.body);
    if (!isValid) {
       return res.status(400).json(errors);
@@ -69,7 +80,7 @@ router.post('/login', (req, res) => {
             };
             jwt.sign(
                payload,
-               keys.secretOrKey,
+               secretOrKey,
                { expiresIn: 3600 },
                (err, token) => {
                   res.json({ success: true, token: `Bearer ${token}` });
