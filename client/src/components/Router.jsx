@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import HelloWorld from './HelloWorld';
+import HelloWorld from './homepage/HelloWorld';
 // import { AuthRoute, ProtectedRoute } from '../utils/routes_utils';
 // import SignUpFormContainer from './user/SignUpFormContainer';
 // import LogInFormContainer from './session/LogInFormContainer';
