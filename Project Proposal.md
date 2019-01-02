@@ -1,4 +1,4 @@
-TravelX is a travel planner with an emphasis on a simple, flat-design user experience.
+*travelx* helps travelers create travel plans and discover popular attractions. 
 
 ## Background and Overview
 The typical consumer experience of planning a trip often consists of a convoluted web of flight itineraries, hotel bookings
@@ -32,10 +32,10 @@ Use case: Plan a vacation easily and intuitively
 - Choose a customized vacation plan based on popular categories
 
 ## Technologies and Technical Challenges
-### Backend: MongoDB, 
+### Backend: MongoDB, Express.js, Node.js
 ### Frontend:
-- React JS
-- Redux JS
+- React.js
+- Redux.js
 - Redux Thunk
 - Redux Logger
 - Axios
@@ -44,6 +44,28 @@ Material UI and Styled Components address a problem previously faced of renderin
 
 Material UI consists of a library of default components that can be customized further if needed. Styled Components serves the purpose of allowing such custom styling, using ES6's [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates).
 - Google Maps
+### Misc Libraries:
+- Webpack
+- Webpack Dev Server
+- Webpack CLI
+- HTML Webpack Plugin
+- HTML Loader
+- File Loader
+- Babel
+- Babel CLI
+- Babel Loader
+- @babel/core
+- @babel/polyfill
+- @babel/preset-env
+- @babel/preset-react
+- Nodemon
+- Concurrently
+- React Hot Loader
+
+#### Scheduling:
+
+For each potential destination on the itinerary, we will prompt the user to select either the most popular timeblock or a custom timeblock. Together with the opening/closing hours and days of week from Google Places, we will generate the fullest non-overlapping schedule possible. We will implement this using an existing JS scheduling engine (such as this one) if sufficient; if not we will build our own using existing solutions.
+
 
 
 ## Things Accomplished Over the Break
@@ -65,3 +87,122 @@ Cacacho, Taran
 <br> Jaffe, Micah
 <br> Inouye, I
 <br> Stroud, Josh
+-------------------
+**Wednesday, Jan 2, 2019**
+
+
+
+*   Develop Splash Page - **Josh**
+    *   Create Redux Cycle
+    *   SplashContainer
+    *   Nav
+    *   Hero
+    *   Features
+    *   About
+    *   Footer
+    *   Add styling
+*   Login Modal - **Micah**
+    *   Redux Cycle
+    *   Modal
+    *   SignupModalContainer
+    *   SessionModalContainer
+    *   SessionForm
+    *   Styling
+*   PlanIndex Page - **Taran**
+    *   Redux Cycle
+    *   PlanIndexContainer
+    *   PlanIndexItem
+    *   Styling
+
+**Backend**
+
+User Authentication Routes (Completed)** -** **Steven**
+
+Complete route for first destination package request with JSON in formatted for front end to receive** -** **Steven**
+
+**Thursday**
+
+
+
+*   Develop Splash Page - **Josh**
+    *   Create Redux Cycle
+    *   SplashContainer
+    *   Nav
+    *   Hero
+    *   Features
+    *   About
+    *   Footer
+    *   Add styling
+*   Login Modal - **Micah**
+    *   Redux Cycle
+    *   Modal
+    *   SignupModalContainer
+    *   SessionModalContainer
+    *   SessionForm
+    *   Styling
+*   PlanIndex Page - **Taran**
+    *   Redux Cycle
+    *   PlanIndexContainer
+    *   PlanIndexItem
+    *   Styling
+
+**Backend**
+
+Create POST route to save itinerary for user (w/ passport authentication) - _Steven_
+
+Create DELETE route to delete itinerary for user (w/ passport authentication) - _Steven_
+
+**Friday**
+
+
+
+*   Results Page - _Micah_
+    *   Redux Cycle
+    *   ResultsPageContainer
+    *   ResultsSplash
+    *   Results
+    *   TabNav
+    *   ResultItem
+    *   Redux Cycle
+    *   Styling
+*   Map Page - _Josh_
+    *   Redux Cycle
+    *   MapViewContainer
+    *   ResultsMapContainer
+    *   ResultsMap
+    *   Styling
+
+**Backend**
+
+Create GET route to respond with JSON of requested Itinerary - _Steven_
+Create PATCH route for user to edit any itinerary (w/ passport authentication) -_Steven_
+
+**Saturday**
+
+
+
+*   Results Page - _Micah_
+    *   Redux Cycle
+    *   ResultsPageContainer
+    *   ResultsSplash
+    *   Results
+    *   TabNav
+    *   ResultItem
+    *   Redux Cycle
+    *   Styling
+*   Map Page - _Josh_
+    *   Redux Cycle
+    *   MapViewContainer
+    *   ResultsMapContainer
+    *   ResultsMap
+    *   Styling
+
+**Backend**
+
+Complete any Misc Routes needed For CRUD responses to the Mongo Database -_Steven_
+
+**Sunday**
+
+**Monday**
+
+**Tuesday**
