@@ -21,25 +21,14 @@ export const logoutUser = () => ({
    type: RECEIVE_USER_LOGOUT
 });
 
-export const receiveUserSignIn = () => ({
-   type: RECEIVE_USER_SIGN_IN
-});
-
 export const signup = (user) => (dispatch) =>
-   APIUtil.signup(user).then(
-      () => dispatch(receiveUserSignIn()),
-      (err) => dispatch(receiveErrors(err.response.data))
+   APIUtil.signup(user).then(logUserIn, (err) =>
+      dispatch(receiveErrors(err.response.data))
    );
 
 export const login = (user) => (dispatch) =>
    APIUtil.login(user)
-      .then((res) => {
-         const { token } = res.data;
-         localStorage.setItem('jwtToken', token);
-         APIUtil.setAuthToken(token);
-         const decoded = jwt_decode(token);
-         dispatch(receiveCurrentUser(decoded));
-      })
+      .then(logUserIn)
       .catch((err) => {
          dispatch(receiveErrors(err.response.data));
       });
@@ -48,4 +37,12 @@ export const logout = () => (dispatch) => {
    localStorage.removeItem('jwtToken');
    APIUtil.setAuthToken(false);
    dispatch(logoutUser());
+};
+
+const logUserIn = (res) => {
+   const { token } = res.data;
+   localStorage.setItem('jwtToken', token);
+   APIUtil.setAuthToken(token);
+   const decoded = jwt_decode(token);
+   dispatch(receiveCurrentUser(decoded));
 };
