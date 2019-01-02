@@ -10,7 +10,8 @@ export const setCurrentUser = () => {
       if (decodedUser.exp > currentTime) {
          setAuthToken(localStorage.jwtToken);
          const preloadedState = {
-            session: { isAuthenticated: true, user: decodedUser }
+            entities: { users: decodedUser },
+            session: decodedUser.id
          };
          return configureStore(preloadedState);
       }
