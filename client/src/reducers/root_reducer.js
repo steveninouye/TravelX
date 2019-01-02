@@ -2,16 +2,12 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-// import errorsReducer from './errors_reducer.js';
-// import entitiesReducer from './entities_reducer.js';
-// import sessionSwitch from './session/session_switch.js';
-// import UiSwitch from './ui/ui_switch.js';
+import session from './session_reducer';
+import entities from './entities_reducer';
 
 const rootReducer = combineReducers({
-   // entities: entitiesReducer,
-   // errors: errorsReducer,
-   // session: sessionSwitch,
-   // ui: UiSwitch
+   entities,
+   session
 });
 
 const configureStore = (preloadedState = {}) =>
