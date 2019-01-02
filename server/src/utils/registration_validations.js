@@ -3,25 +3,17 @@ import Validator from 'validator';
 import { ensureStrType } from './data_conversion';
 
 module.exports = function validateRegisterInput(data) {
-   ensureStrType(data, 'handle', 'email', 'password', 'password2');
-   const { handle, email, password, password2 } = data;
+   ensureStrType(data, 'username', 'password', 'password2');
+   const { username, password, password2 } = data;
 
    const errors = {};
 
-   if (!Validator.isLength(handle, { min: 2, max: 30 })) {
-      errors.handle = 'Handle must be between 2 and 30 characters';
+   if (!Validator.isLength(username, { min: 4, max: 20 })) {
+      errors.username = 'Username must be between 4 and 20 characters long';
    }
 
-   if (Validator.isEmpty(handle)) {
-      errors.handle = 'Handle field is required';
-   }
-
-   if (!Validator.isEmail(email)) {
-      errors.email = 'Email is invalid';
-   }
-
-   if (Validator.isEmpty(email)) {
-      errors.email = 'Email field is required';
+   if (Validator.isEmpty(username)) {
+      errors.username = 'Username field is required';
    }
 
    if (!Validator.isLength(password, { min: 6, max: 30 })) {

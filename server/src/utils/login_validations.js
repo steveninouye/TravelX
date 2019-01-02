@@ -3,17 +3,13 @@ import Validator from 'validator';
 import { ensureStrType } from './data_conversion';
 
 module.exports = function(data) {
-   ensureStrType(data, 'handle', 'email', 'password');
-   const { handle, email, password } = data;
+   ensureStrType(data, 'handle', 'username', 'password');
+   const { username, password } = data;
 
    const errors = {};
 
-   if (!Validator.isEmail(email)) {
-      errors.email = 'Email is invalid';
-   }
-
-   if (Validator.isEmpty(email)) {
-      errors.email = 'Email field is required';
+   if (Validator.isEmpty(username)) {
+      errors.username = 'Username field is required';
    }
 
    if (Validator.isEmpty(password)) {
