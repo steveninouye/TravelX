@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import passport from 'passport';
 
 import { secretOrKey } from '../config/keys';
+import User from '../models/Users';
 import validateRegisterInput from '../utils/registration_validations';
 import validateLoginInput from '../utils/login_validations';
 
@@ -32,7 +33,9 @@ router.post('/register', (req, res) => {
       if (user) {
          return res
             .status(400)
-            .json({ username: 'A user is already registered with that username' });
+            .json({
+               username: 'A user is already registered with that username'
+            });
       }
       const newUser = new User({
          username: req.body.username,
