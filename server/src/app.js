@@ -5,8 +5,8 @@ import bp from 'body-parser';
 import mongoose from 'mongoose';
 import { resolve } from 'path';
 
-import { dbUri } from './config/keys';
 import passportConfig from './config/passport';
+import { dbUri } from './config/keys';
 import apiRoutes from './api_routes';
 
 const app = express();

@@ -2,7 +2,7 @@ import Validator from 'validator';
 
 import { ensureStrType } from './data_conversion';
 
-module.exports = function validateRegisterInput(data) {
+function validateRegisterInput(data) {
    ensureStrType(data, 'username', 'password', 'password2');
    const { username, password, password2 } = data;
 
@@ -32,4 +32,6 @@ module.exports = function validateRegisterInput(data) {
       errors,
       isValid: Object.keys(errors).length === 0
    };
-};
+}
+
+export default validateRegisterInput;

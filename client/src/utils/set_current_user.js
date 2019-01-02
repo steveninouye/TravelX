@@ -1,5 +1,4 @@
 import jwt_decode from 'jwt-decode';
-import axios from 'axios';
 
 import { setAuthToken } from './session_ajax_utils';
 import configureStore from '../reducers/root_reducer';
