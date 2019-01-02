@@ -10,20 +10,6 @@ import validateLoginInput from '../utils/login_validations';
 
 const users = express.Router();
 
-users.get(
-   '/protected',
-   passport.authenticate('jwt', { session: false }),
-   (req, res) => {
-      console.log('req: ', req);
-      console.log('res: ', res);
-      res.json('this is the response');
-   }
-);
-
-users.get('/', (req, res) => {
-   res.json('this is user route');
-});
-
 users.post('/register', (req, res) => {
    const { errors, isValid } = validateRegisterInput(req.body);
 
