@@ -1,7 +1,6 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import passport from 'passport';
 
 import { secretOrKey } from '../config/keys';
 import User from '../models/Users';
@@ -15,16 +14,14 @@ users.post('/register', (req, res) => {
 
    if (!isValid) return res.status(400).json(errors);
 
-   User.findOne({ username: req.body.username }).then((user) => {
+   User.findOne({ email: req.body.email }).then((user) => {
       if (user) {
-         return res
-            .status(400)
-            .json({
-               username: 'A user is already registered with that username'
-            });
+         return res.status(400).json({
+            email: 'A user is already registered with that email'
+         });
       }
       const newUser = new User({
-         username: req.body.username,
+         email: req.body.email,
          password_digest: req.body.password
       });
 
@@ -34,10 +31,10 @@ users.post('/register', (req, res) => {
             newUser.password_digest = hashPassword;
             newUser
                .save()
-               .then(({ id, username }) => {
+               .then(({ id, email }) => {
                   const payload = {
                      id,
-                     username
+                     email
                   };
                   jwt.sign(
                      payload,
@@ -59,17 +56,17 @@ users.post('/login', (req, res) => {
 
    if (!isValid) return res.status(400).json(errors);
 
-   const { username, password } = req.body;
+   const { email, password } = req.body;
 
-   User.findOne({ username }).then((user) => {
+   User.findOne({ email }).then((user) => {
       if (!user)
-         return res.status(404).json({ username: 'This user does not exist' });
+         return res.status(404).json({ email: 'This user does not exist' });
 
       bcrypt.compare(password, user.password_digest).then((isMatch) => {
          if (isMatch) {
             const payload = {
                id: user.id,
-               username: user.username
+               email: user.email
             };
             jwt.sign(
                payload,

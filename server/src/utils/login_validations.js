@@ -3,13 +3,13 @@ import Validator from 'validator';
 import { ensureStrType } from './data_conversion';
 
 function validateLoginInput(data) {
-   ensureStrType(data, 'handle', 'username', 'password');
-   const { username, password } = data;
+   ensureStrType(data, 'handle', 'email', 'password');
+   const { email, password } = data;
 
    const errors = {};
 
-   if (Validator.isEmpty(username)) {
-      errors.username = 'Username field is required';
+   if (Validator.isEmpty(email)) {
+      errors.email = 'Email field is required';
    }
 
    if (Validator.isEmpty(password)) {
