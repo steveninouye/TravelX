@@ -8,9 +8,9 @@ import User from '../models/Users';
 import validateRegisterInput from '../utils/registration_validations';
 import validateLoginInput from '../utils/login_validations';
 
-const router = express.Router();
+const users = express.Router();
 
-router.get(
+users.get(
    '/protected',
    passport.authenticate('jwt', { session: false }),
    (req, res) => {
@@ -20,11 +20,11 @@ router.get(
    }
 );
 
-router.get('/', (req, res) => {
+users.get('/', (req, res) => {
    res.json('this is user route');
 });
 
-router.post('/register', (req, res) => {
+users.post('/register', (req, res) => {
    const { errors, isValid } = validateRegisterInput(req.body);
 
    if (!isValid) return res.status(400).json(errors);
@@ -68,7 +68,7 @@ router.post('/register', (req, res) => {
    });
 });
 
-router.post('/login', (req, res) => {
+users.post('/login', (req, res) => {
    const { errors, isValid } = validateLoginInput(req.body);
 
    if (!isValid) return res.status(400).json(errors);
@@ -100,4 +100,4 @@ router.post('/login', (req, res) => {
    });
 });
 
-export default router;
+export default users;

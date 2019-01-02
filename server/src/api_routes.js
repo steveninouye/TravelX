@@ -1,9 +1,10 @@
 import express from 'express';
 
-import userRoutes from './api/user_routes';
+import users from './api/users_routes';
+import places from './api/places_routes';
 
 const apiRoutes = express.Router();
 
-apiRoutes.use('/users', userRoutes);
+apiRoutes.use('/users', users);
 
 export default apiRoutes;
