@@ -46,7 +46,19 @@ Material UI consists of a library of default components that can be customized f
 - Google Maps
 
 
-## Things Accomplished Over the Weekend
+## Things Accomplished Over the Break
+The following is a list of tasks we accomplished over break, along with approximate time allocations for each item. The
+results of these items are reflected in the rest of this document.
+
+- Project ideation, definition, and scoping (5 hours)
+- MVP and bonus feature ideation and detail (3 hours)
+- Frontend tech stack research, discussion, and selection (4 hours)
+- External API research, discussion, and selection (3 hours)
+- Low-fidelity wireframes and initial design (3 hours)
+- Design docs - schema, routes, and state shape (4 hours)
+- Project creation - github repo and skeleton (0.5 hours)
+- Backend user auth (5 hours)
+- Proposal drafting (3 hours)
 
 ## Group Members and Work Breakdown
 Cacacho, Taran
