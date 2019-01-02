@@ -28,11 +28,11 @@ router.post('/register', (req, res) => {
 
    if (!isValid) return res.status(400).json(errors);
 
-   User.findOne({ email: req.body.username }).then((user) => {
+   User.findOne({ username: req.body.username }).then((user) => {
       if (user) {
          return res
             .status(400)
-            .json({ email: 'A user is already registered with that email' });
+            .json({ username: 'A user is already registered with that username' });
       }
       const newUser = new User({
          username: req.body.username,
@@ -45,7 +45,20 @@ router.post('/register', (req, res) => {
             newUser.password_digest = hashPassword;
             newUser
                .save()
-               .then((user) => res.json(user))
+               .then(({ id, username }) => {
+                  const payload = {
+                     id,
+                     username
+                  };
+                  jwt.sign(
+                     payload,
+                     secretOrKey,
+                     { expiresIn: 3600 },
+                     (err, token) => {
+                        res.json({ success: true, token: `Bearer ${token}` });
+                     }
+                  );
+               })
                .catch((err) => console.log(err));
          });
       });
