@@ -6,5 +6,6 @@ import places from './api/places_routes';
 const apiRoutes = express.Router();
 
 apiRoutes.use('/users', users);
+apiRoutes.use('/places', places);
 
 export default apiRoutes;
