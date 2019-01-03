@@ -36,7 +36,7 @@ export default class AuthModal extends React.Component {
   handleLogin(e) {
     e.preventDefault();
     const { email, password } = this.state;
-    this.props.login({ email, password });
+    this.props.login({ email, password }).then(this.handleClose);
   };
 
   render() {
