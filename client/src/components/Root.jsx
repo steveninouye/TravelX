@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 // import { Provider } from 'react-redux';.
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from "react-router-dom";
 
-import Router from './Router';
+import Router from "./Router";
 
 const Root = ({ store }) => (
-   // <Provider store={store}>
-   <BrowserRouter>
-      <Router />
-   </BrowserRouter>
-   // </Provider>
+  // <Provider store={store}>
+  <HashRouter>
+    <Router />
+  </HashRouter>
+  // </Provider>
 );
 
 export default Root;
