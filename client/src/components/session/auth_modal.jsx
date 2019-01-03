@@ -6,6 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import FormHelperText from "@material-ui/core/FormHelperText";
 
 export default class AuthModal extends React.Component {
   constructor(props) {
@@ -39,6 +40,8 @@ export default class AuthModal extends React.Component {
     this.props.login({ email, password }).then(this.handleClose);
   };
 
+
+
   render() {
     return (
       <div>
@@ -66,8 +69,11 @@ export default class AuthModal extends React.Component {
               required
               onChange={this.handleInput('email')}
               value={this.state.email}
-              // error
+              error
             />
+            <FormHelperText>
+              {this.props.errors}
+            </FormHelperText>
             <TextField
               margin="dense"
               id="password"
