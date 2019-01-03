@@ -2,3 +2,5 @@ node_modules/
 keys_dev.js
 client/dist/
 server/dist/
+temp*
+TEMP*

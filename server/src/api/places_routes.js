@@ -1,8 +1,12 @@
 import express from 'express';
+import { resolve } from 'path';
+import fs from 'fs';
 import request from 'request';
 import rp from 'request-promise';
 import passport from 'passport';
 
+import keep from '../img/keep';
+import { googleApi } from '../config/keys';
 import { cityUrl, attractionUrl } from '../utils/api_urls';
 
 const places = express.Router();
@@ -15,11 +19,21 @@ places.get(
       rp(cityUrl(city))
          .then((json) => {
             const { results, next_page_token } = JSON.parse(json);
-            // SAVE DATA HERE
-            // SAVE PHOTOS HERE
+            results.forEach((result, resultIdx) => {
+               result.photos.forEach((photo, photoIdx) => {
+                  const photoRef = photo.photo_reference;
+                  const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
+                  request(photoUrl).pipe(
+                     fs.createWriteStream(
+                        resolve(__dirname, `../img/${photoRef}.jpg`)
+                     )
+                  );
+               });
+            });
             res.json(JSON.parse(json));
          })
          .catch((err) => {
+            console.log(err);
             res.json('Google API could not be reached');
          });
    }
