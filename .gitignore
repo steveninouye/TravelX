@@ -1,7 +1,7 @@
 node_modules/
 keys_dev.js
 client/dist/*
-!client/dist/img/.keep
+!client/dist/img/
 server/dist/
 temp*
 TEMP*
