@@ -11,11 +11,14 @@ export default class AuthModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      email: '',
+      password: ''
     };
 
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   };
 
   handleClickOpen() {
@@ -24,6 +27,16 @@ export default class AuthModal extends React.Component {
 
   handleClose() {
     this.setState({ open: false });
+  };
+
+  handleInput(field) {
+    return e => this.setState({ [field]: e.target.value });
+  };
+
+  handleLogin(e) {
+    e.preventDefault();
+    const { email, password } = this.state;
+    this.props.login({ email, password });
   };
 
   render() {
@@ -50,6 +63,10 @@ export default class AuthModal extends React.Component {
               label="Email Address"
               type="email"
               fullWidth
+              required
+              onChange={this.handleInput('email')}
+              value={this.state.email}
+              // error
             />
             <TextField
               margin="dense"
@@ -57,11 +74,15 @@ export default class AuthModal extends React.Component {
               label="Password"
               type="password"
               fullWidth
+              required
+              onChange={this.handleInput('password')}
+              value={this.state.password}
+              // error
             />
           </DialogContent>
           <DialogActions>
             <Button 
-              onClick={this.handleClose} 
+              onClick={this.handleLogin} 
               color="primary" 
               variant="outlined"
               fullWidth
