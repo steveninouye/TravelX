@@ -40,7 +40,10 @@ export default class AuthModal extends React.Component {
     this.props.login({ email, password })//.then(this.handleClose);
   };
 
-
+  renderErrorMessage(field) {
+    const error = this.props.errors[field];
+    if (error) return (<FormHelperText>{ error }</FormHelperText>);
+  }
 
   render() {
     return (
@@ -71,9 +74,7 @@ export default class AuthModal extends React.Component {
               value={this.state.email}
               error={!!this.props.errors.email}
             />
-            <FormHelperText>
-              {this.props.errors.email}
-            </FormHelperText>
+            {this.renderErrorMessage('email')}
             <TextField
               margin="dense"
               id="password"
@@ -85,6 +86,7 @@ export default class AuthModal extends React.Component {
               value={this.state.password}
               error={!!this.props.errors.password}
             />
+            {this.renderErrorMessage('password')}
           </DialogContent>
           <DialogActions>
             <Button 
