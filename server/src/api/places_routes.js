@@ -17,8 +17,6 @@ places.get(
          `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${city}+point+of+interest&language=en&key=${googleApi}`
       )
          .then((res) => {
-            const {next_page_token, results}
-            let str = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${googleApi}`;
             res.json(res);
          })
          .catch((err) => {
