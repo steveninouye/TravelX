@@ -41,26 +41,48 @@ export default class AuthModal extends React.Component {
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+          <DialogTitle id="form-dialog-title">Login</DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              TravelX!!!!!
-            </DialogContentText>
             <TextField
               autoFocus
               margin="dense"
-              id="name"
+              id="email"
               label="Email Address"
               type="email"
+              fullWidth
+            />
+            <TextField
+              margin="dense"
+              id="password"
+              label="Password"
+              type="password"
               fullWidth
             />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Cancel
+              Log in
             </Button>
+          </DialogActions>
+          <DialogContent>
+            <DialogContentText>
+              Don't have an account?
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Subscribe
+              Sign up
+            </Button>
+            <DialogContentText>
+              or
+            </DialogContentText>
+            <Button onClick={this.handleClose} color="primary">
+              Continue as guest
+            </Button>
+          </DialogActions>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Cancel
             </Button>
           </DialogActions>
         </Dialog>
