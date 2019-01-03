@@ -13,7 +13,7 @@ const places = express.Router();
 
 places.get(
    '/city/:city',
-   passport.authenticate('jwt', { session: false }),
+   // passport.authenticate('jwt', { session: false }),
    (req, res) => {
       const { city } = req.params;
       rp(cityUrl(city))
@@ -25,7 +25,10 @@ places.get(
                   const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
                   request(photoUrl).pipe(
                      fs.createWriteStream(
-                        resolve(__dirname, `../img/${photoRef}.jpg`)
+                        resolve(
+                           __dirname,
+                           `../../../client/dist/img/${photoRef}.jpg`
+                        )
                      )
                   );
                });
