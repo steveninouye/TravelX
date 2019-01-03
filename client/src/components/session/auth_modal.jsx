@@ -37,7 +37,7 @@ export default class AuthModal extends React.Component {
   handleLogin(e) {
     e.preventDefault();
     const { email, password } = this.state;
-    this.props.login({ email, password }).then(this.handleClose);
+    this.props.login({ email, password })//.then(this.handleClose);
   };
 
 
@@ -69,10 +69,10 @@ export default class AuthModal extends React.Component {
               required
               onChange={this.handleInput('email')}
               value={this.state.email}
-              error
+              error={!!this.props.errors.email}
             />
             <FormHelperText>
-              {this.props.errors}
+              {this.props.errors.email}
             </FormHelperText>
             <TextField
               margin="dense"
@@ -83,7 +83,7 @@ export default class AuthModal extends React.Component {
               required
               onChange={this.handleInput('password')}
               value={this.state.password}
-              // error
+              error={!!this.props.errors.password}
             />
           </DialogContent>
           <DialogActions>

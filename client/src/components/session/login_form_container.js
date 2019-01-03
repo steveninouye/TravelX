@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import { login, clearErrors } from "../../actions/session_actions";
 import AuthModal from "./auth_modal";
 
-const mapStateToProps = (state) => ({
-  // errors: state.errors.session,
+const mapStateToProps = ({ errors }) => ({
+  errors: errors.session,
   formType: "login",
 });
 
