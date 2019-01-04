@@ -13,12 +13,15 @@ export default class AuthModal extends React.Component {
     super(props);
     this.state = {
       open: false,
+      type: 'login',
       email: '',
-      password: ''
+      password: '',
+      password2: ''
     };
 
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
   };
@@ -30,6 +33,10 @@ export default class AuthModal extends React.Component {
   handleClose() {
     this.setState({ open: false });
   };
+
+  handleSignup() {
+    this.setState({ type: 'signup' });
+  }
 
   handleInput(field) {
     return e => this.setState({ [field]: e.target.value });
@@ -72,58 +79,55 @@ export default class AuthModal extends React.Component {
     animateDemoLogin();
   }
 
-  renderErrorMessage(field) {
-    const error = this.props.errors[field];
-    if (error) return (<FormHelperText>{ error }</FormHelperText>);
+  renderFormHeader() {
+    return (
+      <DialogTitle id="form-dialog-title">
+        {this.state.type === "login" ? "Log in" : "Create account"}
+      </DialogTitle>
+    );
   }
 
-  render() {
+  renderFormBody() {
     return (
-      <div>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={this.handleClickOpen}
-        >
-          Open auth modal
-        </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">Login</DialogTitle>
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="email"
-              label="Email Address"
-              type="email"
-              fullWidth
-              required
-              onChange={this.handleInput('email')}
-              value={this.state.email}
-              error={!!this.props.errors.email}
-            />
-            {this.renderErrorMessage('email')}
-            <TextField
-              margin="dense"
-              id="password"
-              label="Password"
-              type="password"
-              fullWidth
-              required
-              onChange={this.handleInput('password')}
-              value={this.state.password}
-              error={!!this.props.errors.password}
-            />
-            {this.renderErrorMessage('password')}
-          </DialogContent>
+      <DialogContent>
+        <TextField
+          autoFocus
+          margin="dense"
+          id="email"
+          label="Email Address"
+          type="email"
+          fullWidth
+          required
+          onChange={this.handleInput('email')}
+          value={this.state.email}
+          error={!!this.props.errors.email}
+        />
+        {this.renderErrorMessage('email')}
+        <TextField
+          margin="dense"
+          id="password"
+          label="Password"
+          type="password"
+          fullWidth
+          required
+          onChange={this.handleInput('password')}
+          value={this.state.password}
+          error={!!this.props.errors.password}
+        />
+        {this.renderErrorMessage('password')}
+        {this.renderPasswordConfirmation()}
+      </DialogContent>
+    );
+  }
+
+  renderFormActions() {
+    if (this.state.type === "login") {
+      return (
+        <>
           <DialogActions>
-            <Button 
-              onClick={this.handleLogin} 
-              color="primary" 
+            <Button
+              onClick={this.handleLogin}
+              color="primary"
               variant="outlined"
               fullWidth
             >
@@ -136,8 +140,8 @@ export default class AuthModal extends React.Component {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button 
-              onClick={this.handleClose} 
+            <Button
+              onClick={this.handleSignup}
               color="primary"
               variant="outlined"
               fullWidth
@@ -147,12 +151,12 @@ export default class AuthModal extends React.Component {
           </DialogActions>
           <DialogContent>
             <DialogContentText>
-                or
+              or
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button 
-              onClick={this.handleDemoLogin} 
+            <Button
+              onClick={this.handleDemoLogin}
               color="primary"
               variant="outlined"
               fullWidth
@@ -160,6 +164,69 @@ export default class AuthModal extends React.Component {
               Continue as guest
             </Button>
           </DialogActions>
+        </>
+      );
+    } else if (this.state.type === "signup") {
+      return (
+        <DialogActions>
+          <Button
+            onClick={() => console.log('hello')}
+            color="primary"
+            variant="outlined"
+            fullWidth
+          >
+            Register
+          </Button>
+        </DialogActions>
+      );
+    }
+  }
+
+  renderPasswordConfirmation() {
+    if (this.state.type === "signup") {
+      return (
+        <>
+          <TextField
+            margin="dense"
+            id="password2"
+            label="Confirm Password"
+            type="password"
+            fullWidth
+            required
+            onChange={this.handleInput('password2')}
+            value={this.state.password2}
+            error={!!this.props.errors.password2}
+          />
+          {this.renderErrorMessage('password2')}
+        </>
+      );
+    }
+  }
+
+  renderErrorMessage(field) {
+    const error = this.props.errors[field];
+    if (error) return (<FormHelperText>{error}</FormHelperText>);
+  }
+
+  render() {
+    return (
+      <div>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={this.handleClickOpen}
+        >
+          Open auth modal
+        </Button>
+
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="form-dialog-title"
+        >
+          {this.renderFormHeader()}
+          {this.renderFormBody()}
+          {this.renderFormActions()}
         </Dialog>
       </div>
     );
