@@ -20,6 +20,7 @@ export default class AuthModal extends React.Component {
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   };
 
   handleClickOpen() {
@@ -39,6 +40,37 @@ export default class AuthModal extends React.Component {
     const { email, password } = this.state;
     this.props.login({ email, password })//.then(this.handleClose);
   };
+
+  handleDemoLogin(e) {
+    e.preventDefault();
+    this.setState({ email: "", password: "" });
+
+    const demoEmail = "magellan@travelx.com".split("");
+    const demoPassword = "password".split("");
+
+    const animateDemoLogin = () => {
+      const intervalId = setInterval(() => {
+        let email = this.state.email;
+        let password = this.state.password;
+
+        if (demoEmail.length > 0) {
+          email += demoEmail.shift();
+          this.setState({ email });
+        } else if (demoPassword.length > 0) {
+          password += demoPassword.shift();
+          this.setState({ password });
+        } else {
+          clearInterval(intervalId);
+          this.props.login({
+            email: "magellan@travelx.com",
+            password: "password"
+          });
+        }
+      }, 80);
+    };
+
+    animateDemoLogin();
+  }
 
   renderErrorMessage(field) {
     const error = this.props.errors[field];
@@ -120,7 +152,7 @@ export default class AuthModal extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button 
-              onClick={this.handleClose} 
+              onClick={this.handleDemoLogin} 
               color="primary"
               variant="outlined"
               fullWidth
