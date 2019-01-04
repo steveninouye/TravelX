@@ -21,8 +21,8 @@ export default class AuthModal extends React.Component {
 
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.handleSignup = this.handleSignup.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignupClick = this.handleSignupClick.bind(this);
+    this.handleSessionAction = this.handleSessionAction.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
   };
 
@@ -31,10 +31,12 @@ export default class AuthModal extends React.Component {
   };
 
   handleClose() {
+    this.props.clearErrors();
     this.setState({ open: false });
   };
 
-  handleSignup() {
+  handleSignupClick() {
+    this.props.clearErrors();
     this.setState({ type: 'signup' });
   }
 
@@ -42,10 +44,14 @@ export default class AuthModal extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   };
 
-  handleLogin(e) {
+  handleSessionAction(e) {
     e.preventDefault();
-    const { email, password } = this.state;
-    this.props.login({ email, password })//.then(this.handleClose);
+    const { email, password, password2 } = this.state;
+    if (this.state.type === "login") {
+      this.props.login({ email, password }); //.then(this.handleClose);
+    } else if (this.state.type === "signup") {
+      this.props.signup({ email, password, password2 }); //.then(this.handleClose);
+    }
   };
 
   handleDemoLogin(e) {
@@ -126,7 +132,7 @@ export default class AuthModal extends React.Component {
         <>
           <DialogActions>
             <Button
-              onClick={this.handleLogin}
+              onClick={this.handleSessionAction}
               color="primary"
               variant="outlined"
               fullWidth
@@ -141,7 +147,7 @@ export default class AuthModal extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button
-              onClick={this.handleSignup}
+              onClick={this.handleSignupClick}
               color="primary"
               variant="outlined"
               fullWidth
@@ -170,7 +176,7 @@ export default class AuthModal extends React.Component {
       return (
         <DialogActions>
           <Button
-            onClick={() => console.log('hello')}
+            onClick={this.handleSessionAction}
             color="primary"
             variant="outlined"
             fullWidth
