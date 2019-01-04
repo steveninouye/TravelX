@@ -8,6 +8,7 @@ import passport from 'passport';
 import keep from '../img/keep';
 import { googleApi } from '../config/keys';
 import { cityUrl, attractionUrl } from '../utils/api_urls';
+import { savePhoto } from '../utils/db_utils';
 
 const places = express.Router();
 
@@ -22,12 +23,13 @@ places.get(
             results.forEach((result, resultIdx) => {
                result.photos.forEach((photo, photoIdx) => {
                   const photoRef = photo.photo_reference;
-                  const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
-                  request(photoUrl).pipe(
-                     fs.createWriteStream(
-                        resolve(__dirname, `../img/${photoRef}.jpg`)
-                     )
-                  );
+                  savePhoto(photoRef, false, false);
+                  // const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
+                  // request(photoUrl).pipe(
+                  //    fs.createWriteStream(
+                  //       resolve(__dirname, `../img/${photoRef}.jpg`)
+                  //    )
+                  // );
                });
             });
             res.json(JSON.parse(json));
@@ -64,25 +66,27 @@ places.get(
    passport.authenticate('jwt', { session: false }),
    (req, res) => {
       const { photoRef } = req.params;
-      const filePath = resolve(__dirname, `../img/${photoRef}.jpg`);
-      if (fs.existsSync(filePath)) {
-         res.sendFile(filePath);
-      } else {
-         const file = fs.createWriteStream(filePath);
-         const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
-         rp(photoUrl)
-            .then((response) => {
-               response.pipe(file);
-               file.on('finish', () => {
-                  file.close(() => {
-                     res.sendFile(filePath);
-                  });
-               });
-            })
-            .catch((err) => {
-               res.status(500).send('could not get photo');
-            });
-      }
+      savePhoto(photoRef, true, true);
+      // const filePath = resolve(__dirname, `../img/${photoRef}.jpg`);
+      // if (fs.existsSync(filePath)) {
+      //    res.sendFile(filePath);
+      // } else {
+      //    const file = fs.createWriteStream(filePath);
+      //    const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
+      //    rp(photoUrl)
+      //       .then((response) => {
+      //          response.pipe(file);
+      //          file.on('finish', () => {
+      //             file.close(() => {
+      //                res.sendFile(filePath);
+      //             });
+      //          });
+      //       })
+      //       .catch((err) => {
+      //          res.status(500).send('could not get photo');
+      //       });
+      // }
    }
 );
+
 export default places;
