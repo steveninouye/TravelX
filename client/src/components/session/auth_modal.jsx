@@ -104,19 +104,28 @@ export default class AuthModal extends React.Component {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button 
+              onClick={this.handleClose} 
+              color="primary"
+              variant="outlined"
+              fullWidth
+            >
               Sign up
             </Button>
-            <DialogContentText>
-              or
-            </DialogContentText>
-            <Button onClick={this.handleClose} color="primary">
-              Continue as guest
-            </Button>
           </DialogActions>
+          <DialogContent>
+            <DialogContentText>
+                or
+            </DialogContentText>
+          </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
+            <Button 
+              onClick={this.handleClose} 
+              color="primary"
+              variant="outlined"
+              fullWidth
+            >
+              Continue as guest
             </Button>
           </DialogActions>
         </Dialog>
