@@ -6,16 +6,20 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import FormHelperText from "@material-ui/core/FormHelperText";
 
 export default class AuthModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      email: '',
+      password: ''
     };
 
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   };
 
   handleClickOpen() {
@@ -25,6 +29,21 @@ export default class AuthModal extends React.Component {
   handleClose() {
     this.setState({ open: false });
   };
+
+  handleInput(field) {
+    return e => this.setState({ [field]: e.target.value });
+  };
+
+  handleLogin(e) {
+    e.preventDefault();
+    const { email, password } = this.state;
+    this.props.login({ email, password })//.then(this.handleClose);
+  };
+
+  renderErrorMessage(field) {
+    const error = this.props.errors[field];
+    if (error) return (<FormHelperText>{ error }</FormHelperText>);
+  }
 
   render() {
     return (
@@ -50,17 +69,32 @@ export default class AuthModal extends React.Component {
               label="Email Address"
               type="email"
               fullWidth
+              required
+              onChange={this.handleInput('email')}
+              value={this.state.email}
+              error={!!this.props.errors.email}
             />
+            {this.renderErrorMessage('email')}
             <TextField
               margin="dense"
               id="password"
               label="Password"
               type="password"
               fullWidth
+              required
+              onChange={this.handleInput('password')}
+              value={this.state.password}
+              error={!!this.props.errors.password}
             />
+            {this.renderErrorMessage('password')}
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button 
+              onClick={this.handleLogin} 
+              color="primary" 
+              variant="outlined"
+              fullWidth
+            >
               Log in
             </Button>
           </DialogActions>
