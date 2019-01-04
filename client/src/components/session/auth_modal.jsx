@@ -31,8 +31,8 @@ export default class AuthModal extends React.Component {
   };
 
   handleClose() {
-    this.props.clearErrors();
     this.setState({ open: false });
+    this.props.clearErrors();
   };
 
   handleSignupClick() {
@@ -47,10 +47,17 @@ export default class AuthModal extends React.Component {
   handleSessionAction(e) {
     e.preventDefault();
     const { email, password, password2 } = this.state;
+
+    const closeOnSuccess = () => {
+      if (Object.keys(this.props.errors).length === 0) {
+        this.handleClose();
+      }
+    };
+
     if (this.state.type === "login") {
-      this.props.login({ email, password }); //.then(this.handleClose);
+      this.props.login({ email, password }).then(closeOnSuccess);
     } else if (this.state.type === "signup") {
-      this.props.signup({ email, password, password2 }); //.then(this.handleClose);
+      this.props.signup({ email, password, password2 }).then(closeOnSuccess);
     }
   };
 
@@ -74,10 +81,12 @@ export default class AuthModal extends React.Component {
           this.setState({ password });
         } else {
           clearInterval(intervalId);
-          this.props.login({
-            email: "magellan@travelx.com",
-            password: "password"
-          });
+          this.props
+            .login({
+              email: "magellan@travelx.com",
+              password: "password"
+            })
+            .then(this.handleClose);
         }
       }, 80);
     };
