@@ -1,8 +1,6 @@
 node_modules/
 keys_dev.js
-client/dist/*
-!client/dist/img/
-client/dist/img/*.jpg
+client/dist/
 server/dist/
 temp*
 TEMP*

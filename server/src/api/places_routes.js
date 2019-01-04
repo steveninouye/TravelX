@@ -13,7 +13,7 @@ const places = express.Router();
 
 places.get(
    '/city/:city',
-   // passport.authenticate('jwt', { session: false }),
+   passport.authenticate('jwt', { session: false }),
    (req, res) => {
       const { city } = req.params;
       rp(cityUrl(city))
@@ -25,10 +25,7 @@ places.get(
                   const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
                   request(photoUrl).pipe(
                      fs.createWriteStream(
-                        resolve(
-                           __dirname,
-                           `../../../client/dist/img/${photoRef}.jpg`
-                        )
+                        resolve(__dirname, `../img/${photoRef}.jpg`)
                      )
                   );
                });
@@ -37,7 +34,7 @@ places.get(
          })
          .catch((err) => {
             console.log(err);
-            res.json('Google API could not be reached');
+            res.status(500).json('Google API could not be reached');
          });
    }
 );
@@ -48,7 +45,6 @@ places.get(
    passport.authenticate('jwt', { session: false }),
    (req, res) => {
       const { id } = req.params;
-      console.log(attractionUrl(id));
       rp(attractionUrl(id))
          .then((json) => {
             const attraction = JSON.parse(json).result;
@@ -58,9 +54,35 @@ places.get(
          })
          .catch((err) => {
             console.log(err);
-            res.json('Google API could not be reached');
+            res.status(500).json('Google API could not be reached');
          });
    }
 );
 
+places.get(
+   '/photo/:photoRef',
+   passport.authenticate('jwt', { session: false }),
+   (req, res) => {
+      const { photoRef } = req.params;
+      const filePath = resolve(__dirname, `../img/${photoRef}.jpg`);
+      if (fs.existsSync(filePath)) {
+         res.sendFile(filePath);
+      } else {
+         const file = fs.createWriteStream(filePath);
+         const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
+         rp(photoUrl)
+            .then((response) => {
+               response.pipe(file);
+               file.on('finish', () => {
+                  file.close(() => {
+                     res.sendFile(filePath);
+                  });
+               });
+            })
+            .catch((err) => {
+               res.status(500).send('could not get photo');
+            });
+      }
+   }
+);
 export default places;
