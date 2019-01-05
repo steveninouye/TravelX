@@ -7,6 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import FormHelperText from "@material-ui/core/FormHelperText";
+import Divider from "@material-ui/core/Divider";
 
 export default class AuthModal extends React.Component {
   constructor(props) {
@@ -136,6 +137,11 @@ export default class AuthModal extends React.Component {
   }
 
   renderFormActions() {
+    const buttonStyle = {
+      width: '90%',
+      margin: '0 auto'
+    };
+
     if (this.state.type === "login") {
       return (
         <>
@@ -144,28 +150,31 @@ export default class AuthModal extends React.Component {
               onClick={this.handleSessionAction}
               color="primary"
               variant="outlined"
-              fullWidth
+              style={buttonStyle}
             >
               Log in
             </Button>
           </DialogActions>
-          <DialogContent>
+          <DialogContent/>
+          <DialogContent><Divider variant="middle" /></DialogContent>
+          <DialogContent style={{ 'padding-bottom': '0px' }}>
             <DialogContentText>
               Don't have an account?
             </DialogContentText>
           </DialogContent>
+          <DialogContent/>
           <DialogActions>
             <Button
               onClick={this.handleSignupClick}
               color="primary"
               variant="outlined"
-              fullWidth
+              style={buttonStyle}
             >
               Sign up
             </Button>
           </DialogActions>
-          <DialogContent>
-            <DialogContentText>
+          <DialogContent style={{ 'padding-bottom': '0px'}}>
+            <DialogContentText style={{ 'text-align': 'center'}}>
               or
             </DialogContentText>
           </DialogContent>
@@ -174,25 +183,29 @@ export default class AuthModal extends React.Component {
               onClick={this.handleDemoLogin}
               color="primary"
               variant="outlined"
-              fullWidth
+              style={buttonStyle}
             >
               Continue as guest
             </Button>
           </DialogActions>
+          <DialogContent/>
         </>
       );
     } else if (this.state.type === "signup") {
       return (
-        <DialogActions>
-          <Button
-            onClick={this.handleSessionAction}
-            color="primary"
-            variant="outlined"
-            fullWidth
-          >
-            Register
-          </Button>
-        </DialogActions>
+        <>
+          <DialogActions>
+            <Button
+              onClick={this.handleSessionAction}
+              color="primary"
+              variant="outlined"
+              style={buttonStyle}
+            >
+              Register
+            </Button>
+          </DialogActions>
+          <DialogContent/>
+        </>
       );
     }
   }
@@ -238,6 +251,9 @@ export default class AuthModal extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
+          fullWidth
+          maxWidth="xs"
+          classes={{root: { 'padding-bottom': '40px', border: '1px solid red' }}}
         >
           {this.renderFormHeader()}
           {this.renderFormBody()}
