@@ -25,7 +25,7 @@ module.exports = {
             use: ['html-loader']
          },
          {
-            test: /\.(jpeg|jpg|png)$/,
+            test: /\.(jpeg|jpg|png|ico)$/,
             use: [
                {
                   loader: 'file-loader',
@@ -42,7 +42,12 @@ module.exports = {
    resolve: {
       extensions: ['.jsx', '.js']
    },
-   plugins: [new HtmlWebpackPlugin({ template: 'client/src/index.html' })],
+   plugins: [
+      new HtmlWebpackPlugin({
+         template: 'client/src/index.html',
+         inject: 'body'
+      })
+   ],
    devtool: 'source-map',
    devServer: {
       contentBase: path.resolve(__dirname, 'client', 'dist'),
@@ -50,6 +55,6 @@ module.exports = {
       compress: true,
       open: true,
       stats: 'errors-only',
-      proxy: [{ context: ['/api'], target: 'http://localhost:8080' }]
+      proxy: [{ context: ['/'], target: 'http://localhost:8080' }]
    }
 };

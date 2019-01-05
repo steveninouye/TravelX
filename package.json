@@ -9,9 +9,9 @@
       "build:client": "webpack -p",
       "clean": "rimraf ./client/dist && rimraf ./server/dist",
       "build": "npm run build:server && npm run build:client",
-      "dev": "concurrently -r -k \"npm run build:dev-server\" \"npm run start:dev-server\" \"npm run client:dev-server\" ",
+      "dev": "npm run build:server && concurrently -r -k \"npm run build:dev-server\" \"npm run start:dev-server\" \"npm run client:dev-server\" ",
       "client:dev-server": "webpack-dev-server --mode=development",
-      "build:dev-server": "npm run build:server && babel ./server/src -w -d ./server/dist",
+      "build:dev-server": "babel ./server/src -w -d ./server/dist",
       "start:dev-server": "nodemon ./server/dist/app.js"
    },
    "repository": {

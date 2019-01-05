@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import favicon from './img/favicon.ico';
 
 import axios from 'axios';
 window.axios = axios;

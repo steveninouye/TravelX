@@ -1178,3 +1178,7 @@ export const attraction = {
    },
    status: 'OK'
 };
+
+let photoRef = 'CmRaAAAAGvDDKj9lbIHUAPNQnmN3UwJrQ4AJb_FUgN9jVGgF1XaN80h8ivAVypyg-o4EulM5RRI_BsQNXTkh-eGfgfhuKcLxYQ6mT9Ii7D_I7CBGaaKL3WH6s3uZgYoq1TZH78PyEhCXcLHoO6gDCphHd0fQ53MlGhTLybtpNi98Ja6LVyKfwxxHNWQA_Q'
+
+`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`
