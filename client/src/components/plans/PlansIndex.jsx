@@ -95,7 +95,7 @@ function Plan(props) {
         <div className={classNames(classes.layout, classes.cardGrid)}>
           <Grid container spacing={40}>
             {cards.map(card => (
-              <Grid item key={card} sm={6} md={4} lg={3}>
+              <Grid item key={card} sm={6} md={6} lg={3}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
