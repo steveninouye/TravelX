@@ -1,3 +1,8 @@
+import fs from 'fs';
+import { resolve } from 'path';
+import request from 'request';
+import rp from 'request-promise';
+
 import { googleApi } from '../config/keys';
 
 export const savePhoto = (

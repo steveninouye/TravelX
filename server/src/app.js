@@ -10,21 +10,22 @@ import { dbUri } from './config/keys';
 import apiRoutes from './api_routes';
 
 const app = express();
-const clientPath = resolve(__dirname, '../../client/dist');
+const clientPath =
+   process.env.NODE_ENV === 'production'
+      ? resolve(__dirname, '../../client/dist')
+      : resolve(__dirname, '../../client/src');
 
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
 app.use(passport.initialize());
 passportConfig(passport);
 
-if (process.env.NODE_ENV === 'production') {
-   app.use(express.static(clientPath));
-   app.get('/', (req, res) => {
-      res.sendFile(resolve(clientPath, 'index.html'));
-   });
-}
-
 app.use('/api', apiRoutes);
+
+app.use(express.static(clientPath));
+app.get('*', (req, res) => {
+   res.sendFile(resolve(clientPath, 'index.html'));
+});
 
 mongoose
    .connect(
@@ -36,5 +37,6 @@ mongoose
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
+   console.log(`you are running in ${process.env.NODE_ENV}`);
    console.log(`Server listening on port ${PORT}`);
 });

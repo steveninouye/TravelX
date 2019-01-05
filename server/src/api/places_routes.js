@@ -1,12 +1,9 @@
 import express from 'express';
-import { resolve } from 'path';
-import fs from 'fs';
 import request from 'request';
 import rp from 'request-promise';
 import passport from 'passport';
 
 import keep from '../img/keep';
-import { googleApi } from '../config/keys';
 import { cityUrl, attractionUrl } from '../utils/api_urls';
 import { savePhoto } from '../utils/db_utils';
 
@@ -24,12 +21,6 @@ places.get(
                result.photos.forEach((photo, photoIdx) => {
                   const photoRef = photo.photo_reference;
                   savePhoto(photoRef, false, false);
-                  // const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
-                  // request(photoUrl).pipe(
-                  //    fs.createWriteStream(
-                  //       resolve(__dirname, `../img/${photoRef}.jpg`)
-                  //    )
-                  // );
                });
             });
             res.json(JSON.parse(json));
@@ -41,7 +32,6 @@ places.get(
    }
 );
 
-// need to get "reference" off of result off of city route
 places.get(
    '/attraction/:id',
    passport.authenticate('jwt', { session: false }),
@@ -50,8 +40,6 @@ places.get(
       rp(attractionUrl(id))
          .then((json) => {
             const attraction = JSON.parse(json).result;
-            // SAVE DATA HERE
-            // SAVE PHOTOS HERE
             res.json(attraction);
          })
          .catch((err) => {
@@ -67,25 +55,6 @@ places.get(
    (req, res) => {
       const { photoRef } = req.params;
       savePhoto(photoRef, true, true);
-      // const filePath = resolve(__dirname, `../img/${photoRef}.jpg`);
-      // if (fs.existsSync(filePath)) {
-      //    res.sendFile(filePath);
-      // } else {
-      //    const file = fs.createWriteStream(filePath);
-      //    const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
-      //    rp(photoUrl)
-      //       .then((response) => {
-      //          response.pipe(file);
-      //          file.on('finish', () => {
-      //             file.close(() => {
-      //                res.sendFile(filePath);
-      //             });
-      //          });
-      //       })
-      //       .catch((err) => {
-      //          res.status(500).send('could not get photo');
-      //       });
-      // }
    }
 );
 
