@@ -1,10 +1,18 @@
 import React from "react";
 
+import { withStyles } from "@material-ui/core/styles";
+
 import landingPhoto from "../../img/backgrounds/city_at_dawn.jpg";
 import { Link } from "react-router-dom";
 
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+
+const styles = theme => ({
+  background: {
+    backgroundImage: landingPhoto
+  }
+});
 
 class LandingPageHero extends React.Component {
   constructor(props) {
@@ -23,7 +31,7 @@ class LandingPageHero extends React.Component {
 
   render() {
     return (
-      <section>
+      <section backgroundClassName={this.props.classes.background}>
         <img src={landingPhoto} alt="" />
         <TextField
           label="Itinerary Planner"
@@ -43,4 +51,4 @@ class LandingPageHero extends React.Component {
   }
 }
 
-export default LandingPageHero;
+export default withStyles(styles)(LandingPageHero);
