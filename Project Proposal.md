@@ -31,6 +31,11 @@ Use case: Plan a vacation easily and intuitively
 - Generate an estimated cost of trip including accommodation and flight
 - Choose a customized vacation plan based on popular categories
 
+![alt text](https://github.com/Fwep/TravelX/blob/master/docs/wireframes/Splash.png?raw=true "Splash Wireframe")
+![alt text](https://github.com/Fwep/TravelX/blob/master/docs/wireframes/Trip%20Plan.png?raw=true "Itinerary List View Wireframe")
+![alt text](https://github.com/Fwep/TravelX/blob/master/docs/wireframes/City%20Map%20View.png?raw=true "Itinerary Map View Wireframe")
+
+
 ## Technologies and Technical Challenges
 ### Backend: MongoDB, Express.js, Node.js
 ### Frontend:
