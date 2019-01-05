@@ -5,6 +5,7 @@ import HelloWorld from "./homepage/HelloWorld";
 import LandingPage from "./homepage/LandingPage";
 import PlanShowContainer from './plans/plan_show_container';
 import ItinerarySchedule from "./itinerary-schedule/ItinerarySchedule";
+import PlansIndex from './plans/PlansIndex';
 // import { AuthRoute, ProtectedRoute } from '../utils/routes_utils';
 // import SignUpFormContainer from './user/SignUpFormContainer';
 // import LogInFormContainer from './session/LogInFormContainer';
@@ -24,6 +25,7 @@ const Router = () => {
 
         <Route path="/home" component={LandingPage} />
         <Route path="/schedule" component={ItinerarySchedule} />
+        <Route path="/plans" component={PlansIndex} />
       </Switch>
     </>
   );

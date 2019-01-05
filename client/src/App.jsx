@@ -5,6 +5,9 @@ import favicon from './img/favicon.ico';
 import axios from 'axios';
 window.axios = axios;
 
+import { install } from "@material-ui/styles";
+install();
+
 import Root from './components/Root';
 import { setCurrentUser } from './utils/set_current_user';
 
