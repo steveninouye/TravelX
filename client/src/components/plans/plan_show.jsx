@@ -7,23 +7,53 @@ export default class PlanShow extends React.Component {
   }
 
   render() {
+    const styles = {
+      imgContainer: {
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        background: 'url("https://cdn.pixabay.com/photo/2016/11/18/19/01/paris-1836415__340.jpg") no-repeat center center fixed',
+        backgroundSize: 'cover'
+      },
+      buttonContainer: {
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        margin: '0 auto',
+        padding: '40px',
+        width: '50%'
+      },
+      button:  {
+        width: '150px',
+      },
+      infoContainer: {
+        width: '50%',
+        margin: '0 auto',
+        marginTop: '100px',
+        background: 'white',
+        height: '500px'
+      }
+    };
+
     return (
-      <div>
-        <div>Nav Bar Placeholder</div>
-        <img src="https://cdn.pixabay.com/photo/2016/11/18/19/01/paris-1836415__340.jpg" alt=""/>
-        <div>Schedule/Map Placeholder</div>
-        <Button 
-          color="primary"
-          variant="contained"
-        >
-          Save
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          New Plan
-        </Button>
+      <div style={styles.imgContainer}>
+        <div style={{ height: '50px', background: 'gray' }}>Nav Bar Placeholder</div>
+        <div style={styles.infoContainer}>Schedule/Map Placeholder</div>
+        <div style={styles.buttonContainer}>
+          <Button 
+            color="primary"
+            variant="contained"
+            style={styles.button}            
+          >
+            Save
+          </Button>
+          <Button
+            color="primary"
+            variant="contained"
+            style={styles.button}   
+          >
+            New Plan
+          </Button>
+        </div>
       </div>
     );
   }
