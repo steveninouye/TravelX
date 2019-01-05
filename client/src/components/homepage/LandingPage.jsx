@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import { withStyles } from "@material-ui/core/styles";
 import ThemeProvider from "../ThemeProvider";
 
 import LandingPageHero from "./LandingPageHero";
@@ -15,6 +14,7 @@ class LandingPage extends Component {
         <LandingPageHero />
         <LandingPageFeatures />
         <LandingPageAbout />
+        <div>Footer</div>
       </div>
     );
   }
