@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import HelloWorld from "./homepage/HelloWorld";
 import LandingPage from "./homepage/LandingPage";
 import PlanShowContainer from './plans/plan_show_container';
+import ItinerarySchedule from "./itinerary-schedule/ItinerarySchedule";
 // import { AuthRoute, ProtectedRoute } from '../utils/routes_utils';
 // import SignUpFormContainer from './user/SignUpFormContainer';
 // import LogInFormContainer from './session/LogInFormContainer';
@@ -18,21 +19,11 @@ const Router = () => {
   return (
     <>
       <Switch>
-        <Route path="/home" component={LandingPage} />
-
         <Route exact path="/" component={HelloWorld} />
         <Route path="/plans/:planId" component={PlanShowContainer} />
 
-        {/* <Route exact path="/" component={Home} />
-            <Route
-               path="/item/:productId"
-               component={ProductDetailsContainer}
-            />
-            <Route path="/search" component={ProductResultsRoot} />
-            <Route exact path="/comingsoon" component={ComingSoonContainer} />
-            <AuthRoute path="/register" component={SignUpFormContainer} />
-            <AuthRoute path="/signin" component={LogInFormContainer} />
-            <Route path="*" component={Page404Container} /> */}
+        <Route path="/home" component={LandingPage} />
+        <Route path="/schedule" component={ItinerarySchedule} />
       </Switch>
     </>
   );
