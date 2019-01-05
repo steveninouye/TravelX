@@ -14,20 +14,12 @@ const LandingPageAbout = () => {
       <Typography variant="h2" gutterBottom align="center">
         About the project
       </Typography>
-      <Grid container spacing={16} justify="center">
-        <Grid item>
-          <img src={team1} alt="" />
-        </Grid>
-        <Grid item>
-          <img src={team2} alt="" />
-        </Grid>
-        <Grid item>
-          <img src={team3} alt="" />
-        </Grid>
-        <Grid item>
-          <img src={team4} alt="" />
-        </Grid>
-      </Grid>
+      <div>
+        <img src={team1} alt="" />
+        <img src={team2} alt="" />
+        <img src={team3} alt="" />
+        <img src={team4} alt="" />
+      </div>
       <Typography variant="body1" gutterBottom align="center">
         This project was created by a team of software developers at App
         Academy, the #1 coding bootcamp with a 3% acceptance rate. Icons or
