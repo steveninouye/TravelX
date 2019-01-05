@@ -4,3 +4,4 @@ client/dist/
 server/dist/
 temp*
 TEMP*
+.DS_Store
