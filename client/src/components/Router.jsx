@@ -1,7 +1,9 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
-import HelloWorld from './homepage/HelloWorld';
+import HelloWorld from "./homepage/HelloWorld";
+import LandingPage from "./homepage/LandingPage";
+import ItinerarySchedule from "./itinerary-schedule/ItinerarySchedule";
 // import { AuthRoute, ProtectedRoute } from '../utils/routes_utils';
 // import SignUpFormContainer from './user/SignUpFormContainer';
 // import LogInFormContainer from './session/LogInFormContainer';
@@ -13,22 +15,15 @@ import HelloWorld from './homepage/HelloWorld';
 // import ProductDetailsContainer from './product_details/ProductDetailsContainer';
 
 const Router = () => {
-   return (
-      <>
-         <Switch>
-            <Route path="/" component={HelloWorld} />
-            {/* <Route exact path="/" component={Home} />
-            <Route
-               path="/item/:productId"
-               component={ProductDetailsContainer}
-            />
-            <Route path="/search" component={ProductResultsRoot} />
-            <Route exact path="/comingsoon" component={ComingSoonContainer} />
-            <AuthRoute path="/register" component={SignUpFormContainer} />
-            <AuthRoute path="/signin" component={LogInFormContainer} />
-            <Route path="*" component={Page404Container} /> */}
-         </Switch>
-      </>
-   );
+  return (
+    <>
+      <Switch>
+        <Route exact path="/" component={HelloWorld} />
+
+        <Route path="/home" component={LandingPage} />
+        <Route path="/schedule" component={ItinerarySchedule} />
+      </Switch>
+    </>
+  );
 };
 export default Router;
