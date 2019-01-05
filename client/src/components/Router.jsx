@@ -21,7 +21,7 @@ const Router = () => {
         <Route path="/home" component={LandingPage} />
 
         <Route exact path="/" component={HelloWorld} />
-        <Route path="plans/:planId" component={PlanShowContainer} />
+        <Route path="/plans/:planId" component={PlanShowContainer} />
 
         {/* <Route exact path="/" component={Home} />
             <Route

@@ -6,6 +6,8 @@ export default class PlanShow extends React.Component {
   }
 
   render() {
-    <div>Plan Show</div>
+    return (
+      <div>Plan Show</div>
+    );
   }
 };
