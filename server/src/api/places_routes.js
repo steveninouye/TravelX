@@ -24,6 +24,9 @@ places.get(
                });
             });
             res.json(JSON.parse(json));
+
+            `https://maps.googleapis.com/maps/api/place/nearbysearch/xml?location=42.9825,-81.254&radius=50000&name=Medical%22Clinic&sensor=false&key=[KEY GOES HERE]&pagetoken=[NEXT PAGE TOKEN GOES HERE]
+            `
          })
          .catch((err) => {
             console.log(err);

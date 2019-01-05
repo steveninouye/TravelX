@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import favicon from './img/favicon.ico';
+import favicon from './img/favicon.png';
 
 import axios from 'axios';
 window.axios = axios;
@@ -10,11 +10,10 @@ import { setCurrentUser } from './utils/set_current_user';
 
 // TESTING
 import configureStore from './reducers/root_reducer';
-import { login } from './actions/session_actions'
+import { login } from './actions/session_actions';
 //
 
 document.addEventListener('DOMContentLoaded', () => {
-
    // TESTING
    let store = configureStore();
    window.getState = store.getState;
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
    window.store = store;
    window.login = login;
    //
-
 
    ReactDom.render(
       <Root store={setCurrentUser()} />,
