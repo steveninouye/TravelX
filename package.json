@@ -9,9 +9,9 @@
       "build:client": "webpack -p",
       "clean": "rimraf ./client/dist && rimraf ./server/dist",
       "build": "npm run build:server && npm run build:client",
-      "dev": "concurrently -r -k \"npm run build:dev-server\" \"npm run start:dev-server\" \"npm run client:dev-server\" ",
+      "dev": "npm run build:server && concurrently -r -k \"npm run build:dev-server\" \"npm run start:dev-server\" \"npm run client:dev-server\" ",
       "client:dev-server": "webpack-dev-server --mode=development",
-      "build:dev-server": "npm run build:server && babel ./server/src -w -d ./server/dist",
+      "build:dev-server": "babel ./server/src -w -d ./server/dist",
       "start:dev-server": "nodemon ./server/dist/app.js"
    },
    "repository": {
@@ -35,6 +35,7 @@
       "@fortawesome/react-fontawesome": "^0.1.3",
       "@material-ui/core": "^3.8.1",
       "@material-ui/icons": "^3.0.1",
+      "@material-ui/styles": "^3.0.0-alpha.6",
       "axios": "^0.18.0",
       "babel-loader": "^8.0.4",
       "bcryptjs": "^2.4.3",
@@ -52,6 +53,7 @@
       "npm": "^6.5.0",
       "passport": "^0.4.0",
       "passport-jwt": "^4.0.0",
+      "prop-types": "^15.6.2",
       "react": "^16.7.0",
       "react-controllables": "^0.6.0",
       "react-dom": "^16.7.0",

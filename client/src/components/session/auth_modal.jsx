@@ -253,7 +253,6 @@ export default class AuthModal extends React.Component {
           aria-labelledby="form-dialog-title"
           fullWidth
           maxWidth="xs"
-          classes={{root: { 'padding-bottom': '40px', border: '1px solid red' }}}
         >
           {this.renderFormHeader()}
           {this.renderFormBody()}
