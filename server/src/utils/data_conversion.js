@@ -3,3 +3,6 @@ export const ensureStrType = (data, ...keys) => {
       if (!(typeof data[key] === 'string')) data[key] = '';
    });
 };
+
+export const randNum = (max, min) =>
+   Math.floor(Math.random() * (max - min + 1)) + min;
