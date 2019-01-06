@@ -2,6 +2,7 @@ import React from 'react';
 import Button from "@material-ui/core/Button";
 import ScheduleShowContainer from './schedule_show_container';
 import PlanShowHero from './plan_show_hero';
+import PlanShowNavBar from './plan_show_nav_bar';
 
 export default class PlanShow extends React.Component {
   componentDidMount() {
@@ -41,8 +42,8 @@ export default class PlanShow extends React.Component {
     return (
       <div>
         <div style={{ height: '50px', background: 'gray' }}>Nav Bar Placeholder</div>
-        {/* <div style={styles.imgContainer}></div> */}
         <PlanShowHero city={"Paris"}/>
+        <PlanShowNavBar />
         <div style={styles.buttonContainer}>
           <Button
             color="primary"
@@ -59,7 +60,7 @@ export default class PlanShow extends React.Component {
             New Plan
           </Button>
         </div>
-        <ScheduleShowContainer style={styles.infoContainer}/>
+        {/* <ScheduleShowContainer style={styles.infoContainer}/> */}
       </div>
     );
   }
