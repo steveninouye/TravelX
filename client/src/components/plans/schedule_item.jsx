@@ -6,13 +6,17 @@ import Avatar from '@material-ui/core/Avatar';
 
 class ScheduleItem extends React.Component {
   componentDidMount() {
-    
+
   }
 
   render() {
   const { attraction } = this.props;
 
   const styles = {
+    listItem: {
+      display: 'flex',
+      justifyContent: 'center'
+    },
     timingContainer: {
       height: '220px',
       width: '60px',
@@ -50,7 +54,7 @@ class ScheduleItem extends React.Component {
   };
 
   return (
-    <ListItem>
+    <ListItem style={styles.listItem}>
       <ListItemAvatar>
         <Avatar src={attraction.icon}/>
       </ListItemAvatar>
