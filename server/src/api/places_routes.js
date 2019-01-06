@@ -18,9 +18,9 @@ places.post('/city', (req, res) => {
             let attractionIdx = randNum(attractions.length - idx, 0);
             return attractions.splice(attractionIdx, 1)[0];
          });
-         // TODO: save city as itinerary and respond with itinerary & intinerary ID
-         // getItinerary(attractions)
-         res.json(randAttractions);
+         getItinerary(randAttractions).then((itinerary) => {
+            res.json(itinerary);
+         });
       })
       .catch((err) => {
          console.log(err);
@@ -28,9 +28,9 @@ places.post('/city', (req, res) => {
       });
 });
 
-places.get('/attraction/:id', (req, res) => {
-   const { id } = req.params;
-   rp(attractionUrl(id))
+places.get('/attraction/:reference', (req, res) => {
+   const { reference } = req.params;
+   rp(attractionUrl(reference))
       .then((json) => {
          const attraction = JSON.parse(json).result;
          res.json(attraction);
@@ -42,7 +42,7 @@ places.get('/attraction/:id', (req, res) => {
 });
 
 places.get('/photo/:photoRef', (req, res) => {
-   console.log('Hello World!')
+   console.log('Hello World!');
    const { photoRef } = req.params;
    savePhoto(req, res, photoRef, true, true);
 });
