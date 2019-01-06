@@ -1,17 +1,10 @@
-// import { connect } from "react-redux";
-// import { fetchPlan } from "../../actions/plan_actions";
-// import ScheduleShow from "./schedule_show";
+import { connect } from "react-redux";
+import ScheduleShow from "./schedule_show";
 
-// const mapStateToProps = (state, ownProps) => ({
-//   attractions: state.entities.attractions,
-//   planId: ownProps.match.params.planId
-// });
+const mapStateToProps = (state) => ({
+  attractions: state.entities.attractions,
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   fetchPlan: () => dispatch(fetchPlan())
-// });
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(ScheduleShow);
+export default connect(
+  mapStateToProps
+)(ScheduleShow);

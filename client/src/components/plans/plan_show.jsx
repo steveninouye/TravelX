@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from "@material-ui/core/Button";
-import ScheduleShow from './schedule_show';
+import ScheduleShowContainer from './schedule_show_container';
 
 export default class PlanShow extends React.Component {
   componentDidMount() {
@@ -39,8 +39,7 @@ export default class PlanShow extends React.Component {
     return (
       <div style={styles.imgContainer}>
         <div style={{ height: '50px', background: 'gray' }}>Nav Bar Placeholder</div>
-        {/* <div style={styles.infoContainer}>Schedule/Map Placeholder</div> */}
-        <ScheduleShow style={styles.infoContainer}/>
+        <ScheduleShowContainer style={styles.infoContainer}/>
         <div style={styles.buttonContainer}>
           <Button 
             color="primary"
