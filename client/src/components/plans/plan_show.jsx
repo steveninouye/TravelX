@@ -3,7 +3,8 @@ import Button from "@material-ui/core/Button";
 
 export default class PlanShow extends React.Component {
   componentDidMount() {
-    // this.props.fetchPlan(this.props.planId)
+    const { fetchPlan, planId } = this.props;
+    fetchPlan(planId);
   }
 
   render() {
