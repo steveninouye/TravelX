@@ -42,6 +42,11 @@ class ScheduleItem extends React.Component {
       fontSize: '20px',
       fontWeight: '700'
     },
+    description: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      padding: '10px 0'    
+    },
     imageContainer: {
       height: '220px',
       display: 'flex',
@@ -52,9 +57,14 @@ class ScheduleItem extends React.Component {
       height: '220px',
       width: '300px',
     },
-    starRatings: {
-      maxHeight: '20px',
-      border: '1px solid red'
+    ratingContainer: {
+      display: 'inline-flex'
+    },
+    rating: {
+      fontSize: '25px',
+      fontWeight: '500',
+      lineHeight: '35px',
+      marginLeft: '15px'
     }
   };
 
@@ -79,24 +89,33 @@ class ScheduleItem extends React.Component {
           {attraction.name}
         </Typography>
 
-        <Typography>
-          {attraction.formatted_address}
+        <Typography 
+          gutterBottom 
+          paragraph 
+          variant="body1"
+          style={styles.description}
+        >
+          {/* {attraction.formatted_address} */}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat feugiat dui vel vestibulum. Phasellus eu felis sit amet mauris dictum lacinia vitae consectetur nunc. Maecenas sagittis tortor sit amet ligula blandit, et maximus arcu ultricies. Cras quis tortor eget ipsum consequat scelerisque at id orci. Aliquam sed molestie orci, vulputate cursus sapien. Nunc rhoncus ac libero ac facilisis. Nam bibendum odio a magna suscipit elementum. Mauris volutpat, risus id consectetur molestie, nunc nunc molestie ex, vitae semper risus felis vitae sem.
+          Fusce vel gravida leo. Ut venenatis, magna eu malesuada vestibulum, nibh tellus tempus dui, vel consequat dui metus ac nunc. Ut vulputate consequat venenatis. Quisque quis elit purus. Praesent non lobortis metus. Suspendisse tortor ligula, vehicula at diam id, fermentum porttitor eros. Vivamus id vulputate nisl. Curabitur tristique libero eu massa volutpat posuere.
+          Mauris a erat et mi tempus elementum. Sed ut eros ornare, consequat lacus a, condimentum massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus et ullamcorper purus. Proin purus lectus, efficitur quis massa eu, mollis aliquet mi. Aliquam sed nisi purus. Proin non commodo tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque leo nisi, laoreet id quam a, tempor blandit odio.
+          Ut maximus ex enim, a viverra diam faucibus pretium. Nunc quis euismod arcu, lacinia auctor odio. Donec vestibulum nulla a nisi varius semper. Duis mattis, elit et aliquet placerat, tortor sapien luctus massa, non posuere dolor est ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc mollis, neque ac pretium condimentum, leo turpis placerat nunc, malesuada pulvinar mi eros non ex. Vestibulum vel nulla id purus cursus hendrerit nec sed lacus. Vivamus ut lectus nec nisl ultrices viverra. Nunc fringilla volutpat molestie. Vestibulum tempor cursus nunc, non sagittis neque pellentesque vitae. In pulvinar, neque sed feugiat varius, leo dolor mattis tortor, vel gravida dui risus faucibus dolor. Sed eu mi eleifend ante semper facilisis. Nulla mauris lectus, egestas nec lobortis in, mattis id felis. Donec vitae nibh justo. Donec tincidunt viverra facilisis.
+          Aenean sit amet mi vel velit pellentesque pharetra aliquet iaculis diam. Nulla porta, nisl at bibendum vulputate, lectus nunc posuere massa, sed malesuada tortor purus et lectus. Proin feugiat dictum mi, vitae semper eros efficitur non. Fusce eleifend, quam aliquam venenatis pellentesque, sem magna volutpat quam, at sagittis arcu est tempus purus. Proin ligula mauris, maximus ut scelerisque eu, dapibus eget leo. Proin condimentum, ligula tristique fermentum semper, nunc lorem aliquam turpis, id feugiat risus massa eget ligula. Aliquam pulvinar ipsum dui, vitae varius libero pharetra et. Morbi metus lectus, elementum quis viverra vel, aliquam sit amet odio. Etiam vitae diam eu leo feugiat sagittis. Donec mollis, felis eget sodales ornare, diam neque pharetra lacus, ut pharetra eros quam nec sapien. Cras ullamcorper est eget commodo laoreet. Ut vehicula venenatis lorem eget dictum. Donec et nibh sit amet ligula hendrerit maximus.
         </Typography>
 
-        <Typography>
-          {attraction.rating}
-          <i className="fa fa-star fa-2x"></i>
-        </Typography>
+        <div style={styles.ratingContainer}>
+          <StarRatings
+            rating={attraction.rating}
+            starRatedColor="black"
+            numberOfStars={5}
+            starDimension="30px"
+            starSpacing="5px"
+          />
 
-        <StarRatings
-          rating={attraction.rating}
-          starRatedColor="black"
-          numberOfStars={5}
-          starDimension="30px"
-          starSpacing="5px"
-        />
-
-
+          <Typography style={styles.rating}>
+            {attraction.rating}
+          </Typography>
+        </div>
       </div>
 
       <div style={styles.imageContainer}>
