@@ -38,11 +38,16 @@ class PlanMap extends Component {
     this.selectMarker = this.selectMarker.bind(this);
   }
 
+  componentDidMount() {
+    const { fetchPlan, planId } = this.props;
+    fetchPlan(planId);
+  }
+
   selectMarker(e) {
-    console.log(e);
     this.setState({
       selectedMarkerId: e.currentTarget.id
     });
+    debugger;
   }
 
   renderInfoCards() {
