@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-// import { fetchPlan } from "../../actions/plan_actions";
+import { fetchPlan } from "../../actions/plan_actions";
 import PlanShow from "./plan_show";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,8 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fetchPlan: () => dispatch(fetchPlan())
-  fetchPlan: () => dispatch(() => console.log('fetch plan!'))
+  fetchPlan: () => dispatch(fetchPlan())
 });
 
 export default connect(
