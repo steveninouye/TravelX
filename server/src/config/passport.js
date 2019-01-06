@@ -4,8 +4,6 @@ import mongoose from 'mongoose';
 import User from '../models/User';
 import { secretOrKey } from './keys';
 
-const User = mongoose.model('users');
-
 const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = secretOrKey;

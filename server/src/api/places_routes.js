@@ -42,8 +42,9 @@ places.get('/attraction/:id', (req, res) => {
 });
 
 places.get('/photo/:photoRef', (req, res) => {
+   console.log('Hello World!')
    const { photoRef } = req.params;
-   savePhoto(photoRef, true, true);
+   savePhoto(req, res, photoRef, true, true);
 });
 
 export default places;

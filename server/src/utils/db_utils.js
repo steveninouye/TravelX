@@ -1,11 +1,12 @@
 import fs from 'fs';
 import { resolve } from 'path';
+import http from 'http';
 import request from 'request';
 import rp from 'request-promise';
 
 import { googleApi } from '../config/keys';
 import Attraction from '../models/Attraction';
-import Itinerary from '../models/Itinerary';
+import ItineraryPackage from '../models/ItineraryPackage';
 import City from '../models/City';
 import { cityUrl } from '../utils/api_urls';
 
@@ -17,7 +18,7 @@ export const getItinerary = (attractions) =>
             if (itinerary) {
                resolve(itinerary);
             } else {
-               const newItinerary = new Itinerary();
+               const newItinerary = new ItineraryPackage({ attractions });
                newItinerary.save().then((itinerary) => {
                   resolve(itinerary);
                });
@@ -103,28 +104,27 @@ export const getCityAttractions = (cityName) =>
    });
 
 export const savePhoto = (
+   req,
+   res,
    photoRef,
    fileResponseBoolean,
    errorResponseBoolean
 ) => {
    const filePath = resolve(__dirname, `../img/${photoRef}.jpg`);
+   console.log(filePath);
    if (fs.existsSync(filePath)) {
+      console.log('Hello World again!');
       res.sendFile(filePath);
    } else {
       const file = fs.createWriteStream(filePath);
       const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
-      rp(photoUrl)
-         .then((response) => {
-            response.pipe(file);
-            file.on('finish', () => {
-               file.close(() => {
-                  if (fileResponseBoolean) res.sendFile(filePath);
-               });
+      request(photoUrl).on('response', (response) => {
+         response.pipe(file);
+         file.on('finish', () => {
+            file.close(() => {
+               if (fileResponseBoolean) res.sendFile(filePath);
             });
-         })
-         .catch((err) => {
-            if (errorResponseBoolean)
-               res.status(500).send('Could not get photo');
          });
+      });
    }
 };
