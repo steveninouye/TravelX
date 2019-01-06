@@ -27,7 +27,14 @@ class ScheduleItem extends React.Component {
       padding: '0 20px',
     },
     dayofWeek: {
-      fontSize: '16px',
+      fontSize: '18px',
+      fontWeight: '400',
+      textAlign: 'center',
+      marginBottom: '5px'
+    },
+    timeOfDay: {
+      textAlign: 'center',
+      fontWeight: '300'
     },
     infoContainer: {
       height: '220px',
@@ -43,6 +50,7 @@ class ScheduleItem extends React.Component {
       fontWeight: '700'
     },
     description: {
+      fontWeight: '300',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       padding: '10px 0'    
@@ -79,7 +87,7 @@ class ScheduleItem extends React.Component {
           Tuesday
         </Typography>
 
-        <Typography>
+        <Typography style={styles.timeOfDay}>
           10a-12p
         </Typography>
       </div>
@@ -95,7 +103,6 @@ class ScheduleItem extends React.Component {
           variant="body1"
           style={styles.description}
         >
-          {/* {attraction.formatted_address} */}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat feugiat dui vel vestibulum. Phasellus eu felis sit amet mauris dictum lacinia vitae consectetur nunc. Maecenas sagittis tortor sit amet ligula blandit, et maximus arcu ultricies. Cras quis tortor eget ipsum consequat scelerisque at id orci. Aliquam sed molestie orci, vulputate cursus sapien. Nunc rhoncus ac libero ac facilisis. Nam bibendum odio a magna suscipit elementum. Mauris volutpat, risus id consectetur molestie, nunc nunc molestie ex, vitae semper risus felis vitae sem.
           Fusce vel gravida leo. Ut venenatis, magna eu malesuada vestibulum, nibh tellus tempus dui, vel consequat dui metus ac nunc. Ut vulputate consequat venenatis. Quisque quis elit purus. Praesent non lobortis metus. Suspendisse tortor ligula, vehicula at diam id, fermentum porttitor eros. Vivamus id vulputate nisl. Curabitur tristique libero eu massa volutpat posuere.
           Mauris a erat et mi tempus elementum. Sed ut eros ornare, consequat lacus a, condimentum massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus et ullamcorper purus. Proin purus lectus, efficitur quis massa eu, mollis aliquet mi. Aliquam sed nisi purus. Proin non commodo tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque leo nisi, laoreet id quam a, tempor blandit odio.
