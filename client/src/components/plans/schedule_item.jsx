@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default class ScheduleItem extends React.Component {
-  render() {
-    return (
-      <div>schedule item </div>
-    );
-  }
-};
+const ScheduleItem = (props) => {
+  const { attraction } = props;
+
+  return (
+    <div>{attraction.name}</div>
+  );
+}
+
+export default ScheduleItem;
