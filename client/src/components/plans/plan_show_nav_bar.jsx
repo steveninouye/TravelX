@@ -62,7 +62,7 @@ class PlanShowNavBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="sticky">
           <Toolbar className={classes.toolbar}>
             <Tabs value={value} onChange={this.handleChange}>
               <Tab label="Schedule" />
@@ -87,7 +87,7 @@ class PlanShowNavBar extends React.Component {
           </Toolbar>
         </AppBar>
         {value === 0 && <TabContainer><ScheduleShowContainer/></TabContainer>}
-        {value === 1 && <TabContainer>Item Two</TabContainer>}
+        {value === 1 && <TabContainer>Map placeholder</TabContainer>}
       </div>
     );
   }
