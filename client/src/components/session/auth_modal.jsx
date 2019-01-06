@@ -13,26 +13,20 @@ export default class AuthModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
       type: 'login',
       email: '',
       password: '',
       password2: ''
     };
 
-    this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleSignupClick = this.handleSignupClick.bind(this);
     this.handleSessionAction = this.handleSessionAction.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
   };
 
-  handleClickOpen() {
-    this.setState({ open: true });
-  };
-
   handleClose() {
-    this.setState({ open: false });
+    this.props.closeModal();
     this.props.clearErrors();
   };
 
@@ -157,7 +151,7 @@ export default class AuthModal extends React.Component {
           </DialogActions>
           <DialogContent/>
           <DialogContent><Divider variant="middle" /></DialogContent>
-          <DialogContent style={{ 'padding-bottom': '0px' }}>
+          <DialogContent style={{ paddingBottom: '0px' }}>
             <DialogContentText>
               Don't have an account?
             </DialogContentText>
@@ -173,8 +167,8 @@ export default class AuthModal extends React.Component {
               Sign up
             </Button>
           </DialogActions>
-          <DialogContent style={{ 'padding-bottom': '0px'}}>
-            <DialogContentText style={{ 'text-align': 'center'}}>
+          <DialogContent style={{ paddingBottom: '0px'}}>
+            <DialogContentText style={{ textAlign: 'center'}}>
               or
             </DialogContentText>
           </DialogContent>
@@ -238,27 +232,17 @@ export default class AuthModal extends React.Component {
 
   render() {
     return (
-      <div>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={this.handleClickOpen}
-        >
-          Open auth modal
-        </Button>
-
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
-          fullWidth
-          maxWidth="xs"
-        >
-          {this.renderFormHeader()}
-          {this.renderFormBody()}
-          {this.renderFormActions()}
-        </Dialog>
-      </div>
+      <Dialog
+        open={this.props.open}
+        onClose={this.handleClose}
+        aria-labelledby="form-dialog-title"
+        fullWidth
+        maxWidth="xs"
+      >
+        {this.renderFormHeader()}
+        {this.renderFormBody()}
+        {this.renderFormActions()}
+      </Dialog>
     );
   }
 }
