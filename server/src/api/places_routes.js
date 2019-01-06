@@ -10,21 +10,19 @@ import { savePhoto, getCityAttractions } from '../utils/db_utils';
 
 const places = express.Router();
 
-places.get(
-   '/city/:city',
-   // passport.authenticate('jwt', { session: false }),
+places.post(
+   '/city',
+   passport.authenticate('jwt', { session: false }),
    (req, res) => {
-      const { city } = req.params;
+      const { city } = req.body;
       getCityAttractions(city)
          .then((attractions) => {
-            let attractionsLastIndex = attractions.length - 1;
-            let idxs = [
-               randNum(attractionsLastIndex - 1, 0),
-               randNum(attractionsLastIndex - 1, 0),
-               randNum(attractionsLastIndex - 1, 0),
-               randNum(attractionsLastIndex - 1, 0)
-            ];
-            const randAttractions = idxs.map((idx) => attractions[idx]);
+            let randAttractions = [1, 2, 3, 4, 5];
+            randAttractions = randAttractions.map((_, idx) => {
+               console.log('this is running');
+               let attractionIdx = randNum(attractions.length - idx, 0);
+               return attractions.splice(attractionIdx, 1);
+            });
             res.json(randAttractions);
          })
          .catch((err) => {
