@@ -4,9 +4,27 @@ import request from 'request';
 import rp from 'request-promise';
 
 import { googleApi } from '../config/keys';
-import Attraction from '../models/Attractions';
+import Attraction from '../models/Attraction';
+import Itinerary from '../models/Itinerary';
 import City from '../models/City';
 import { cityUrl } from '../utils/api_urls';
+
+export const getItinerary = (attractions) =>
+   new Promise((resolve, reject) => {
+      //////// NEED TO INPUT SEARCH ITINERARY
+      Itinerary.findOne({})
+         .then((itinerary) => {
+            if (itinerary) {
+               resolve(itinerary);
+            } else {
+               const newItinerary = new Itinerary();
+               newItinerary.save().then((itinerary) => {
+                  resolve(itinerary);
+               });
+            }
+         })
+         .catch((err) => reject(err));
+   });
 
 export const getCity = (cityName) =>
    new Promise((resolve, reject) => {
@@ -44,9 +62,7 @@ export const requestCityAttractions = (url, city, resolve, reject) => {
                      setTimeout(() => {
                         rp(`${url}&pagetoken=${next_page_token}`).then(
                            (json2) => {
-                              let { results } = JSON.parse(
-                                 json2
-                              );
+                              let { results } = JSON.parse(json2);
                               const attractions = results.map((attraction) => {
                                  attraction.city_id = city.id;
                                  return attraction;

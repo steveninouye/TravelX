@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 import { secretOrKey } from '../config/keys';
-import User from '../models/Users';
+import User from '../models/User';
 import validateRegisterInput from '../utils/registration_validations';
 import validateLoginInput from '../utils/login_validations';
 
