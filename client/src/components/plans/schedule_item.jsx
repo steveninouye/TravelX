@@ -3,7 +3,7 @@ import ListItem from '@material-ui/core/ListItem'
 import Typography from '@material-ui/core/Typography';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import Rating from 'react-rating';
+import StarRatings from 'react-star-ratings';
 
 class ScheduleItem extends React.Component {
   componentDidMount() {
@@ -52,6 +52,10 @@ class ScheduleItem extends React.Component {
       height: '220px',
       width: '300px',
     },
+    starRatings: {
+      maxHeight: '20px',
+      border: '1px solid red'
+    }
   };
 
   return (
@@ -81,15 +85,18 @@ class ScheduleItem extends React.Component {
 
         <Typography>
           {attraction.rating}
+          <i className="fa fa-star fa-2x"></i>
         </Typography>
 
-        <Rating
-          initialRating={3.3}
-          readonly
-          // emptySymbol="fa fa-star-o fa-2x"
-          // fullSymbol="fa fa-star fa-2x"
-          fractions={3}
+        <StarRatings
+          rating={attraction.rating}
+          starRatedColor="black"
+          numberOfStars={5}
+          starDimension="30px"
+          starSpacing="5px"
         />
+
+
       </div>
 
       <div style={styles.imageContainer}>
