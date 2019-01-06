@@ -30,7 +30,7 @@ app.get('*', (req, res) => {
 mongoose
    .connect(
       dbUri,
-      { useNewUrlParser: true }
+      { useNewUrlParser: true, useCreateIndex: true }
    )
    .then(() => console.log('Connected to Mongo DB'))
    .catch((err) => console.log(`DB Error: ${err}`));
