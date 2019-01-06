@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from "@material-ui/core/Button";
 import ScheduleShowContainer from './schedule_show_container';
+import PlanShowHero from './plan_show_hero';
 
 export default class PlanShow extends React.Component {
   componentDidMount() {
@@ -11,7 +12,7 @@ export default class PlanShow extends React.Component {
   render() {
     const styles = {
       imgContainer: {
-        height: '100vh',
+        height: '500px',
         display: 'flex',
         flexDirection: 'column',
         background: 'url("https://cdn.pixabay.com/photo/2016/11/18/19/01/paris-1836415__340.jpg") no-repeat center center fixed',
@@ -38,25 +39,27 @@ export default class PlanShow extends React.Component {
     };
 
     return (
-      <div style={styles.imgContainer}>
+      <div>
         <div style={{ height: '50px', background: 'gray' }}>Nav Bar Placeholder</div>
-        <ScheduleShowContainer style={styles.infoContainer}/>
+        {/* <div style={styles.imgContainer}></div> */}
+        <PlanShowHero city={"Paris"}/>
         <div style={styles.buttonContainer}>
-          <Button 
+          <Button
             color="primary"
             variant="contained"
-            style={styles.button}            
+            style={styles.button}
           >
             Save
           </Button>
           <Button
             color="primary"
             variant="contained"
-            style={styles.button}   
+            style={styles.button}
           >
             New Plan
           </Button>
         </div>
+        <ScheduleShowContainer style={styles.infoContainer}/>
       </div>
     );
   }

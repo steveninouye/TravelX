@@ -4,8 +4,13 @@ import Typography from '@material-ui/core/Typography';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 
-const ScheduleItem = (props) => {
-  const { attraction } = props;
+class ScheduleItem extends React.Component {
+  componentDidMount() {
+    
+  }
+
+  render() {
+  const { attraction } = this.props;
 
   const styles = {
     timingContainer: {
@@ -79,6 +84,7 @@ const ScheduleItem = (props) => {
       </div>
     </ListItem>
   );
+}
 }
 
 export default ScheduleItem;
