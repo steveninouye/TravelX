@@ -18,7 +18,7 @@ places.post('/city', (req, res) => {
          randAttractions = randAttractions.map((_, idx) => {
             console.log('this is running');
             let attractionIdx = randNum(attractions.length - idx, 0);
-            return attractions.splice(attractionIdx, 1);
+            return attractions.splice(attractionIdx, 1)[0];
          });
          res.json(randAttractions);
       })
