@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar'
 import ScheduleShowContainer from "./schedule_show_container";
+import AuthModal from '../session/auth_modal';
 
 function TabContainer(props) {
   return (
@@ -46,14 +47,26 @@ class PlanShowNavBar extends React.Component {
     super(props);
 
     this.state = {
-      value: 0
+      value: 0,
+      modal: false
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSaveClick = this.handleSaveClick.bind(this);
   };
 
   handleChange(event, value) {
     this.setState({ value });
+  };
+
+  handleSaveClick() {
+    if (this.props.session) {
+      console.log('save plan to user')
+    } else {
+      console.log('not logged in')
+      this.setState({ modal: true });
+      console.log(this.state)
+    }
   };
 
   render() {
@@ -70,12 +83,14 @@ class PlanShowNavBar extends React.Component {
             </Tabs>
             <Toolbar className={classes.buttonContainer}>
               <Button
+                onClick={this.handleSaveClick}
                 color="secondary"
                 variant="contained"
                 className={classes.button}
               >
                 Save
               </Button>
+              <AuthModal open={this.state.modal}/>
               <Button
                 color="secondary"
                 variant="contained"

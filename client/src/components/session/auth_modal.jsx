@@ -20,16 +20,19 @@ export default class AuthModal extends React.Component {
       password2: ''
     };
 
-    this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleSignupClick = this.handleSignupClick.bind(this);
     this.handleSessionAction = this.handleSessionAction.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
   };
 
-  handleClickOpen() {
-    this.setState({ open: true });
-  };
+  componentDidUpdate() {
+    const { open } = this.props;
+
+    if (this.state.open !== this.props.open) {
+      this.setState({ open });
+    }
+  }
 
   handleClose() {
     this.setState({ open: false });
@@ -116,7 +119,7 @@ export default class AuthModal extends React.Component {
           required
           onChange={this.handleInput('email')}
           value={this.state.email}
-          error={!!this.props.errors.email}
+          // error={!!this.props.errors.email}
         />
         {this.renderErrorMessage('email')}
         <TextField
@@ -128,7 +131,7 @@ export default class AuthModal extends React.Component {
           required
           onChange={this.handleInput('password')}
           value={this.state.password}
-          error={!!this.props.errors.password}
+          // error={!!this.props.errors.password}
         />
         {this.renderErrorMessage('password')}
         {this.renderPasswordConfirmation()}
@@ -157,7 +160,7 @@ export default class AuthModal extends React.Component {
           </DialogActions>
           <DialogContent/>
           <DialogContent><Divider variant="middle" /></DialogContent>
-          <DialogContent style={{ 'padding-bottom': '0px' }}>
+          <DialogContent style={{ paddingBottom: '0px' }}>
             <DialogContentText>
               Don't have an account?
             </DialogContentText>
@@ -173,8 +176,8 @@ export default class AuthModal extends React.Component {
               Sign up
             </Button>
           </DialogActions>
-          <DialogContent style={{ 'padding-bottom': '0px'}}>
-            <DialogContentText style={{ 'text-align': 'center'}}>
+          <DialogContent style={{ paddingBottom: '0px'}}>
+            <DialogContentText style={{ textAlign: 'center'}}>
               or
             </DialogContentText>
           </DialogContent>
@@ -232,33 +235,24 @@ export default class AuthModal extends React.Component {
   }
 
   renderErrorMessage(field) {
-    const error = this.props.errors[field];
+    // const error = this.props.errors[field];
+    const error = null
     if (error) return (<FormHelperText>{error}</FormHelperText>);
   }
 
   render() {
     return (
-      <div>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={this.handleClickOpen}
-        >
-          Open auth modal
-        </Button>
-
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
-          fullWidth
-          maxWidth="xs"
-        >
-          {this.renderFormHeader()}
-          {this.renderFormBody()}
-          {this.renderFormActions()}
-        </Dialog>
-      </div>
+      <Dialog
+        open={this.state.open}
+        onClose={this.handleClose}
+        aria-labelledby="form-dialog-title"
+        fullWidth
+        maxWidth="xs"
+      >
+        {this.renderFormHeader()}
+        {this.renderFormBody()}
+        {this.renderFormActions()}
+      </Dialog>
     );
   }
 }
