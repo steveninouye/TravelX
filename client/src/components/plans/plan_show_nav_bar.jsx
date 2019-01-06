@@ -64,7 +64,7 @@ class PlanShowNavBar extends React.Component {
       console.log('save plan to user')
     } else {
       console.log('not logged in')
-      this.setState({ modal: true });
+      this.props.openModal('login');
       console.log(this.state)
     }
   };
@@ -75,6 +75,8 @@ class PlanShowNavBar extends React.Component {
 
     return (
       <div className={classes.root}>
+        <LoginFormContainer open={this.state.modal} />
+
         <AppBar position="sticky">
           <Toolbar className={classes.toolbar}>
             <Tabs value={value} onChange={this.handleChange}>
@@ -90,7 +92,6 @@ class PlanShowNavBar extends React.Component {
               >
                 Save
               </Button>
-              <LoginFormContainer open={this.state.modal}/>
               <Button
                 color="secondary"
                 variant="contained"
