@@ -32,7 +32,8 @@ export default class PlanShow extends React.Component {
         margin: '0 auto',
         marginTop: '100px',
         background: 'white',
-        height: '500px'
+        height: '500px',
+        overflowY: 'scroll'
       }
     };
 

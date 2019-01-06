@@ -1,5 +1,6 @@
 import React from 'react';
 import ScheduleItem from './schedule_item';
+import List from '@material-ui/core/List';
 
 export default class ScheduleShow extends React.Component {
   render() {
@@ -8,10 +9,9 @@ export default class ScheduleShow extends React.Component {
     ));
 
     return (
-      <div style={this.props.style}>
-        SCHEDULE SHOW
+      <List style={this.props.style}>
         {scheduleItems}
-      </div>
+      </List>
     );
   }
 };
