@@ -3,8 +3,7 @@ import { googleApi } from "../../../../server/src/config/keys_dev";
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import MapMarker from "./MapMarker";
 
 import { withStyles } from "@material-ui/core/styles";
 
@@ -20,10 +19,6 @@ const styles = theme => ({
     position: "relative",
     bottom: "170px",
     left: "20px"
-  },
-  markerIcon: {
-    textSize: "40px",
-    cursor: "pointer"
   }
 });
 
@@ -50,8 +45,26 @@ class PlanMap extends Component {
     debugger;
   }
 
+  renderMarkers() {
+    let markers = this.props.attractions.map(attraction => {
+      let { lat, lng } = attraction.geometry.location;
+      let id = attraction.id;
+      return (
+        <MapMarker
+          lat={lat}
+          lng={lng}
+          id={id}
+          key={id}
+          onClick={this.selectMarker}
+        />
+      );
+    });
+
+    return markers;
+  }
+
   renderInfoCards() {
-    if (this.state.selectedMarkerId === "1") {
+    if (this.p) {
       return (
         <Card
           lat={59.955413}
@@ -70,21 +83,13 @@ class PlanMap extends Component {
 
   render() {
     return (
-      // Important! Always set the container height explicitly
       <div style={{ height: "100vh", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: googleApi }}
-          defaultCenter={{ lat: 59.95, lng: 30.3 }}
-          defaultZoom={11}
+          defaultCenter={{ lat: 48.85296820000001, lng: 2.3499021 }}
+          defaultZoom={13}
         >
-          <FontAwesomeIcon
-            icon={faMapMarkerAlt}
-            lat={59.955413}
-            lng={30.337844}
-            className={this.props.classes.markerIcon}
-            onClick={this.selectMarker}
-            id="1"
-          />
+          {this.renderMarkers()}
           {this.renderInfoCards()}
         </GoogleMapReact>
       </div>

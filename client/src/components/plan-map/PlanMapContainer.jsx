@@ -4,6 +4,7 @@ import PlanMap from "./PlanMap";
 
 const mapStateToProps = (state, ownProps) => ({
   plans: state.entities.plans,
+  attractions: state.entities.attractions,
   planId: ownProps.match.params.planId
 });
 
