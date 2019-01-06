@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar'
 import ScheduleShowContainer from "./schedule_show_container";
-import AuthModal from '../session/auth_modal';
+import LoginFormContainer from '../session/login_form_container';
 
 function TabContainer(props) {
   return (
@@ -90,7 +90,7 @@ class PlanShowNavBar extends React.Component {
               >
                 Save
               </Button>
-              <AuthModal open={this.state.modal}/>
+              <LoginFormContainer open={this.state.modal}/>
               <Button
                 color="secondary"
                 variant="contained"

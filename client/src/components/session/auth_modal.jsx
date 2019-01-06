@@ -26,14 +26,6 @@ export default class AuthModal extends React.Component {
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
   };
 
-  componentDidUpdate() {
-    const { open } = this.props;
-
-    if (this.state.open !== this.props.open) {
-      this.setState({ open });
-    }
-  }
-
   handleClose() {
     this.setState({ open: false });
     this.props.clearErrors();
@@ -119,7 +111,7 @@ export default class AuthModal extends React.Component {
           required
           onChange={this.handleInput('email')}
           value={this.state.email}
-          // error={!!this.props.errors.email}
+          error={!!this.props.errors.email}
         />
         {this.renderErrorMessage('email')}
         <TextField
@@ -131,7 +123,7 @@ export default class AuthModal extends React.Component {
           required
           onChange={this.handleInput('password')}
           value={this.state.password}
-          // error={!!this.props.errors.password}
+          error={!!this.props.errors.password}
         />
         {this.renderErrorMessage('password')}
         {this.renderPasswordConfirmation()}
@@ -235,8 +227,7 @@ export default class AuthModal extends React.Component {
   }
 
   renderErrorMessage(field) {
-    // const error = this.props.errors[field];
-    const error = null
+    const error = this.props.errors[field];
     if (error) return (<FormHelperText>{error}</FormHelperText>);
   }
 
