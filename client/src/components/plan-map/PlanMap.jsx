@@ -19,6 +19,7 @@ class PlanMap extends Component {
     };
 
     this.selectMarker = this.selectMarker.bind(this);
+    this.closeMarkerInfoCard = this.closeMarkerInfoCard.bind(this);
   }
 
   componentDidMount() {
@@ -27,10 +28,14 @@ class PlanMap extends Component {
   }
 
   selectMarker(e) {
-    console.log("click");
-
     this.setState({
       selectedMarkerId: e.currentTarget.id
+    });
+  }
+
+  closeMarkerInfoCard(e) {
+    this.setState({
+      selectedMarkerId: null
     });
   }
 
@@ -59,7 +64,12 @@ class PlanMap extends Component {
 
       if (attraction.id === this.state.selectedMarkerId) {
         return (
-          <MapMarkerInfoCard lat={lat} lng={lng} attraction={attraction} />
+          <MapMarkerInfoCard
+            lat={lat}
+            lng={lng}
+            attraction={attraction}
+            closeHandler={this.closeMarkerInfoCard}
+          />
         );
       }
     }
