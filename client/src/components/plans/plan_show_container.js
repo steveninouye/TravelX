@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchPlan: () => dispatch(fetchPlan())
-  // fetchPlan: () => dispatch(() => console.log('fetch plan!'))
 });
 
 export default connect(

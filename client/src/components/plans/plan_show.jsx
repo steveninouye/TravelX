@@ -28,7 +28,7 @@ export default class PlanShow extends React.Component {
         width: '150px',
       },
       infoContainer: {
-        width: '50%',
+        width: '70%',
         margin: '0 auto',
         marginTop: '100px',
         background: 'white',
