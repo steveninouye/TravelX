@@ -12,13 +12,14 @@ const styles = theme => ({
   }
 });
 
-const MapMarker = ({ lat, lng, id, classes }) => {
+const MapMarker = ({ lat, lng, id, classes, clickHandler }) => {
   return (
     <FontAwesomeIcon
       icon={faMapMarkerAlt}
       lat={lat}
       lng={lng}
       className={classes.markerIcon}
+      onClick={clickHandler}
       id={id}
     />
   );

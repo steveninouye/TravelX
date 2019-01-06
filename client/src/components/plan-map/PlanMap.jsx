@@ -4,23 +4,11 @@ import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 
 import MapMarker from "./MapMarker";
+import MapMarkerInfoCard from "./MapMarkerInfoCard";
 
 import { withStyles } from "@material-ui/core/styles";
 
-import Typography from "@material-ui/core/Typography";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Paper from "@material-ui/core/Paper";
-
-const styles = theme => ({
-  infoCard: {
-    width: "300px",
-    position: "relative",
-    bottom: "170px",
-    left: "20px"
-  }
-});
+const styles = theme => ({});
 
 class PlanMap extends Component {
   constructor(props) {
@@ -39,10 +27,11 @@ class PlanMap extends Component {
   }
 
   selectMarker(e) {
+    console.log("click");
+
     this.setState({
       selectedMarkerId: e.currentTarget.id
     });
-    debugger;
   }
 
   renderMarkers() {
@@ -55,7 +44,7 @@ class PlanMap extends Component {
           lng={lng}
           id={id}
           key={id}
-          onClick={this.selectMarker}
+          clickHandler={this.selectMarker}
         />
       );
     });
@@ -64,21 +53,18 @@ class PlanMap extends Component {
   }
 
   renderInfoCards() {
-    if (this.p) {
-      return (
-        <Card
-          lat={59.955413}
-          lng={30.337844}
-          className={this.props.classes.infoCard}
-        >
-          <CardContent>
-            <Typography variant="h3">Eiffel Tower</Typography>
-          </CardContent>
-        </Card>
-      );
-    } else {
-      return null;
+    for (let i = 0; i < this.props.attractions.length; i++) {
+      const attraction = this.props.attractions[i];
+      const { lat, lng } = attraction.geometry.location;
+
+      if (attraction.id === this.state.selectedMarkerId) {
+        return (
+          <MapMarkerInfoCard lat={lat} lng={lng} attraction={attraction} />
+        );
+      }
     }
+
+    return null;
   }
 
   render() {
