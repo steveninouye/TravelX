@@ -6,7 +6,7 @@ import rp from 'request-promise';
 import { googleApi } from '../config/keys';
 import Attraction from '../models/Attractions';
 import City from '../models/City';
-import { cityUrl, attractionUrl } from '../utils/api_urls';
+import { cityUrl } from '../utils/api_urls';
 
 export const getCity = (cityName) =>
    new Promise((resolve, reject) => {
@@ -25,24 +25,42 @@ export const getCity = (cityName) =>
    });
 
 export const requestCityAttractions = (url, city, resolve, reject) => {
-   let attractions = [];
    rp(url)
       .then((json1) => {
          let { results, next_page_token } = JSON.parse(json1);
-         attractions = attractions.concat(results);
-         rp(`${url}&pagetoken=${next_page_token}`).then((json2) => {
-            let { results } = JSON.parse(json2);
-            attractions = attractions.concat(results);
-            console.log('attractions: ', attractions);
-            console.log('attractions: ', attractions);
-            attractions = attractions.map((attraction) => {
-               attraction.city_id = city.id;
-               return attraction;
-            });
-            console.log('attractions: ', attractions);
-            Attraction.create(attractions).then((attractions) => {
-               resolve(attractions);
-            });
+         const attractions = results.map((attraction) => {
+            attraction.city_id = city.id;
+            return attraction;
+         });
+         Attraction.create(attractions).then((attractions) => {
+            setTimeout(() => {
+               rp(`${url}&pagetoken=${next_page_token}`).then((json2) => {
+                  let { results, next_page_token } = JSON.parse(json2);
+                  const attractions = results.map((attraction) => {
+                     attraction.city_id = city.id;
+                     return attraction;
+                  });
+                  Attraction.create(attractions).then(() => {
+                     setTimeout(() => {
+                        rp(`${url}&pagetoken=${next_page_token}`).then(
+                           (json2) => {
+                              let { results } = JSON.parse(
+                                 json2
+                              );
+                              const attractions = results.map((attraction) => {
+                                 attraction.city_id = city.id;
+                                 return attraction;
+                              });
+                              Attraction.create(attractions)
+                                 .then(() => console.log('Attractions created'))
+                                 .catch(() => console.log('error occured'));
+                           }
+                        );
+                     }, 5000);
+                  });
+               });
+            }, 5000);
+            resolve(attractions);
          });
       })
       .catch((err) => {
@@ -63,7 +81,7 @@ export const getCityAttractions = (cityName) =>
                   reject(err);
                });
          } else {
-            return requestCityAttractions(url, city, resolve, reject);
+            requestCityAttractions(url, city, resolve, reject);
          }
       });
    });

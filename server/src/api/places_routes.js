@@ -23,6 +23,7 @@ places.post('/city', (req, res) => {
          res.json(randAttractions);
       })
       .catch((err) => {
+         console.log(err);
          res.status(500).json('Googe API could not be reached');
       });
 });
