@@ -9,18 +9,35 @@ const ScheduleItem = (props) => {
   const { attraction } = props;
 
   const styles = {
-    galleryPhoto: {
+    timingContainer: {
       height: '220px',
-      width: '300px',
-    },
-    containerDiv: {
-      height: '220px',
+      width: '60px',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       padding: '0 20px',
       border: '1px solid red'
-    }
+    },
+    infoContainer: {
+      height: '220px',
+      width: '500px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      padding: '0 20px',
+      border: '1px solid red'
+    },
+    imageContainer: {
+      height: '220px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      border: '1px solid red'
+    },
+    galleryPhoto: {
+      height: '220px',
+      width: '300px',
+    },
   };
 
   return (
@@ -29,7 +46,7 @@ const ScheduleItem = (props) => {
         <Avatar src={attraction.icon}/>
       </ListItemAvatar>
 
-      <div style={styles.containerDiv}>
+      <div style={styles.timingContainer}>
         <Typography>
           Tuesday
         </Typography>
@@ -39,7 +56,7 @@ const ScheduleItem = (props) => {
         </Typography>
       </div>
 
-      <div style={styles.containerDiv}>
+      <div style={styles.infoContainer}>
         <ListItemText>
           {attraction.name}
         </ListItemText>
@@ -53,7 +70,7 @@ const ScheduleItem = (props) => {
         </ListItemText>
       </div>
 
-      <div style={styles.containerDiv}>
+      <div style={styles.imageContainer}>
         <img style={styles.galleryPhoto} src="https://media-cdn.tripadvisor.com/media/photo-s/12/f5/f1/8d/eiffel-tower-summit-priority.jpg" alt=""/>
       </div>
       
