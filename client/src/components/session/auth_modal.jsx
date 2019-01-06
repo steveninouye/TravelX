@@ -13,7 +13,6 @@ export default class AuthModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
       type: 'login',
       email: '',
       password: '',
@@ -27,7 +26,7 @@ export default class AuthModal extends React.Component {
   };
 
   handleClose() {
-    this.setState({ open: false });
+    this.props.closeModal();
     this.props.clearErrors();
   };
 
@@ -234,7 +233,7 @@ export default class AuthModal extends React.Component {
   render() {
     return (
       <Dialog
-        open={this.state.open}
+        open={this.props.open}
         onClose={this.handleClose}
         aria-labelledby="form-dialog-title"
         fullWidth

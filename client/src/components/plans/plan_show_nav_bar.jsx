@@ -75,7 +75,7 @@ class PlanShowNavBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <LoginFormContainer open={this.state.modal} />
+        <LoginFormContainer/>
 
         <AppBar position="sticky">
           <Toolbar className={classes.toolbar}>
