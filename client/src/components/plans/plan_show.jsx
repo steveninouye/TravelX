@@ -1,29 +1,19 @@
 import React from 'react';
-import Button from "@material-ui/core/Button";
+import PlanShowHero from './plan_show_hero';
+import PlanShowNavBarContainer from './plan_show_nav_bar_container';
 
 export default class PlanShow extends React.Component {
   componentDidMount() {
-    // this.props.fetchPlan(this.props.planId)
+    const { fetchPlan, planId } = this.props;
+    fetchPlan(planId);
   }
 
   render() {
     return (
       <div>
-        <div>Nav Bar Placeholder</div>
-        <img src="https://cdn.pixabay.com/photo/2016/11/18/19/01/paris-1836415__340.jpg" alt=""/>
-        <div>Schedule/Map Placeholder</div>
-        <Button 
-          color="primary"
-          variant="contained"
-        >
-          Save
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          New Plan
-        </Button>
+        <div style={{ height: '50px', background: 'gray' }}>Nav Bar Placeholder</div>
+        <PlanShowHero city={"Paris"}/>
+        <PlanShowNavBarContainer />
       </div>
     );
   }
