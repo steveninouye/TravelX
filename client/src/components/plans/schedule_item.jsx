@@ -3,6 +3,7 @@ import ListItem from '@material-ui/core/ListItem'
 import Typography from '@material-ui/core/Typography';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import Rating from 'react-rating';
 
 class ScheduleItem extends React.Component {
   componentDidMount() {
@@ -81,6 +82,14 @@ class ScheduleItem extends React.Component {
         <Typography>
           {attraction.rating}
         </Typography>
+
+        <Rating
+          initialRating={3.3}
+          readonly
+          // emptySymbol="fa fa-star-o fa-2x"
+          // fullSymbol="fa fa-star fa-2x"
+          fractions={3}
+        />
       </div>
 
       <div style={styles.imageContainer}>
