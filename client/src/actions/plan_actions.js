@@ -12,5 +12,5 @@ export const receivePlan = (plan) => ({
 });
 
 export const fetchPlan = (id) => (dispatch) => (
-  dispatch(receivePlan(123))
+  dispatch(receivePlan(testPlan))
 );
