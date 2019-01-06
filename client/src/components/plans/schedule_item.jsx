@@ -4,10 +4,19 @@ import Typography from '@material-ui/core/Typography';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 
-const ScheduleItem = (props) => {
-  const { attraction } = props;
+class ScheduleItem extends React.Component {
+  componentDidMount() {
+
+  }
+
+  render() {
+  const { attraction } = this.props;
 
   const styles = {
+    listItem: {
+      display: 'flex',
+      justifyContent: 'center'
+    },
     timingContainer: {
       height: '220px',
       width: '60px',
@@ -45,7 +54,7 @@ const ScheduleItem = (props) => {
   };
 
   return (
-    <ListItem>
+    <ListItem style={styles.listItem}>
       <ListItemAvatar>
         <Avatar src={attraction.icon}/>
       </ListItemAvatar>
@@ -79,6 +88,7 @@ const ScheduleItem = (props) => {
       </div>
     </ListItem>
   );
+}
 }
 
 export default ScheduleItem;
