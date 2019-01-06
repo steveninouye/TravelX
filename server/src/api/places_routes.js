@@ -4,33 +4,31 @@ import rp from 'request-promise';
 import passport from 'passport';
 
 import keep from '../img/keep';
-import { cityUrl, attractionUrl } from '../utils/api_urls';
-import { savePhoto } from '../utils/db_utils';
+import { randNum } from '../utils/data_conversion';
+import { attractionUrl } from '../utils/api_urls';
+import { savePhoto, getCityAttractions } from '../utils/db_utils';
 
 const places = express.Router();
 
 places.get(
    '/city/:city',
-   passport.authenticate('jwt', { session: false }),
+   // passport.authenticate('jwt', { session: false }),
    (req, res) => {
       const { city } = req.params;
-      rp(cityUrl(city))
-         .then((json) => {
-            const { results, next_page_token } = JSON.parse(json);
-            results.forEach((result, resultIdx) => {
-               result.photos.forEach((photo, photoIdx) => {
-                  const photoRef = photo.photo_reference;
-                  savePhoto(photoRef, false, false);
-               });
-            });
-            res.json(JSON.parse(json));
-
-            `https://maps.googleapis.com/maps/api/place/nearbysearch/xml?location=42.9825,-81.254&radius=50000&name=Medical%22Clinic&sensor=false&key=[KEY GOES HERE]&pagetoken=[NEXT PAGE TOKEN GOES HERE]
-            `
+      getCityAttractions(city)
+         .then((attractions) => {
+            let attractionsLastIndex = attractions.length - 1;
+            let idxs = [
+               randNum(attractionsLastIndex - 1, 0),
+               randNum(attractionsLastIndex - 1, 0),
+               randNum(attractionsLastIndex - 1, 0),
+               randNum(attractionsLastIndex - 1, 0)
+            ];
+            const randAttractions = idxs.map((idx) => attractions[idx]);
+            res.json(randAttractions);
          })
          .catch((err) => {
-            console.log(err);
-            res.status(500).json('Google API could not be reached');
+            res.status(500).json('Googe API could not be reached');
          });
    }
 );
