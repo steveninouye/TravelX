@@ -7,15 +7,26 @@ import Avatar from '@material-ui/core/Avatar';
 import StarRatings from 'react-star-ratings';
 
 class ScheduleItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      details: {
+        reviews: [{ text: ''}]
+      }
+    };
+  }
+
   componentDidMount() {
     const { getAttractionDetails, attraction } = this.props
-    getAttractionDetails(attraction.place_id).then(
-      res => console.log(res.data),
-      err => console.log('no data found')
+
+    getAttractionDetails(attraction.reference).then(
+      res => this.setState({ details: res.attractionDetails.data })
     );
   };
 
   render() {
+    console.log(this.state)
     const { attraction } = this.props;
 
     const styles = {
@@ -133,11 +144,7 @@ class ScheduleItem extends React.Component {
                   variant="body1"
                   style={styles.description}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat feugiat dui vel vestibulum. Phasellus eu felis sit amet mauris dictum lacinia vitae consectetur nunc. Maecenas sagittis tortor sit amet ligula blandit, et maximus arcu ultricies. Cras quis tortor eget ipsum consequat scelerisque at id orci. Aliquam sed molestie orci, vulputate cursus sapien. Nunc rhoncus ac libero ac facilisis. Nam bibendum odio a magna suscipit elementum. Mauris volutpat, risus id consectetur molestie, nunc nunc molestie ex, vitae semper risus felis vitae sem.
-                  Fusce vel gravida leo. Ut venenatis, magna eu malesuada vestibulum, nibh tellus tempus dui, vel consequat dui metus ac nunc. Ut vulputate consequat venenatis. Quisque quis elit purus. Praesent non lobortis metus. Suspendisse tortor ligula, vehicula at diam id, fermentum porttitor eros. Vivamus id vulputate nisl. Curabitur tristique libero eu massa volutpat posuere.
-                  Mauris a erat et mi tempus elementum. Sed ut eros ornare, consequat lacus a, condimentum massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus et ullamcorper purus. Proin purus lectus, efficitur quis massa eu, mollis aliquet mi. Aliquam sed nisi purus. Proin non commodo tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque leo nisi, laoreet id quam a, tempor blandit odio.
-                  Ut maximus ex enim, a viverra diam faucibus pretium. Nunc quis euismod arcu, lacinia auctor odio. Donec vestibulum nulla a nisi varius semper. Duis mattis, elit et aliquet placerat, tortor sapien luctus massa, non posuere dolor est ac risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc mollis, neque ac pretium condimentum, leo turpis placerat nunc, malesuada pulvinar mi eros non ex. Vestibulum vel nulla id purus cursus hendrerit nec sed lacus. Vivamus ut lectus nec nisl ultrices viverra. Nunc fringilla volutpat molestie. Vestibulum tempor cursus nunc, non sagittis neque pellentesque vitae. In pulvinar, neque sed feugiat varius, leo dolor mattis tortor, vel gravida dui risus faucibus dolor. Sed eu mi eleifend ante semper facilisis. Nulla mauris lectus, egestas nec lobortis in, mattis id felis. Donec vitae nibh justo. Donec tincidunt viverra facilisis.
-                  Aenean sit amet mi vel velit pellentesque pharetra aliquet iaculis diam. Nulla porta, nisl at bibendum vulputate, lectus nunc posuere massa, sed malesuada tortor purus et lectus. Proin feugiat dictum mi, vitae semper eros efficitur non. Fusce eleifend, quam aliquam venenatis pellentesque, sem magna volutpat quam, at sagittis arcu est tempus purus. Proin ligula mauris, maximus ut scelerisque eu, dapibus eget leo. Proin condimentum, ligula tristique fermentum semper, nunc lorem aliquam turpis, id feugiat risus massa eget ligula. Aliquam pulvinar ipsum dui, vitae varius libero pharetra et. Morbi metus lectus, elementum quis viverra vel, aliquam sit amet odio. Etiam vitae diam eu leo feugiat sagittis. Donec mollis, felis eget sodales ornare, diam neque pharetra lacus, ut pharetra eros quam nec sapien. Cras ullamcorper est eget commodo laoreet. Ut vehicula venenatis lorem eget dictum. Donec et nibh sit amet ligula hendrerit maximus.
+                  {this.state.details.reviews[0].text}
                 </Typography>
 
                 <div style={styles.ratingContainer}>
@@ -156,7 +163,7 @@ class ScheduleItem extends React.Component {
               </div>
 
               <div style={styles.imageContainer}>
-                <img style={styles.galleryPhoto} src={attraction.photos ? `api/places/photo/${attraction.photos[0].photo_reference}` : null} alt=""/>
+                <img style={styles.galleryPhoto} src={attraction.photos ? `api/places/photo/${attraction.photos[0].photo_reference}` : "http://urbanyvr.com/wp-content/uploads/2016/04/New-vancouver-art-gallery-plaza.jpg"} alt=""/>
               </div>
           </ListItem>
         </Card>

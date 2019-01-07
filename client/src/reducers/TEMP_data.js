@@ -1,241 +1,250 @@
 export const attractions =  [
 
          {
-            "_id": "5c33889377de3b440773940a",
-            "formatted_address": "Square de la Tour Saint-Jacques, 75004 Paris, France",
+            "_id": "5c3396118dc42947e9e04534",
+            "formatted_address": "1 Rue Fabert, 75007 Paris, France",
             "geometry": {
                "location": {
-                  "lat": 48.85806849999999,
-                  "lng": 2.3489072
+                  "lat": 48.8599152,
+                  "lng": 2.3131693
                },
                "viewport": {
                   "northeast": {
-                     "lat": 48.85918572989272,
-                     "lng": 2.349814829892722
+                     "lat": 48.86126547989272,
+                     "lng": 2.314510629892722
                   },
                   "southwest": {
-                     "lat": 48.85648607010728,
-                     "lng": 2.347115170107278
+                     "lat": 48.85856582010728,
+                     "lng": 2.311810970107278
                   }
                }
             },
-            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
-            "name": "Saint-Jacques Tower",
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+            "name": "Esplanade des Invalides",
             "photos": [
                {
-                  "height": 3120,
+                  "height": 3840,
                   "html_attributions": [
-                     "<a href=\"https://maps.google.com/maps/contrib/116199157204381216598/photos\">Pavel Halkin</a>"
+                     "<a href=\"https://maps.google.com/maps/contrib/105739461801653654500/photos\">Андрей Цепков</a>"
                   ],
-                  "photo_reference": "CmRaAAAAcG5D0UPRJgFDQExpZu6zTTaFeHnopcedYDaO6SGE6KKdxlUgrZvFSlQVK5gnaWxtdhYr6w2OQc7MWStWRl9X-jMuRlmDBP_7bJ3q7M9Rk10H6VF-BM0KVKvF7wQYgYzTEhAZTBBHZEfSwvTrSciGL-3EGhREUr_rFQafILcc2aJ7_K0oTfZxww",
-                  "width": 4160
+                  "photo_reference": "CmRaAAAAEsPNscI_bhO3S94Pr0ff25AqQuUQGvCiG4dSpvKx-h64Tmd13A76HXSIoL-l2VOVoBuWZi9xhEdV5vmRa9RdNoYFPfL926bRv7q8vSppQqVZQz0q2INipBaMKLIWVhTIEhBRXJ9hUUrBnDp0UF5317fmGhR6OHOqRZOrUWqGQNsl_GagUaIbfw",
+                  "width": 5120
                }
             ],
-            "place_id": "ChIJGxZyXh5u5kcRLmPA07LoheA",
+            "place_id": "ChIJv-rX7Ndv5kcR8HH74UZfYtQ",
             "plus_code": {
-               "compound_code": "V85X+6H Paris, France",
-               "global_code": "8FW4V85X+6H"
+               "compound_code": "V857+X7 Paris, France",
+               "global_code": "8FW4V857+X7"
             },
             "rating": 4.4,
+            "reference": "ChIJv-rX7Ndv5kcR8HH74UZfYtQ",
             "types": [
-               "premise",
+               "park",
                "point_of_interest",
                "establishment"
             ],
             "city": {
-               "_id": "5c33888b77de3b44077393ea",
+               "_id": "5c3396108dc42947e9e04525",
                "name": "paris",
                "__v": 0
             },
             "__v": 0
          },
          {
-            "_id": "5c33888c77de3b44077393fa",
-            "formatted_address": "Place Vauban, 75007 Paris, France",
+            "_id": "5c3396118dc42947e9e04527",
+            "formatted_address": "6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France",
             "geometry": {
                "location": {
-                  "lat": 48.8535147,
-                  "lng": 2.3128284
+                  "lat": 48.85296820000001,
+                  "lng": 2.3499021
                },
                "viewport": {
                   "northeast": {
-                     "lat": 48.85486357989272,
-                     "lng": 2.314174929892722
+                     "lat": 48.85490157989273,
+                     "lng": 2.35114505
                   },
                   "southwest": {
-                     "lat": 48.85216392010727,
-                     "lng": 2.311475270107278
+                     "lat": 48.85220192010728,
+                     "lng": 2.34617325
                   }
                }
             },
-            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
-            "name": "statue of Marshal Joseph Simon Gallieni",
-            "place_id": "ChIJ3cJN5Chw5kcR-G_Fth2-kjQ",
-            "plus_code": {
-               "compound_code": "V837+C4 Paris, France",
-               "global_code": "8FW4V837+C4"
-            },
-            "rating": 4,
-            "types": [
-               "point_of_interest",
-               "establishment"
-            ],
-            "city": {
-               "_id": "5c33888b77de3b44077393ea",
-               "name": "paris",
-               "__v": 0
-            },
-            "__v": 0
-         },
-         {
-            "_id": "5c33889a77de3b440773941e",
-            "formatted_address": "12-14 Rue Joseph de Maistre, 75018 Paris, France",
-            "geometry": {
-               "location": {
-                  "lat": 48.8865626,
-                  "lng": 2.3329648
-               },
-               "viewport": {
-                  "northeast": {
-                     "lat": 48.88794967989272,
-                     "lng": 2.334184079892722
-                  },
-                  "southwest": {
-                     "lat": 48.88525002010728,
-                     "lng": 2.331484420107278
-                  }
-               }
-            },
-            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
-            "name": "Terrass'' Hôtel",
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/worship_general-71.png",
+            "name": "Cathédrale Notre-Dame de Paris",
             "photos": [
                {
-                  "height": 1365,
+                  "height": 534,
                   "html_attributions": [
-                     "<a href=\"https://maps.google.com/maps/contrib/100465705126101128687/photos\">Terrass&#39;&#39; Hôtel</a>"
+                     "<a href=\"https://maps.google.com/maps/contrib/101637977591905343835/photos\">Amendra Yadav</a>"
                   ],
-                  "photo_reference": "CmRaAAAAyTT7bEZHzsw-RWJZfWv9j4FA1DgRzleDpFzfzJvPJvpIHnKIxSZNnVv726gxcCyDWtpRvA74C_lxyRLc-qOHt1pKwyiBtrdO1aod6sreZbb-pTrVfUZAuI71TXZPqK-3EhDFkYxZFup-f1UAQ5VIY1o1GhQPEsbKQYR8ZHMrsj0211WMMfhVNA",
-                  "width": 2048
+                  "photo_reference": "CmRaAAAA9wF2kmJNtLwfCb69pOs34I8-QiuLO__MHD6B78Vpchm1tLJ4RqwPyQXWL3IiOIlBZS70vMooc0ED9On8P31vMDRB0FCIOq7O2xkVvhf-JYQx7QyoQMM4MrO4tAgzxg5UEhCRD3wdTB3OrnO0rkQChfvcGhSWvk7eQdjfmfL4FidvQihbw1WXGQ",
+                  "width": 1068
                }
             ],
-            "place_id": "ChIJbd3e1E9u5kcRjC4d9MkUJO8",
+            "place_id": "ChIJATr1n-Fx5kcRjQb6q6cdQDY",
             "plus_code": {
-               "compound_code": "V8PM+J5 Paris, France",
-               "global_code": "8FW4V8PM+J5"
+               "compound_code": "V83X+5X Paris, France",
+               "global_code": "8FW4V83X+5X"
             },
-            "rating": 4.3,
+            "rating": 4.7,
+            "reference": "ChIJATr1n-Fx5kcRjQb6q6cdQDY",
             "types": [
-               "spa",
-               "university",
+               "church",
                "place_of_worship",
-               "bar",
-               "lodging",
-               "restaurant",
                "point_of_interest",
-               "food",
                "establishment"
             ],
             "city": {
-               "_id": "5c33888b77de3b44077393ea",
+               "_id": "5c3396108dc42947e9e04525",
                "name": "paris",
                "__v": 0
             },
             "__v": 0
          },
          {
-            "_id": "5c33888c77de3b44077393f4",
-            "formatted_address": "8 Rue de Montpensier, 75001 Paris, France",
+            "_id": "5c3396118dc42947e9e0452c",
+            "formatted_address": "Rond-Point du Bleuet de France, 75007 Paris, France",
             "geometry": {
                "location": {
-                  "lat": 48.8637569,
-                  "lng": 2.3371261
+                  "lat": 48.8570915,
+                  "lng": 2.3128112
                },
                "viewport": {
                   "northeast": {
-                     "lat": 48.86799435,
-                     "lng": 2.340142350000001
+                     "lat": 48.85838122989272,
+                     "lng": 2.31354435
                   },
                   "southwest": {
-                     "lat": 48.86128815,
-                     "lng": 2.33496695
-                  }
-               }
-            },
-            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
-            "name": "Le Palais Royal",
-            "photos": [
-               {
-                  "height": 3120,
-                  "html_attributions": [
-                     "<a href=\"https://maps.google.com/maps/contrib/100954154387535635621/photos\">antonio amaral</a>"
-                  ],
-                  "photo_reference": "CmRaAAAAKiugx6fHGX7-C4PBE3npNocMrEIn5URdn_SjQR1tt3D4a30AHcZzNZKtFk8TYfCdJl7yBWHJal--RCFUYDKa28YirHihLE3ugEIHv1ArZC5EThjDug0DCucSHWfY7Q9kEhATSlgCV8JAfQFC-X8c2ahhGhR6WfADcWzLwIVWLmUrAHTJaJmspQ",
-                  "width": 4160
-               }
-            ],
-            "place_id": "ChIJR3122B9u5kcR9RZ_OWxSy80",
-            "plus_code": {
-               "compound_code": "V87P+GV Paris, France",
-               "global_code": "8FW4V87P+GV"
-            },
-            "rating": 4.5,
-            "types": [
-               "premise",
-               "point_of_interest",
-               "food",
-               "establishment"
-            ],
-            "city": {
-               "_id": "5c33888b77de3b44077393ea",
-               "name": "paris",
-               "__v": 0
-            },
-            "__v": 0
-         },
-         {
-            "_id": "5c33889a77de3b440773941a",
-            "formatted_address": "1 Rue de la Légion d'Honneur, 75007 Paris, France",
-            "geometry": {
-               "location": {
-                  "lat": 48.8599614,
-                  "lng": 2.3265614
-               },
-               "viewport": {
-                  "northeast": {
-                     "lat": 48.86152997989272,
-                     "lng": 2.3275171
-                  },
-                  "southwest": {
-                     "lat": 48.85883032010728,
-                     "lng": 2.3236943
+                     "lat": 48.85568157010727,
+                     "lng": 2.31061175
                   }
                }
             },
             "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
-            "name": "Musée d'Orsay",
+            "name": "Les Invalides",
             "photos": [
                {
-                  "height": 4160,
+                  "height": 2592,
                   "html_attributions": [
-                     "<a href=\"https://maps.google.com/maps/contrib/104921642534861509925/photos\">Pasquale Parrella</a>"
+                     "<a href=\"https://maps.google.com/maps/contrib/101656185830617789682/photos\">Christian Crespeau</a>"
                   ],
-                  "photo_reference": "CmRaAAAAsbsgUO5AFn_WoeghIWc9ei8BF1jJRve4iU5dqu_3MM_mD28j0yHXXl8xPTBiMx-DxmozwHsFzegn1cR-Ug7qkzgjo2TCnSAJWObl9xp_NYQFT6vb2O3ry4PJ0gpXa5A1EhD60ZTrGqQMlZCHnvu_x-yiGhRgsIug805OSYpozDtUYUjYFudhqg",
-                  "width": 3120
+                  "photo_reference": "CmRaAAAAmWl9KeKQXI8hXJ-M5E30UjvckVp8FdwlYSiTnZAHvlHovrjd0g_YA2o5VtZVLbLN-Bw-zmwUGNrKZJkG32V8zQwYEjTsRKLhViZqcMnUray7iXawprsvGYjPoq98qj4KEhA7zPnfJAmhUjd4k6o3PwPoGhSj1-qu-igfoV1yyT-rljREr45QZA",
+                  "width": 3872
                }
             ],
-            "place_id": "ChIJG5Qwtitu5kcR2CNEsYy9cdA",
+            "place_id": "ChIJUzCPuddv5kcRasGAnEUUWkU",
             "plus_code": {
-               "compound_code": "V85G+XJ Paris, France",
-               "global_code": "8FW4V85G+XJ"
+               "compound_code": "V847+R4 Paris, France",
+               "global_code": "8FW4V847+R4"
             },
-            "rating": 4.7,
+            "rating": 4.6,
+            "reference": "ChIJUzCPuddv5kcRasGAnEUUWkU",
             "types": [
                "museum",
                "point_of_interest",
                "establishment"
             ],
             "city": {
-               "_id": "5c33888b77de3b44077393ea",
+               "_id": "5c3396108dc42947e9e04525",
+               "name": "paris",
+               "__v": 0
+            },
+            "__v": 0
+         },
+         {
+            "_id": "5c3396118dc42947e9e04528",
+            "formatted_address": "Place Charles de Gaulle, 75008 Paris, France",
+            "geometry": {
+               "location": {
+                  "lat": 48.8737917,
+                  "lng": 2.2950275
+               },
+               "viewport": {
+                  "northeast": {
+                     "lat": 48.87541717989273,
+                     "lng": 2.296284879892722
+                  },
+                  "southwest": {
+                     "lat": 48.87271752010729,
+                     "lng": 2.293585220107277
+                  }
+               }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "name": "Arc de Triomphe",
+            "photos": [
+               {
+                  "height": 477,
+                  "html_attributions": [
+                     "<a href=\"https://maps.google.com/maps/contrib/111742567034635342609/photos\">Zeeshan Ahmed Sheikh</a>"
+                  ],
+                  "photo_reference": "CmRaAAAApGOIwBP6yXg-IqqXX0Usq13fHXWBiZ_D64n4q-O6iBT1FwVCyw9NgGpfHpdbUXnqXuIfmRNyyjreSBFqcrMMsXFxw25KQdFUlMiAszU8A7bRcRluBoXPnG2ieVepHjH4EhCLv8Q14U2klNvMxh8UewtHGhTpyqIVzD8y27bR39idT2fc1OYMnA",
+                  "width": 720
+               }
+            ],
+            "place_id": "ChIJjx37cOxv5kcRPWQuEW5ntdk",
+            "plus_code": {
+               "compound_code": "V7FW+G2 Paris, France",
+               "global_code": "8FW4V7FW+G2"
+            },
+            "rating": 4.6,
+            "reference": "ChIJjx37cOxv5kcRPWQuEW5ntdk",
+            "types": [
+               "museum",
+               "point_of_interest",
+               "establishment"
+            ],
+            "city": {
+               "_id": "5c3396108dc42947e9e04525",
+               "name": "paris",
+               "__v": 0
+            },
+            "__v": 0
+         },
+         {
+            "_id": "5c3396118dc42947e9e0452a",
+            "formatted_address": "75001 Paris, France",
+            "geometry": {
+               "location": {
+                  "lat": 48.8565422,
+                  "lng": 2.3425083
+               },
+               "viewport": {
+                  "northeast": {
+                     "lat": 48.85783102989271,
+                     "lng": 2.3438491
+                  },
+                  "southwest": {
+                     "lat": 48.85513137010727,
+                     "lng": 2.341137499999999
+                  }
+               }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "name": "Place Dauphine",
+            "photos": [
+               {
+                  "height": 3104,
+                  "html_attributions": [
+                     "<a href=\"https://maps.google.com/maps/contrib/114687188622228019426/photos\">Dominique RICHERT</a>"
+                  ],
+                  "photo_reference": "CmRaAAAAFGqFpLV3HzW0i0vg3Npao4Qu9sOAjavgp-HaipvmX7AN79HztagLKMqrtyIFcJMUEBqtAwbAGBs0WihBqwgPiiQoxzV4HOzLDHuT8JiRwADYeg8SpyL4TV39HzLmGwUAEhDTOx-YfmdfA2NUCZC89b8IGhRWOdOyaOHJeUQglPs-mC0k9M-5KA",
+                  "width": 4192
+               }
+            ],
+            "place_id": "ChIJBaiyid9x5kcRQ7sNQt4yTqU",
+            "plus_code": {
+               "compound_code": "V84V+J2 Paris, France",
+               "global_code": "8FW4V84V+J2"
+            },
+            "rating": 4.5,
+            "reference": "ChIJBaiyid9x5kcRQ7sNQt4yTqU",
+            "types": [
+               "point_of_interest",
+               "establishment"
+            ],
+            "city": {
+               "_id": "5c3396108dc42947e9e04525",
                "name": "paris",
                "__v": 0
             },
