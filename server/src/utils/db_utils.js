@@ -7,7 +7,8 @@ import { googleApi } from '../config/keys';
 import City from '../models/City';
 import Attraction from '../models/Attraction';
 import ItineraryPackage from '../models/ItineraryPackage';
-import { cityUrl } from '../utils/api_urls';
+import { cityUrl, unsplashUrl } from '../utils/api_urls';
+import { unzipSync } from 'zlib';
 
 export const getItinerary = (attractions) =>
    new Promise((resolve, reject) => {
@@ -48,9 +49,14 @@ export const getCity = (cityName) =>
             if (city) {
                resolve({ city, isFound: true });
             } else {
-               const newCity = new City({ name: cityName });
-               newCity.save().then((city) => {
-                  resolve({ city, isFound: false });
+               const cityQuery = cityName.split(' ').join('%20');
+               rp(unsplashUrl(cityQuery)).then((json) => {
+                  const { results } = JSON.parse(json);
+                  const photos = results.map((result) => result.urls.full);
+                  const newCity = new City({ name: cityName, photos });
+                  newCity.save().then((city) => {
+                     resolve({ city, isFound: false });
+                  });
                });
             }
          })

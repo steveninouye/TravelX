@@ -39,6 +39,7 @@ const AttractionsSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'cities'
    }
+
 });
 
 const Attraction = mongoose.model('attractions', AttractionsSchema);
