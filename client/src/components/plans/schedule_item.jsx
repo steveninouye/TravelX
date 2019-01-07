@@ -14,7 +14,7 @@ class ScheduleItem extends React.Component {
       listItem: {
         display: 'flex',
         justifyContent: 'space-evenly',
-        padding: '32px 100px',
+        padding: '32px 10%',
       },
       iconContainer: { 
         display: 'flex', 
