@@ -4,7 +4,7 @@
    "description": "A travel recommendation site that suggests pre-bundled packages",
    "main": "server/dist/app.js",
    "scripts": {
-      "start": "npm run clean && npm run build && node ./server/dist/app.js",
+      "start": "node server/dist/app.js",
       "build:server": "babel ./server/src -d ./server/dist",
       "build:client": "webpack -p",
       "clean": "rimraf ./client/dist && rimraf ./server/dist",
