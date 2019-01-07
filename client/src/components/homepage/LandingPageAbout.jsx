@@ -9,6 +9,9 @@ import team3 from "../../img/team/taran.jpeg";
 import team4 from "../../img/team/josh.jpeg";
 
 const styles = theme => ({
+  sectionContainer: {
+    background: theme.palette.primary.main
+  },
   contentContainer: {
     width: "50%",
     margin: "0 auto"
@@ -19,6 +22,7 @@ const styles = theme => ({
     width: "50%"
   },
   header: {
+    paddingTop: "35px",
     marginTop: "35px",
     marginBottom: "40px"
   },
@@ -32,7 +36,8 @@ const styles = theme => ({
   },
   teamName: {
     fontSize: "24px",
-    margin: "10px 0"
+    margin: "10px 0",
+    fontWeight: "600"
   },
   aboutText: {
     padding: "20px",
@@ -42,7 +47,7 @@ const styles = theme => ({
 
 const LandingPageAbout = ({ classes }) => {
   return (
-    <section>
+    <section className={classes.sectionContainer}>
       <div className={classes.contentContainer}>
         <Typography
           variant="h2"

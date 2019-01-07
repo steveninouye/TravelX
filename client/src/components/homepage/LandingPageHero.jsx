@@ -33,7 +33,7 @@ const styles = theme => ({
     justifyContent: "center",
     alignItems: "center"
   },
-  headerText: { color: "white" },
+  headerText: { color: theme.palette.primary.main },
   searchContainer: {
     display: "flex",
     justifyContent: "center",
@@ -89,7 +89,7 @@ class LandingPageHero extends React.Component {
             />
             <Button
               variant="contained"
-              color="primary"
+              color="secondary"
               component={Link}
               to="/schedule"
             >

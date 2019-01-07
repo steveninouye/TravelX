@@ -19,6 +19,9 @@ import {
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
+  container: {
+    // background: theme.palette.primary.dark
+  },
   header: {
     padding: "30px",
     paddingBottom: "35px"
@@ -53,7 +56,7 @@ const styles = theme => ({
 
 const LandingPageFeatures = ({ classes }) => {
   return (
-    <section>
+    <section className={classes.container}>
       <Typography
         variant="h2"
         color="textPrimary"

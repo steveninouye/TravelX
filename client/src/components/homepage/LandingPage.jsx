@@ -5,6 +5,7 @@ import ThemeProvider from "../ThemeProvider";
 import LandingPageHero from "./LandingPageHero";
 import LandingPageFeatures from "./LandingPageFeatures";
 import LandingPageAbout from "./LandingPageAbout";
+import LandingPageImageGrid from "./LandingPageImageGrid";
 import NavBar from "../plans/navbar";
 
 class LandingPage extends Component {
@@ -18,6 +19,7 @@ class LandingPage extends Component {
         <NavBar />
         <LandingPageHero />
         <LandingPageFeatures />
+        <LandingPageImageGrid />
         <LandingPageAbout />
       </div>
     );
