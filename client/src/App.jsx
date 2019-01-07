@@ -15,7 +15,7 @@ import { setCurrentUser } from "./utils/set_current_user";
 import configureStore from './reducers/root_reducer';
 import { login } from './actions/session_actions';
 import { getAttractionDetails } from './actions/places_actions';
-import { getRandCityItinerary } from './actions/itinerary_actions';
+import { getRandCityItinerary, getItinerary } from './actions/itinerary_actions';
 //
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
    window.login = login;
    window.getAttractionDetails = getAttractionDetails
    window.getRandCityItinerary = getRandCityItinerary
+   window.getItinerary = getItinerary
    //
 
 

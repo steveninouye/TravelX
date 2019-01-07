@@ -18,3 +18,9 @@ export const getRandCityItinerary = (city) => (dispatch) => {
       .then((itinerary) => dispatch(receiveCityItinerary(itinerary.data)))
       .catch((err) => dispatch(receiveGetItineraryErrors(err)));
 };
+
+export const getItinerary = (id) => (dispatch) => {
+   return ItineraryAjaxUtil.getItinerary(id)
+     .then(itinerary => dispatch(receiveCityItinerary(itinerary.data)))
+     .catch(err => dispatch(receiveGetItineraryErrors(err)));
+};
