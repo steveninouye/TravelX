@@ -8,7 +8,6 @@ import MapMarker from "./MapMarker";
 import MapMarkerInfoCard from "./MapMarkerInfoCard";
 
 import { withStyles } from "@material-ui/core/styles";
-import { timingSafeEqual } from "crypto";
 
 const styles = theme => ({});
 
