@@ -7,6 +7,7 @@ export default class PlanShow extends React.Component {
   componentDidMount() {
     const { fetchPlan, city } = this.props;
     fetchPlan(city);
+    document.title = "TravelX | Individual Plan"
   }
 
   render() {
