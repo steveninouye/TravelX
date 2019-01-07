@@ -4,7 +4,6 @@
    "description": "A travel recommendation site that suggests pre-bundled packages",
    "main": "app.js",
    "scripts": {
-      "postinstall": "npm run clean && npm run build",
       "start": "npm run clean && npm run build && node ./server/dist/app.js",
       "build:server": "babel ./server/src -d ./server/dist",
       "build:client": "webpack -p",
@@ -13,7 +12,8 @@
       "dev": "npm run build:server && concurrently -r -k \"npm run build:dev-server\" \"npm run start:dev-server\" \"npm run client:dev-server\" ",
       "client:dev-server": "webpack-dev-server --mode=development",
       "build:dev-server": "babel ./server/src -w -d ./server/dist",
-      "start:dev-server": "nodemon ./server/dist/app.js"
+      "start:dev-server": "nodemon ./server/dist/app.js",
+      "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
    },
    "repository": {
       "type": "git",
