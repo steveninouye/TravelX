@@ -12,10 +12,10 @@ export default class PlanShow extends React.Component {
   //   }
   // };
 
-  componentDidMount() {   
+  componentDidMount() {  
     const { getRandCityItinerary, city } = this.props;
-    getRandCityItinerary(city);
-    document.title = "TravelX | Individual Plan"
+    getRandCityItinerary(city).then(res => this.props.history.push(`/plans/${res.itinerary._id}`));
+    document.title = "TravelX | Individual Plan";
   };
 
   render() {

@@ -8,7 +8,7 @@ const city = cities[Math.floor(Math.random() * cities.length)];
 const mapStateToProps = (state, ownProps) => ({
   city: city,
   plans: state.entities.plans,
-  planId: ownProps.match.params.planId
+  planId: ownProps.match.params.planId,
 });
 
 const mapDispatchToProps = dispatch => ({
