@@ -9,7 +9,7 @@ import ItineraryPackage from '../../dist/models/ItineraryPackage';
 const itineraries = express.Router();
 
 itineraries.get('/:id', (req, res) => {
-   const id = req.params;
+   const { id } = req.params;
    ItineraryPackage.findById(id)
       .populate({
          path: 'itinerary_packages',
