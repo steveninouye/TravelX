@@ -78,7 +78,6 @@ itineraries.delete(
             user.itinerary_packages.pull(itinerary);
             user
                .save()
-
                .then((user) => {
                   res.send(user);
                });

@@ -10,7 +10,7 @@ const AttractionsSchema = new Schema({
    place_id: { type: Schema.Types.Mixed },
    plus_code: { type: Schema.Types.Mixed },
    rating: { type: Schema.Types.Mixed },
-   referenence: { type: Schema.Types.Mixed },
+   refernence: { type: Schema.Types.Mixed },
    types: { type: Schema.Types.Mixed },
    city: { type: Schema.Types.ObjectId, ref: 'cities' }
 });
