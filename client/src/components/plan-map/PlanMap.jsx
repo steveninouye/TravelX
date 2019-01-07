@@ -28,8 +28,8 @@ class PlanMap extends Component {
   }
 
   componentDidMount() {
-    const { fetchPlan, planId } = this.props;
-    fetchPlan(planId);
+    // const { fetchPlan, planId } = this.props;
+    // fetchPlan(planId);
   }
 
   fitMapToMarkers() {
