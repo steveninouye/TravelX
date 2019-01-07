@@ -1,11 +1,11 @@
 import React from 'react';
-import ScheduleItem from './schedule_item';
+import ScheduleItemContainer from './schedule_item_container';
 import List from '@material-ui/core/List';
 
 export default class ScheduleShow extends React.Component {
   render() {
     const scheduleItems = this.props.attractions.map(attraction => (
-      <ScheduleItem key={attraction._id} attraction={attraction} />
+      <ScheduleItemContainer key={attraction._id} attraction={attraction} />
     ));
 
     return (

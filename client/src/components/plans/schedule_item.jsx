@@ -7,6 +7,11 @@ import Avatar from '@material-ui/core/Avatar';
 import StarRatings from 'react-star-ratings';
 
 class ScheduleItem extends React.Component {
+  componentDidMount() {
+    const { getAttractionDetails, attraction } = this.props
+    getAttractionDetails(attraction.reference);
+  };
+
   render() {
     const { attraction } = this.props;
 
