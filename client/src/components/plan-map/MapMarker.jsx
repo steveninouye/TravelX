@@ -7,18 +7,27 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   markerIcon: {
-    textSize: "40px",
-    cursor: "pointer"
+    fontSize: "40px",
+    cursor: "pointer",
+    color: theme.palette.primary.main
+  },
+  selected: {
+    color: theme.palette.secondary.main
   }
 });
 
-const MapMarker = ({ lat, lng, id, classes, clickHandler }) => {
+const MapMarker = ({ lat, lng, id, selected, classes, clickHandler }) => {
+  let className = classes.markerIcon;
+  if (selected) {
+    className += ` ${classes.selected}`;
+  }
+
   return (
     <FontAwesomeIcon
       icon={faMapMarkerAlt}
       lat={lat}
       lng={lng}
-      className={classes.markerIcon}
+      className={className}
       onClick={clickHandler}
       id={id}
     />

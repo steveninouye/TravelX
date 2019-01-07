@@ -18,6 +18,8 @@ const styles = theme => ({
     position: "relative",
     bottom: "170px",
     left: "20px"
+    // transformOrigin: "bottom left",
+    // transform: "translate(30px, -146px)"
   },
   closeButton: {
     position: "relative",

@@ -59,7 +59,6 @@ class PlanMap extends Component {
 
     const { center, zoom } = fitBounds(bounds, size);
 
-    debugger;
     this.setState({
       setInitialBounds: true,
       center,
@@ -83,12 +82,19 @@ class PlanMap extends Component {
     let markers = this.props.attractions.map(attraction => {
       let { lat, lng } = attraction.geometry.location;
       let id = attraction.id;
+      let selected = false;
+
+      if (this.state.selectedMarkerId === id) {
+        selected = true;
+      }
+
       return (
         <MapMarker
           lat={lat}
           lng={lng}
           id={id}
           key={id}
+          selected={selected}
           clickHandler={this.selectMarker}
         />
       );
