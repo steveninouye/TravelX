@@ -42,7 +42,10 @@ class GridCard extends React.Component {
               8 days in Cusco
             </Typography>
             <Typography>
-              Machu Machu Machu Machu Machu Machu Machu Machu Machu Machu
+              Machu Picchu, one of the New 7 Wonders of the World, is a
+              hidden gem that is the pride of Peru. Nestled within the Urubamba
+              River valley, it houses what once was a bustling center of royal
+              and religious activity of the famed Incan Empire.            
             </Typography>
           </CardContent>
           <CardActions>
