@@ -13,20 +13,13 @@ class ScheduleItem extends React.Component {
     const styles = {
       listItem: {
         display: 'flex',
-        justifyContent: 'center',
-        padding: '8px 16px',
+        justifyContent: 'space-evenly',
+        padding: '32px 100px',
       },
-      verticalLine: {
-        height: '248px',
-        width: '20px',
-        borderRight: '2px solid lightgray',
-        overflow: 'hidden',
-        marginRight: '-20px',
-      },
-      contentContainer: {
-        display: 'flex',
-        justifyContent: 'center',
-        padding: '8px 0',
+      iconContainer: { 
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center' 
       },
       avatar: {
         background: 'white',
@@ -34,12 +27,10 @@ class ScheduleItem extends React.Component {
         alignSelf: 'center'
       },
       timingContainer: {
-        height: '220px',
-        width: '100px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        paddingLeft: '20px',
+        marginBottom: '20px',
       },
       dayofWeek: {
         fontSize: '18px',
@@ -53,12 +44,12 @@ class ScheduleItem extends React.Component {
       },
       infoContainer: {
         height: '220px',
-        width: '500px',
+        minWidth: '500px',
         boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        padding: '0 20px 20px 20px',
+        padding: '0 60px 20px 60px',
       },
       attractionName: {
         fontSize: '20px',
@@ -106,21 +97,21 @@ class ScheduleItem extends React.Component {
       <>
         <Card raised>
           <ListItem style={styles.listItem}>
-            {/* <div style={styles.verticalLine}></div> */}
 
-            <div style={styles.contentContainer}>
-              <ListItemAvatar style={styles.avatar}>
-                <Avatar src={attraction.icon}/>
-              </ListItemAvatar>
+              <div style={styles.iconContainer}>
+                <div style={styles.timingContainer}>
+                  <Typography style={styles.dayofWeek}>
+                    {dow[Math.floor(Math.random() * dow.length)]}
+                  </Typography>
 
-              <div style={styles.timingContainer}>
-                <Typography style={styles.dayofWeek}>
-                  {dow[Math.floor(Math.random()*dow.length)]}
-                </Typography>
-
-                <Typography style={styles.timeOfDay}>
-                  10a-12p
-                </Typography>
+                  <Typography style={styles.timeOfDay}>
+                    10a-12p
+                  </Typography>
+                </div>
+                
+                <ListItemAvatar style={styles.avatar}>
+                  <Avatar src={attraction.icon}/>
+                </ListItemAvatar>
               </div>
 
               <div style={styles.infoContainer}>
@@ -159,7 +150,7 @@ class ScheduleItem extends React.Component {
               <div style={styles.imageContainer}>
                 <img style={styles.galleryPhoto} src="https://media-cdn.tripadvisor.com/media/photo-s/12/f5/f1/8d/eiffel-tower-summit-priority.jpg" alt=""/>
               </div>
-            </div>
+            {/* </div> */}
           </ListItem>
         </Card>
 
