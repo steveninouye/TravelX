@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const AttractionsSchema = new Schema({
+   icon: { type: Schema.Types.Mixed },
    formatted_address: { type: Schema.Types.Mixed },
    geometry: { type: Schema.Types.Mixed },
    name: { type: Schema.Types.Mixed },

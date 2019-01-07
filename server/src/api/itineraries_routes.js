@@ -8,26 +8,26 @@ import ItineraryPackage from '../../dist/models/ItineraryPackage';
 
 const itineraries = express.Router();
 
-itineraries.get(
-   '/:id',
-   passport.authenticate('jwt', { session: false }),
-   (req, res) => {
-      const id = req.params;
-      ItineraryPackage.findById(id)
-         .populate({
-            path: 'itinerary_packages',
+itineraries.get('/:id', (req, res) => {
+   const id = req.params;
+   ItineraryPackage.findById(id)
+      .populate({
+         path: 'itinerary_packages',
+         populate: {
+            path: 'attractions',
             populate: {
-               path: 'attractions',
-               populate: {
-                  path: 'city'
-               }
+               path: 'city'
             }
-         })
-         .then((itinerary) => {
-            res.send(itinerary);
-         });
-   }
-);
+         }
+      })
+      .then((itinerary) => {
+         if (!itinerary) return res.status(400).json('No Itinerary by that ID');
+         res.send(itinerary);
+      })
+      .catch((err) => {
+         res.status(500).json('Could not connect to DB');
+      });
+});
 
 itineraries.get(
    '/',
