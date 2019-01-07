@@ -51,8 +51,6 @@ export const getCity = (cityName) =>
             } else {
                const cityQuery = cityName.split(' ').join('%20');
                rp(unsplashUrl(cityQuery)).then((json) => {
-                  console.log(json);
-                  console.log(JSON.parse(json));
                   const { results } = JSON.parse(json);
                   const photos = results.map((result) => result.urls.full);
                   const newCity = new City({ name: cityName, photos });
