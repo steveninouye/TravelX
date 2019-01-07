@@ -1,4 +1,4 @@
-import * as ItineraryAjaxUtil from '../utils/places_ajax_utils';
+import * as ItineraryAjaxUtil from '../utils/itinerary_ajax_utils';
 
 export const RECEIVE_ITINERARY = 'RECEIVE_ITINERARY';
 export const RECEIVE_ITINERARY_ERRORS = 'RECEIVE_ITINERARY_ERRORS';
