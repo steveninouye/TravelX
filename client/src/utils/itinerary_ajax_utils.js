@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const getRandCityItinerary = (city) =>
+export const getRandCityItinerary = (city) =>
    axios.post('/api/places/city', { city });
 
-   export default getRandCityItinerary
+export const getItinerary = (id) => 
+   axios.get(`/api/itineraries/${id}`);

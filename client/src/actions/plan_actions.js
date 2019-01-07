@@ -1,5 +1,5 @@
 import { attractions, attraction } from '../reducers/TEMP_data';
-import getRandCityItinerary from "../utils/itinerary_ajax_utils";
+import { getRandCityItinerary } from "../utils/itinerary_ajax_utils";
 
 const testPlan = {
   id: 123,
