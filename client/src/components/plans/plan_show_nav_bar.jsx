@@ -5,10 +5,11 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
-import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar'
+import Button from "@material-ui/core/Button";
+import Toolbar from "@material-ui/core/Toolbar";
 import ScheduleShowContainer from "./schedule_show_container";
-import LoginFormContainer from '../session/login_form_container';
+import LoginFormContainer from "../session/login_form_container";
+import PlanMapContainer from "../plan-map/PlanMapContainer";
 
 function TabContainer(props) {
   return (
@@ -28,17 +29,17 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper
   },
   buttonContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: '33%',
-    padding: '0'
+    display: "flex",
+    justifyContent: "space-between",
+    width: "33%",
+    padding: "0"
   },
   toolbar: {
-    display: 'flex',
-    justifyContent: 'space-between'
+    display: "flex",
+    justifyContent: "space-between"
   },
   button: {
-    width: '42%'
+    width: "42%"
   }
 });
 
@@ -54,21 +55,21 @@ class PlanShowNavBar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSaveClick = this.handleSaveClick.bind(this);
     this.handleNewPlan = this.handleNewPlan.bind(this);
-  };
+  }
 
   handleChange(event, value) {
     this.setState({ value });
-  };
+  }
 
   handleSaveClick() {
     if (this.props.session) {
-      console.log('save plan to user')
+      console.log("save plan to user");
     } else {
-      console.log('not logged in')
-      this.props.openModal('login');
-      console.log(this.state)
+      console.log("not logged in");
+      this.props.openModal("login");
+      console.log(this.state);
     }
-  };
+  }
 
   handleNewPlan() {
     // Will need to store city name before commenting this out
@@ -81,7 +82,7 @@ class PlanShowNavBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <LoginFormContainer/>
+        <LoginFormContainer />
 
         <AppBar position="sticky">
           <Toolbar className={classes.toolbar}>
@@ -109,8 +110,16 @@ class PlanShowNavBar extends React.Component {
             </Toolbar>
           </Toolbar>
         </AppBar>
-        {value === 0 && <TabContainer><ScheduleShowContainer/></TabContainer>}
-        {value === 1 && <TabContainer>Map placeholder</TabContainer>}
+        {value === 0 && (
+          <TabContainer>
+            <ScheduleShowContainer />
+          </TabContainer>
+        )}
+        {value === 1 && (
+          <TabContainer>
+            <PlanMapContainer />
+          </TabContainer>
+        )}
       </div>
     );
   }
