@@ -11,6 +11,9 @@ const UserSchema = new Schema({
       type: String,
       required: true
    },
+   itinerary_packages: [
+      { type: Schema.Types.ObjectId, ref: 'itinerary_packages' }
+   ],
    date: {
       type: Date,
       default: Date.now
