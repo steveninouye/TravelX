@@ -18,8 +18,7 @@ const styles = theme => ({
   },
   teamPhotosContainer: {
     display: "flex",
-    justifyContent: "space-between",
-    width: "50%"
+    justifyContent: "space-between"
   },
   header: {
     paddingTop: "35px",
