@@ -53,10 +53,6 @@ const styles = theme => ({
   cardContent: {
     flexGrow: 1
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing.unit * 6
-  }
 });
 
 class Plan extends React.Component{
@@ -106,12 +102,6 @@ class Plan extends React.Component{
           <PlansIndexGrid/>
         </article>
         {/* End of card grid */}
-        
-        <footer className={classes.footer}>
-          <Typography variant="h6" align="center" gutterBottom>
-            LinkedIns
-          </Typography>
-        </footer>
       </React.Fragment>
     );
   }
