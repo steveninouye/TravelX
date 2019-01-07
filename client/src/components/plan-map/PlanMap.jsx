@@ -2,11 +2,13 @@ import { googleApi } from "../../../../server/src/config/keys_dev";
 
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
+import { fitBounds } from "google-map-react/utils";
 
 import MapMarker from "./MapMarker";
 import MapMarkerInfoCard from "./MapMarkerInfoCard";
 
 import { withStyles } from "@material-ui/core/styles";
+import { timingSafeEqual } from "crypto";
 
 const styles = theme => ({});
 
@@ -15,7 +17,10 @@ class PlanMap extends Component {
     super(props);
 
     this.state = {
-      selectedMarkerId: null
+      selectedMarkerId: null,
+      setInitialBounds: false,
+      center: null,
+      zoom: null
     };
 
     this.selectMarker = this.selectMarker.bind(this);
@@ -25,6 +30,41 @@ class PlanMap extends Component {
   componentDidMount() {
     const { fetchPlan, planId } = this.props;
     fetchPlan(planId);
+  }
+
+  fitMapToMarkers() {
+    let markerLats = [];
+    let markerLngs = [];
+
+    for (let i = 0; i < this.props.attractions.length; i++) {
+      markerLats.push(this.props.attractions[i].geometry.location.lat);
+      markerLngs.push(this.props.attractions[i].geometry.location.lng);
+    }
+
+    const bounds = {
+      ne: {
+        lat: Math.min(markerLats),
+        lng: Math.max(markerLngs)
+      },
+      sw: {
+        lat: Math.max(markerLats),
+        lng: Math.min(markerLngs)
+      }
+    };
+
+    const size = {
+      width: 600,
+      height: 600
+    };
+
+    const { center, zoom } = fitBounds(bounds, size);
+
+    debugger;
+    this.setState({
+      setInitialBounds: true,
+      center,
+      zoom
+    });
   }
 
   selectMarker(e) {
@@ -78,18 +118,26 @@ class PlanMap extends Component {
   }
 
   render() {
-    return (
-      <div style={{ height: "100vh", width: "100%" }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: googleApi }}
-          defaultCenter={{ lat: 48.85296820000001, lng: 2.3499021 }}
-          defaultZoom={13}
-        >
-          {this.renderMarkers()}
-          {this.renderInfoCards()}
-        </GoogleMapReact>
-      </div>
-    );
+    // if (!this.state.center) {
+    if (false) {
+      return null;
+    } else {
+      return (
+        <div style={{ height: "100vh", width: "100%" }}>
+          <GoogleMapReact
+            bootstrapURLKeys={{ key: googleApi }}
+            // defaultCenter={this.state.center}
+            // defaultZoom={this.state.zoom}
+            defaultCenter={{ lat: 48.8570915, lng: 2.3499021 }}
+            defaultZoom={14}
+            ref={map => (this.map = map)}
+          >
+            {this.renderMarkers()}
+            {this.renderInfoCards()}
+          </GoogleMapReact>
+        </div>
+      );
+    }
   }
 }
 
