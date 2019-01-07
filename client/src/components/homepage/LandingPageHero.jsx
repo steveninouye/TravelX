@@ -2,7 +2,8 @@ import React from "react";
 
 import { withStyles } from "@material-ui/core/styles";
 
-import landingPhoto from "../../img/backgrounds/city_at_dawn.jpg";
+import landingPhoto from "../../img/backgrounds/mountains.jpeg";
+// import landingPhoto from "../../img/backgrounds/city_at_dawn.jpg";
 import { Link } from "react-router-dom";
 
 import TextField from "@material-ui/core/TextField";
@@ -13,7 +14,8 @@ import Paper from "@material-ui/core/Paper";
 const styles = theme => ({
   background: {
     backgroundImage: `url(${landingPhoto})`,
-    height: "100vh"
+    height: "100vh",
+    backgroundRepeat: "no-repeat"
   },
   paper: {
     marginTop: theme.spacing.unit * 10,
