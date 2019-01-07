@@ -12,7 +12,10 @@ import { cityUrl } from '../utils/api_urls';
 export const getItinerary = (attractions) =>
    new Promise((resolve, reject) => {
       ItineraryPackage.findOne({ attractions })
-         .populate('Attraction')
+         .populate({
+            path: 'attractions',
+            populate: { path: 'city' }
+         })
          .then((itinerary) => {
             if (itinerary) {
                resolve(itinerary);
@@ -22,7 +25,10 @@ export const getItinerary = (attractions) =>
                   .save()
                   .then((itinerary) => {
                      ItineraryPackage.findById(itinerary._id)
-                        .populate('attractions')
+                        .populate({
+                           path: 'attractions',
+                           populate: { path: 'city' }
+                        })
                         .then((itinerary) => {
                            resolve(itinerary);
                         });
