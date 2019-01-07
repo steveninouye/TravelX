@@ -144,7 +144,7 @@ class ScheduleItem extends React.Component {
                   variant="body1"
                   style={styles.description}
                 >
-                  {this.state.details.reviews[0].text}
+                {this.state.details.reviews ? this.state.details.reviews[0].text : 'No reviews available.'}
                 </Typography>
 
                 <div style={styles.ratingContainer}>
