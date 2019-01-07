@@ -9,7 +9,10 @@ import StarRatings from 'react-star-ratings';
 class ScheduleItem extends React.Component {
   componentDidMount() {
     const { getAttractionDetails, attraction } = this.props
-    getAttractionDetails(attraction.reference);
+    getAttractionDetails(attraction.place_id).then(
+      res => console.log(res.data),
+      err => console.log('no data found')
+    );
   };
 
   render() {
@@ -155,8 +158,7 @@ class ScheduleItem extends React.Component {
               <div style={styles.imageContainer}>
               {attraction.photos.photo_reference}
                 <img style={styles.galleryPhoto} src={`api/places/photo/${attraction.photos[0].photo_reference}`} alt=""/>
-              </div>
-            {/* </div> */}
+            </div>
           </ListItem>
         </Card>
 

@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getAttractionDetails: (attractionReferences) => dispatch(getAttractionDetails(attractionReferences)) 
+  getAttractionDetails: (attractionReference) => dispatch(getAttractionDetails(attractionReference)) 
 });
 
 export default connect(
