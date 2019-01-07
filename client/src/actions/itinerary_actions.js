@@ -15,6 +15,6 @@ export const receiveGetItineraryErrors = (errors) => ({
 
 export const getRandCityItinerary = (city) => (dispatch) => {
    ItineraryAjaxUtil.getRandCityItinerary(city)
-      .then((itinerary) => dispatch(receiveCityItinerary(itinerary)))
+      .then((itinerary) => dispatch(receiveCityItinerary(itinerary.data)))
       .catch((err) => dispatch(receiveGetItineraryErrors(err)));
 };
