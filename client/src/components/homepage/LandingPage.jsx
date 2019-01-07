@@ -5,21 +5,22 @@ import ThemeProvider from "../ThemeProvider";
 import LandingPageHero from "./LandingPageHero";
 import LandingPageFeatures from "./LandingPageFeatures";
 import LandingPageAbout from "./LandingPageAbout";
+import LandingPageImageGrid from "./LandingPageImageGrid";
 import NavBar from "../plans/navbar";
 
 class LandingPage extends Component {
   componentDidMount() {
-    document.title = "TravelX"
+    document.title = "TravelX";
   }
-  
+
   render() {
     return (
       <div>
-        <NavBar/>
+        <NavBar />
         <LandingPageHero />
         <LandingPageFeatures />
+        <LandingPageImageGrid />
         <LandingPageAbout />
-        <div>Footer</div>
       </div>
     );
   }

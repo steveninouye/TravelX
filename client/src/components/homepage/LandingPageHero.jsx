@@ -2,18 +2,22 @@ import React from "react";
 
 import { withStyles } from "@material-ui/core/styles";
 
-import landingPhoto from "../../img/backgrounds/city_at_dawn.jpg";
+import landingPhoto from "../../img/backgrounds/mountains.jpeg";
+// import landingPhoto from "../../img/backgrounds/city_at_dawn.jpg";
 import { Link } from "react-router-dom";
 
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
+import getRandCityItinerary from "../../utils/itinerary_ajax_utils";
 
 const styles = theme => ({
   background: {
     backgroundImage: `url(${landingPhoto})`,
-    height: "100vh"
+    height: "100vh",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "-1320px -960px"
   },
   paper: {
     marginTop: theme.spacing.unit * 10,
@@ -33,7 +37,7 @@ const styles = theme => ({
     justifyContent: "center",
     alignItems: "center"
   },
-  headerText: { color: "white" },
+  headerText: { color: theme.palette.primary.main },
   searchContainer: {
     display: "flex",
     justifyContent: "center",
@@ -53,7 +57,7 @@ class LandingPageHero extends React.Component {
     super(props);
 
     this.state = {
-      destination: ""
+      city: ""
     };
   }
 
@@ -61,6 +65,10 @@ class LandingPageHero extends React.Component {
     return event => {
       this.setState({ [name]: event.currentTarget.value });
     };
+  }
+
+  handleSubmit(e) {
+    const city = this.state.city;
   }
 
   render() {
@@ -84,14 +92,14 @@ class LandingPageHero extends React.Component {
             <TextField
               className={this.props.classes.searchInput}
               label="Enter destination city"
-              value={this.state.destination}
-              onChange={this.handleChange("destination")}
+              value={this.state.city}
+              onChange={this.handleChange("city")}
             />
             <Button
               variant="contained"
-              color="primary"
+              color="secondary"
               component={Link}
-              to="/schedule"
+              to="/plans/123"
             >
               See your plan
             </Button>

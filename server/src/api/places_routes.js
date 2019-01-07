@@ -42,7 +42,6 @@ places.get('/attraction/:reference', (req, res) => {
 });
 
 places.get('/photo/:photoRef', (req, res) => {
-   console.log('Hello World!');
    const { photoRef } = req.params;
    savePhoto(req, res, photoRef, true, true);
 });

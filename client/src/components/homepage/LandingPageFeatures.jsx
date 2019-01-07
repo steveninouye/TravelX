@@ -8,45 +8,133 @@ import feature2 from "../../img/features/attraction-icon.png";
 import feature3 from "../../img/features/calendar-icon.png";
 import feature4 from "../../img/features/trip-icon.png";
 
-const LandingPageFeatures = () => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowAltCircleRight,
+  faArrowAltSquareRight,
+  faArrowSquareRight,
+  faArrowRight
+} from "@fortawesome/free-solid-svg-icons";
+
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = theme => ({
+  container: {
+    // background: theme.palette.primary.dark
+  },
+  header: {
+    padding: "30px",
+    paddingBottom: "35px"
+  },
+  featuresContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "75%",
+    margin: "0 auto"
+  },
+  featureElement: {
+    margin: "0 5px"
+  },
+  featureItemContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  featureImage: {
+    width: "130px"
+  },
+  arrowIcon: {
+    fontSize: "45px",
+    color: theme.palette.secondary.main
+  },
+  featureText: {
+    fontSize: "22px"
+  }
+});
+
+const LandingPageFeatures = ({ classes }) => {
   return (
-    <section>
-      <Grid container spacing={16} justify="center">
-        <Grid item>
-          <img src={feature1} alt="" />
-        </Grid>
-        <Grid item>
-          <Typography component="h3" color="textPrimary">
+    <section className={classes.container}>
+      <Typography
+        variant="h2"
+        color="textPrimary"
+        align="center"
+        className={classes.header}
+      >
+        Plan a trip in one click
+      </Typography>
+      <div className={classes.featuresContainer}>
+        <div
+          className={`${classes.featureItemContainer} ${
+            classes.featureElement
+          }`}
+        >
+          <img className={classes.featureImage} src={feature1} alt="" />
+
+          <Typography
+            variant="body1"
+            color="textPrimary"
+            className={`${classes.featureText} ${classes.featureElement}`}
+            align="center"
+          >
             Choose a destination
           </Typography>
-        </Grid>
-        <Grid item>
-          <img src={feature2} alt="" />
-        </Grid>
-        <Grid item>
-          <Typography component="h3" color="textPrimary">
+        </div>
+        <FontAwesomeIcon icon={faArrowRight} className={classes.arrowIcon} />
+        <div
+          className={`${classes.featureItemContainer} ${
+            classes.featureElement
+          }`}
+        >
+          <img className={classes.featureImage} src={feature2} alt="" />
+          <Typography
+            variant="body1"
+            color="textPrimary"
+            className={`${classes.featureText} ${classes.featureElement}`}
+            align="center"
+          >
             Discover exciting attractions
           </Typography>
-        </Grid>
-        <Grid item>
-          <img src={feature3} alt="" />
-        </Grid>
-        <Grid item>
-          <Typography component="h3" color="textPrimary">
+        </div>
+        <FontAwesomeIcon icon={faArrowRight} className={classes.arrowIcon} />
+
+        <div
+          className={`${classes.featureItemContainer} ${
+            classes.featureElement
+          }`}
+        >
+          <img className={classes.featureImage} src={feature3} alt="" />
+          <Typography
+            variant="body1"
+            color="textPrimary"
+            className={`${classes.featureText} ${classes.featureElement}`}
+            align="center"
+          >
             Create a day-by-day plan
           </Typography>
-        </Grid>
-        <Grid item>
-          <img src={feature4} alt="" />
-        </Grid>
-        <Grid item>
-          <Typography component="h3" color="textPrimary">
+        </div>
+        <FontAwesomeIcon icon={faArrowRight} className={classes.arrowIcon} />
+
+        <div
+          className={`${classes.featureItemContainer} ${
+            classes.featureElement
+          }`}
+        >
+          <img className={classes.featureImage} src={feature4} alt="" />
+          <Typography
+            variant="body1"
+            color="textPrimary"
+            className={`${classes.featureText} ${classes.featureElement}`}
+            align="center"
+          >
             Book your trip
           </Typography>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </section>
   );
 };
 
-export default LandingPageFeatures;
+export default withStyles(styles)(LandingPageFeatures);

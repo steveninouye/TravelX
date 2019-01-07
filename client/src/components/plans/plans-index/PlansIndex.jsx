@@ -3,15 +3,13 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 
 // MUI stuff
-import NavBar from "./navbar";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import CardMedia from "@material-ui/core/CardMedia";
+import NavBar from "../navbar";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
+import PlansIndexGrid from "./plans_index_grid"
+import Grid from "@material-ui/core/Grid";
+
 
 const styles = theme => ({
   appBar: {
@@ -55,13 +53,7 @@ const styles = theme => ({
   cardContent: {
     flexGrow: 1
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing.unit * 6
-  }
 });
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 class Plan extends React.Component{
   constructor(props){
@@ -79,6 +71,7 @@ class Plan extends React.Component{
       // REACT FRAGMENT IS WAY BETTER THAN DIV
       <React.Fragment> 
         <NavBar/>
+        {/* Start of header */}
         <article>
           <div>
             <div className={classes.header}>
@@ -103,44 +96,12 @@ class Plan extends React.Component{
               </div>
             </div>
           </div>
+          {/* End of header */}
   
-          <div className={classNames(classes.layout, classes.cardGrid)}>
-            <Grid container spacing={40}>
-              {cards.map(card => (
-                <Grid item key={card} sm={6} md={6} lg={3}>
-                  <Card className={classes.card}>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={require('./machu.jpg')}
-                      title="Image title"
-                    />
-                    <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                      8 days in Cusco
-                      </Typography>
-                      <Typography>
-                       Machu Machu Machu Machu Machu Machu Machu Machu Machu Machu
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        View
-                      </Button>
-                      <Button size="small" color="primary">
-                        Edit
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          </div>
+          {/* Start of the card grid */}
+          <PlansIndexGrid/>
         </article>
-        <footer className={classes.footer}>
-          <Typography variant="h6" align="center" gutterBottom>
-            LinkedIns
-          </Typography>
-        </footer>
+        {/* End of card grid */}
       </React.Fragment>
     );
   }

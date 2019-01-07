@@ -8,14 +8,19 @@ import red from '@material-ui/core/colors/red';
 const rawTheme = createMuiTheme({
   palette: {
     primary: {
-      light: '#69696a',
-      main: '#28282a',
-      dark: '#1e1e1f',
+      light: '#ffffff',
+      main: '#eae7dc',
+      dark: '#b8b5aa',
     },
+    // primary: {
+    //   light: '#69696a',
+    //   main: '#659dbd',
+    //   dark: '#1e1e1f',
+    // },
     secondary: {
-      light: '#fff5f8',
-      main: '#ff3366',
-      dark: '#e62958',
+      light: '#ff8c7b',
+      main: '#e85a4f',
+      dark: '#b02626',
     },
     warning: {
       main: '#ffc071',
@@ -30,6 +35,10 @@ const rawTheme = createMuiTheme({
       xLight: green[50],
       dark: green[700],
     },
+    text: {
+      primary: "#e85a4f",
+      secondary: "#000000"
+    }
   },
   typography: {
     fontFamily: "'Work Sans', sans-serif",
