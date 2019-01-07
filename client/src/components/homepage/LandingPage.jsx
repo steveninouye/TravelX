@@ -9,17 +9,16 @@ import NavBar from "../plans/navbar";
 
 class LandingPage extends Component {
   componentDidMount() {
-    document.title = "TravelX"
+    document.title = "TravelX";
   }
-  
+
   render() {
     return (
       <div>
-        <NavBar/>
+        <NavBar />
         <LandingPageHero />
         <LandingPageFeatures />
         <LandingPageAbout />
-        <div>Footer</div>
       </div>
     );
   }
