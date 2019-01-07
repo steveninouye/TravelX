@@ -9,6 +9,27 @@ import ItineraryPackage from '../../dist/models/ItineraryPackage';
 const itineraries = express.Router();
 
 itineraries.get(
+   '/:id',
+   passport.authenticate('jwt', { session: false }),
+   (req, res) => {
+      const id = req.params;
+      ItineraryPackage.findById(id)
+         .populate({
+            path: 'itinerary_packages',
+            populate: {
+               path: 'attractions',
+               populate: {
+                  path: 'city'
+               }
+            }
+         })
+         .then((itinerary) => {
+            res.send(itinerary);
+         });
+   }
+);
+
+itineraries.get(
    '/',
    passport.authenticate('jwt', { session: false }),
    (req, res) => {
@@ -76,11 +97,9 @@ itineraries.delete(
          })
          .then((user) => {
             user.itinerary_packages.pull(itinerary);
-            user
-               .save()
-               .then((user) => {
-                  res.send(user);
-               });
+            user.save().then((user) => {
+               res.send(user);
+            });
          });
    }
 );
