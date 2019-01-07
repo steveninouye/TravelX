@@ -31,7 +31,7 @@ class ScheduleItem extends React.Component {
       },
       avatar: {
         background: 'white',
-        padding: '10px 0',
+        padding: '10px 10px',
         alignSelf: 'center'
       },
       timingContainer: {
@@ -156,9 +156,8 @@ class ScheduleItem extends React.Component {
               </div>
 
               <div style={styles.imageContainer}>
-              {attraction.photos.photo_reference}
-                <img style={styles.galleryPhoto} src={`api/places/photo/${attraction.photos[0].photo_reference}`} alt=""/>
-            </div>
+                <img style={styles.galleryPhoto} src={attraction.photos ? `api/places/photo/${attraction.photos[0].photo_reference}` : null} alt=""/>
+              </div>
           </ListItem>
         </Card>
 
