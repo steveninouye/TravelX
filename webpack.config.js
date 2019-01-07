@@ -5,7 +5,8 @@ module.exports = {
    entry: './client/src/App.jsx',
    output: {
       path: path.resolve(__dirname, 'client', 'dist'),
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      publicPath: path.resolve('/')
    },
    module: {
       rules: [
@@ -55,6 +56,7 @@ module.exports = {
       compress: true,
       open: true,
       stats: 'errors-only',
+      historyApiFallback: true,
       proxy: [{ context: ['/'], target: 'http://localhost:8080' }]
    }
 };
