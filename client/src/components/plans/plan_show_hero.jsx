@@ -6,7 +6,7 @@ const styles = theme => ({
   background: {
     background: `url("https://cdn.pixabay.com/photo/2016/11/18/19/01/paris-1836415__340.jpg") no-repeat center center fixed`,
     backgroundSize: 'cover',
-    height: "500px"
+    height: "calc(100vh * 0.75)"
   },
   contentContainer: {
     display: "flex",

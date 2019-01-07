@@ -7,6 +7,14 @@ import Avatar from '@material-ui/core/Avatar';
 import StarRatings from 'react-star-ratings';
 
 class ScheduleItem extends React.Component {
+  componentDidMount() {
+    const { getAttractionDetails, attraction } = this.props
+    getAttractionDetails(attraction.place_id).then(
+      res => console.log(res.data),
+      err => console.log('no data found')
+    );
+  };
+
   render() {
     const { attraction } = this.props;
 
@@ -14,7 +22,7 @@ class ScheduleItem extends React.Component {
       listItem: {
         display: 'flex',
         justifyContent: 'space-evenly',
-        padding: '32px 100px',
+        padding: '32px 10%',
       },
       iconContainer: { 
         display: 'flex', 
@@ -148,9 +156,9 @@ class ScheduleItem extends React.Component {
               </div>
 
               <div style={styles.imageContainer}>
-                <img style={styles.galleryPhoto} src="https://media-cdn.tripadvisor.com/media/photo-s/12/f5/f1/8d/eiffel-tower-summit-priority.jpg" alt=""/>
-              </div>
-            {/* </div> */}
+              {attraction.photos.photo_reference}
+                <img style={styles.galleryPhoto} src={`api/places/photo/${attraction.photos[0].photo_reference}`} alt=""/>
+            </div>
           </ListItem>
         </Card>
 
