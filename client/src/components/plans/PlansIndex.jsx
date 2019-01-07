@@ -3,14 +3,13 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 
 // MUI stuff
-import AppBar from "@material-ui/core/AppBar";
+import NavBar from "./navbar";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -70,19 +69,7 @@ function Plan(props) {
   return (
     // REACT FRAGMENT IS WAY BETTER THAN DIV
     <React.Fragment> 
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar className={classes.toolBar}>
-          <Button color="inherit">
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              TravelX
-            </Typography>
-          </Button>
-          <div>
-            <Button color="inherit">My Plans</Button>
-            <Button color="inherit">Logout</Button>
-          </div>
-        </Toolbar>
-      </AppBar>
+      <NavBar/>
       <article>
         <div>
           <div className={classes.header}>
