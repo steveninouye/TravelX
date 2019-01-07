@@ -12,13 +12,10 @@ itineraries.get("/:id", (req, res) => {
   const { id } = req.params;
   ItineraryPackage.findById(id)
     .populate({
-      path: "itinerary_packages",
-      populate: {
         path: "attractions",
         populate: {
           path: "city"
         }
-      }
     })
     .then(itinerary => {
       res.send(itinerary);
