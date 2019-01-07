@@ -58,4 +58,32 @@ itineraries.post(
    }
 );
 
+itineraries.delete(
+   '/',
+   passport.authenticate('jwt', { session: false }),
+   (req, res) => {
+      const { _id } = req.user;
+      const { itinerary } = req.body;
+      User.findById(_id)
+         .populate({
+            path: 'itinerary_packages',
+            populate: {
+               path: 'attractions',
+               populate: {
+                  path: 'city'
+               }
+            }
+         })
+         .then((user) => {
+            user.itinerary_packages.pull(itinerary);
+            user
+               .save()
+
+               .then((user) => {
+                  res.send(user);
+               });
+         });
+   }
+);
+
 export default itineraries;
