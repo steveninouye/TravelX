@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import HelloWorld from "./homepage/HelloWorld";
 import LandingPage from "./homepage/LandingPage";
 import PlanShowContainer from "./plans/plan_show_container";
 import ItinerarySchedule from "./itinerary-schedule/ItinerarySchedule";
