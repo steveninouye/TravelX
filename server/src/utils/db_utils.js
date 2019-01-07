@@ -1,27 +1,41 @@
 import fs from 'fs';
 import { resolve } from 'path';
-import http from 'http';
 import request from 'request';
 import rp from 'request-promise';
 
 import { googleApi } from '../config/keys';
+import City from '../models/City';
 import Attraction from '../models/Attraction';
 import ItineraryPackage from '../models/ItineraryPackage';
-import City from '../models/City';
 import { cityUrl } from '../utils/api_urls';
 
 export const getItinerary = (attractions) =>
    new Promise((resolve, reject) => {
-      //////// NEED TO INPUT SEARCH ITINERARY
-      Itinerary.findOne({})
+      ItineraryPackage.findOne({ attractions })
+         .populate({
+            path: 'attractions',
+            populate: { path: 'city' }
+         })
          .then((itinerary) => {
             if (itinerary) {
                resolve(itinerary);
             } else {
                const newItinerary = new ItineraryPackage({ attractions });
-               newItinerary.save().then((itinerary) => {
-                  resolve(itinerary);
-               });
+               newItinerary
+                  .save()
+                  .then((itinerary) => {
+                     ItineraryPackage.findById(itinerary._id)
+                        .populate({
+                           path: 'attractions',
+                           populate: { path: 'city' }
+                        })
+                        .then((itinerary) => {
+                           resolve(itinerary);
+                        });
+                  })
+                  .catch((err) => {
+                     resolve(err);
+                  });
             }
          })
          .catch((err) => reject(err));
@@ -48,7 +62,7 @@ export const requestCityAttractions = (url, city, resolve, reject) => {
       .then((json1) => {
          let { results, next_page_token } = JSON.parse(json1);
          const attractions = results.map((attraction) => {
-            attraction.city_id = city.id;
+            attraction.city = city._id;
             return attraction;
          });
          Attraction.create(attractions).then((attractions) => {
@@ -56,7 +70,7 @@ export const requestCityAttractions = (url, city, resolve, reject) => {
                rp(`${url}&pagetoken=${next_page_token}`).then((json2) => {
                   let { results, next_page_token } = JSON.parse(json2);
                   const attractions = results.map((attraction) => {
-                     attraction.city_id = city.id;
+                     attraction.city = city._id;
                      return attraction;
                   });
                   Attraction.create(attractions).then(() => {
@@ -65,7 +79,7 @@ export const requestCityAttractions = (url, city, resolve, reject) => {
                            (json2) => {
                               let { results } = JSON.parse(json2);
                               const attractions = results.map((attraction) => {
-                                 attraction.city_id = city.id;
+                                 attraction.city = city._id;
                                  return attraction;
                               });
                               Attraction.create(attractions)
@@ -90,7 +104,7 @@ export const getCityAttractions = (cityName) =>
       let url = cityUrl(cityName);
       getCity(cityName).then(({ city, isFound }) => {
          if (isFound) {
-            Attraction.find({ city_id: city.id })
+            Attraction.find({ city: city._id })
                .then((attractions) => {
                   resolve(attractions);
                })
@@ -111,10 +125,8 @@ export const savePhoto = (
    errorResponseBoolean
 ) => {
    const filePath = resolve(__dirname, `../img/${photoRef}.jpg`);
-   console.log(filePath);
    if (fs.existsSync(filePath)) {
-      console.log('Hello World again!');
-      res.sendFile(filePath);
+      if (fileResponseBoolean) res.sendFile(filePath);
    } else {
       const file = fs.createWriteStream(filePath);
       const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
