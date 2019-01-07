@@ -87,7 +87,7 @@ const LandingPageAbout = ({ classes }) => {
               align="center"
               className={classes.teamName}
             >
-              Taran Cachaco
+              Taran Cacacho
             </Typography>
           </div>
           <div className={classes.teamFeatureContainer}>
