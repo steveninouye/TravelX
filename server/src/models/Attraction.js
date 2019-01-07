@@ -7,13 +7,13 @@ const AttractionsSchema = new Schema({
    geometry: { type: Schema.Types.Mixed },
    name: { type: Schema.Types.Mixed },
    photos: { type: Schema.Types.Mixed },
-   place_id: { type: Schema.Types.Mixed, unique: true, index: true },
+   place_id: { type: Schema.Types.Mixed },
    plus_code: { type: Schema.Types.Mixed },
    rating: { type: Schema.Types.Mixed },
    referenence: { type: Schema.Types.Mixed },
    types: { type: Schema.Types.Mixed },
-   city_id: { type: Schema.Types.Mixed }
+   city: { type: Schema.Types.ObjectId, ref: 'cities' }
 });
 
-const Attractions = mongoose.model('attractions', AttractionsSchema);
-export default Attractions;
+const Attraction = mongoose.model('attractions', AttractionsSchema);
+export default Attraction;

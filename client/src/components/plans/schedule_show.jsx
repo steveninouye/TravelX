@@ -9,7 +9,7 @@ export default class ScheduleShow extends React.Component {
     ));
 
     return (
-      <List style={this.props.style}>
+      <List>
         {scheduleItems}
       </List>
     );

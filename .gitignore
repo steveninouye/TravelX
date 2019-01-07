@@ -5,3 +5,4 @@ server/dist/
 temp*
 TEMP*
 .DS_Store
+.package-lock.json
