@@ -148,7 +148,8 @@ class ScheduleItem extends React.Component {
               </div>
 
               <div style={styles.imageContainer}>
-                <img style={styles.galleryPhoto} src="https://media-cdn.tripadvisor.com/media/photo-s/12/f5/f1/8d/eiffel-tower-summit-priority.jpg" alt=""/>
+              {attraction.photos.photo_reference}
+                <img style={styles.galleryPhoto} src={`api/places/photo/${attraction.photos[0].photo_reference}`} alt=""/>
               </div>
             {/* </div> */}
           </ListItem>
