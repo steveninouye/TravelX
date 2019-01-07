@@ -16,7 +16,13 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   appBar: {
-    position: "absolute"
+    position: "absolute",
+  },
+  toolBar: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-between'
   },
   header: {
     maxWidth: 600,
@@ -65,7 +71,17 @@ function Plan(props) {
     // REACT FRAGMENT IS WAY BETTER THAN DIV
     <React.Fragment> 
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar></Toolbar>
+        <Toolbar className={classes.toolBar}>
+          <Button color="inherit">
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              TravelX
+            </Typography>
+          </Button>
+          <div>
+            <Button color="inherit">My Plans</Button>
+            <Button color="inherit">Logout</Button>
+          </div>
+        </Toolbar>
       </AppBar>
       <article>
         <div>
