@@ -26,7 +26,6 @@ places.post('/city', (req, res) => {
          });
       })
       .catch((err) => {
-         console.log(err);
          res.status(500).json('Googe API could not be reached');
       });
 });
@@ -39,7 +38,6 @@ places.get('/attraction/:reference', (req, res) => {
          res.json(attraction);
       })
       .catch((err) => {
-         console.log(err);
          res.status(500).json('Google API could not be reached');
       });
 });
