@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 import { logout } from '../../actions/session_actions';
+import { openModal } from '../../actions/modal_actions';
+import LoginFormContainer from '../session/login_form_container';
 
 const styles = (theme) => ({
    appBar: {
@@ -26,12 +28,17 @@ const styles = (theme) => ({
 const NavBar = (props) => {
    const { classes, isLoggedIn } = props;
    const button = isLoggedIn ? (
-      <Button color="inherit">Logout</Button>
+      <Button color="inherit" onClick={props.logout}>
+         Logout
+      </Button>
    ) : (
-      <Button color="inherit">Log In</Button>
+      <Button color="inherit" onClick={() => props.openModal('login')}>
+         Log In
+      </Button>
    );
    return (
       <React.Fragment>
+         <LoginFormContainer />
          <AppBar position="fixed" className={classes.appBar}>
             <Toolbar className={classes.toolBar}>
                <Button color="inherit">
@@ -47,7 +54,8 @@ const NavBar = (props) => {
                   <Link to="/plans">
                      <Button color="inherit">My Plans</Button>
                   </Link>
-                  <Button color="inherit">Logout</Button>
+                  {button}
+                  {/* <Button color="inherit">Logout</Button> */}
                </div>
             </Toolbar>
          </AppBar>
@@ -67,6 +75,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
+      openModal: (modal) => dispatch(openModal(modal)),
       logout: () => {
          dispatch(logout());
       }
