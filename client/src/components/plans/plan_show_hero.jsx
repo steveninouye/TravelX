@@ -41,7 +41,7 @@ class PlanShowHero extends React.Component {
         {`${this.props.city.photos[0]}`}
         <div className={this.props.classes.contentContainer}>
           <div className={this.props.classes.headerContainer}>
-            <Typography
+            <Typography color="textPrimary"
               className={this.props.classes.headerText}
               component="h3"
               variant="h1"

@@ -28,7 +28,7 @@ class AttractionRating extends Component {
           starSpacing="5px"
         />
 
-        <Typography className={classes.rating}>{attraction.rating}</Typography>
+        <Typography color="textPrimary" className={classes.rating}>{attraction.rating}</Typography>
       </div>
     );
   }

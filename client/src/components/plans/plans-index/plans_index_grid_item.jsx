@@ -33,10 +33,10 @@ class GridCard extends React.Component {
         <Card className={classes.card}>
         <CardMedia className={classes.cardMedia} image={`${plan.attractions[0].city.photos[0]}`} title="Image title" />
           <CardContent className={classes.cardContent}>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography color="textPrimary" gutterBottom variant="h5" component="h2">
               8 days in Cusco
             </Typography>
-            <Typography>
+            <Typography color="textPrimary">
               Machu Picchu, one of the New 7 Wonders of the World, is a
               hidden gem that is the pride of Peru. Nestled within the
               Urubamba River valley, it houses what once was a bustling

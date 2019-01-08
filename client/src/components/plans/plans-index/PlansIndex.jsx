@@ -83,7 +83,7 @@ class Plan extends React.Component{
         <article>
           <div>
             <div className={classes.header}>
-              <Typography
+              <Typography color="textPrimary"
                 component="h1"
                 variant="h2"
                 align="center"
