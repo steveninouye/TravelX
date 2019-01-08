@@ -4,7 +4,6 @@ import ListItem from "@material-ui/core/ListItem";
 import Typography from "@material-ui/core/Typography";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
-// import StarRatings from "react-star-ratings";
 import AttractionRating from "./AttractionRating";
 
 class ScheduleItem extends React.Component {
@@ -13,7 +12,7 @@ class ScheduleItem extends React.Component {
 
     this.state = {
       details: {
-        reviews: [{ text: "" }]
+        reviews: [{ text: "", rating: 0 }]
       }
     };
   }
@@ -26,8 +25,21 @@ class ScheduleItem extends React.Component {
     );
   }
 
+  selectBestReview() {
+    const { details } = this.state;
+
+    if (!details) {
+      return "No reviews available."
+    } else {
+      const filteredReviews = details.reviews.filter(
+        review => review.rating === 5 && review.text.length > 300
+      );
+
+      return filteredReviews.length > 0 ? filteredReviews[0].text : "No reviews available."
+    }
+  }
+
   render() {
-    console.log(this.state);
     const { attraction } = this.props;
 
     const styles = {
@@ -50,7 +62,8 @@ class ScheduleItem extends React.Component {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        marginBottom: "20px"
+        marginBottom: "20px",
+        width: '100px'
       },
       dayofWeek: {
         fontSize: "18px",
@@ -64,10 +77,10 @@ class ScheduleItem extends React.Component {
       },
       infoContainer: {
         height: "220px",
-        minWidth: "500px",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
+        flexGrow: 1,
         justifyContent: "space-between",
         padding: "0 60px 20px 60px"
       },
@@ -79,7 +92,13 @@ class ScheduleItem extends React.Component {
         fontWeight: "300",
         overflow: "hidden",
         textOverflow: "ellipsis",
-        padding: "10px 0"
+        padding: "20px 0"
+      },
+      textFade: {
+        width: '100%',
+        minHeight: '30px',
+        marginTop: '-40px',
+        background: 'linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1))'
       },
       imageContainer: {
         height: "220px",
@@ -91,7 +110,6 @@ class ScheduleItem extends React.Component {
         height: "220px",
         width: "300px"
       },
-
       divider: {
         height: "30px",
         width: "1px",
@@ -103,16 +121,6 @@ class ScheduleItem extends React.Component {
       }
     };
 
-    const dow = [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ];
-    console.log(attraction);
     return (
       <>
         <Card raised>
@@ -120,10 +128,12 @@ class ScheduleItem extends React.Component {
             <div style={styles.iconContainer}>
               <div style={styles.timingContainer}>
                 <Typography style={styles.dayofWeek}>
-                  {dow[Math.floor(Math.random() * dow.length)]}
+                  {this.props.block.dow}
                 </Typography>
 
-                <Typography style={styles.timeOfDay}>10a-12p</Typography>
+                <Typography style={styles.timeOfDay}>
+                  {this.props.block.time}
+                </Typography>
               </div>
 
               <ListItemAvatar style={styles.avatar}>
@@ -142,25 +152,12 @@ class ScheduleItem extends React.Component {
                 variant="body1"
                 style={styles.description}
               >
-                {this.state.details.reviews
-                  ? this.state.details.reviews[0].text
-                  : "No reviews available."}
+                {this.selectBestReview()}
               </Typography>
 
-              <AttractionRating attraction={attraction} />
-              {/* <div style={styles.ratingContainer}>
-                  <StarRatings
-                    rating={attraction.rating}
-                    starRatedColor="black"
-                    numberOfStars={5}
-                    starDimension="30px"
-                    starSpacing="5px"
-                  />
+              <div style={styles.textFade}></div>
 
-                  <Typography style={styles.rating}>
-                    {attraction.rating}
-                  </Typography>
-                </div>   */}
+              <AttractionRating attraction={attraction} />
             </div>
 
             <div style={styles.imageContainer}>
