@@ -62,7 +62,8 @@ class ScheduleItem extends React.Component {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        marginBottom: "20px"
+        marginBottom: "20px",
+        width: '100px'
       },
       dayofWeek: {
         fontSize: "18px",
@@ -76,10 +77,10 @@ class ScheduleItem extends React.Component {
       },
       infoContainer: {
         height: "220px",
-        minWidth: "500px",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
+        flexGrow: 1,
         justifyContent: "space-between",
         padding: "0 60px 20px 60px"
       },
@@ -91,7 +92,13 @@ class ScheduleItem extends React.Component {
         fontWeight: "300",
         overflow: "hidden",
         textOverflow: "ellipsis",
-        padding: "10px 0"
+        padding: "20px 0"
+      },
+      textFade: {
+        width: '100%',
+        minHeight: '30px',
+        marginTop: '-40px',
+        background: 'linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1))'
       },
       imageContainer: {
         height: "220px",
@@ -103,7 +110,6 @@ class ScheduleItem extends React.Component {
         height: "220px",
         width: "300px"
       },
-
       divider: {
         height: "30px",
         width: "1px",
@@ -148,6 +154,8 @@ class ScheduleItem extends React.Component {
               >
                 {this.selectBestReview()}
               </Typography>
+
+              <div style={styles.textFade}></div>
 
               <AttractionRating attraction={attraction} />
             </div>

@@ -20,7 +20,7 @@ export default class PlanShow extends React.Component {
       this.props.history.push(`/plans/${res.itinerary._id}`)
     );
 
-    document.title = `TravelX | ${city.name}`;
+    document.title = `TravelX | Discover Your World`;
   }
 
   render() {
