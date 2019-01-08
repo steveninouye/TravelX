@@ -58,10 +58,16 @@ const styles = theme => ({
 class Plan extends React.Component{
   constructor(props){
     super(props)
+
+    this.handleRedirectToSplash = this.handleRedirectToSplash.bind(this);
   }
 
   componentDidMount() {
     document.title = "TravelX | My Plans"
+  }
+
+  handleRedirectToSplash() {
+    this.props.history.push('/');
   }
   
   render() {
@@ -88,7 +94,7 @@ class Plan extends React.Component{
               <div className={classes.CreateNewPlanButton}>
                 <Grid container spacing={16} justify="center">
                   <Grid item>
-                    <Button variant="contained" color="primary">
+                    <Button onClick={this.handleRedirectToSplash} variant="contained" color="primary">
                       Create a New Plan
                     </Button>
                   </Grid>
