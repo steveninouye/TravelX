@@ -50,7 +50,7 @@ const styles = theme => ({
   },
   arrowIcon: {
     fontSize: "45px",
-    color: theme.palette.secondary.main
+    color: theme.palette.primary.main
   },
   featureText: {
     fontSize: "22px"
@@ -60,9 +60,9 @@ const styles = theme => ({
 const LandingPageFeatures = ({ classes }) => {
   return (
     <section className={classes.container}>
-      <Typography color="textPrimary"
+      <Typography
+        color="primary"
         variant="h2"
-        color="textPrimary"
         align="center"
         className={classes.header}
       >
@@ -76,9 +76,9 @@ const LandingPageFeatures = ({ classes }) => {
         >
           <img className={classes.featureImage} src={feature1} alt="" />
 
-          <Typography color="textPrimary"
+          <Typography
             variant="body1"
-            color="textPrimary"
+            color="primary"
             className={`${classes.featureText} ${classes.featureElement}`}
             align="center"
           >
@@ -92,9 +92,9 @@ const LandingPageFeatures = ({ classes }) => {
           }`}
         >
           <img className={classes.featureImage} src={feature2} alt="" />
-          <Typography color="textPrimary"
+          <Typography
+            color="primary"
             variant="body1"
-            color="textPrimary"
             className={`${classes.featureText} ${classes.featureElement}`}
             align="center"
           >
@@ -109,9 +109,9 @@ const LandingPageFeatures = ({ classes }) => {
           }`}
         >
           <img className={classes.featureImage} src={feature3} alt="" />
-          <Typography color="textPrimary"
+          <Typography
+            color="primary"
             variant="body1"
-            color="textPrimary"
             className={`${classes.featureText} ${classes.featureElement}`}
             align="center"
           >
@@ -126,9 +126,9 @@ const LandingPageFeatures = ({ classes }) => {
           }`}
         >
           <img className={classes.featureImage} src={feature4} alt="" />
-          <Typography color="textPrimary"
+          <Typography
+            color="primary"
             variant="body1"
-            color="textPrimary"
             className={`${classes.featureText} ${classes.featureElement}`}
             align="center"
           >
