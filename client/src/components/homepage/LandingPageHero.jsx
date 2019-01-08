@@ -43,9 +43,9 @@ const styles = theme => ({
   },
   headerText: { color: theme.palette.common.black },
   mainHeader: {
-    fontSize: "92px",
+    fontSize: "100px",
     letterSpacing: "23px",
-    paddingLeft: "15px"
+    paddingLeft: "16px"
   },
   tagline: {
     fontSize: "48px",
@@ -111,7 +111,8 @@ class LandingPageHero extends React.Component {
         {/* <Paper elevation={1} className={this.props.classes.paper}> */}
         <div className={this.props.classes.contentContainer}>
           <div className={this.props.classes.headerContainer}>
-            <Typography color="textPrimary"
+            <Typography
+              color="textPrimary"
               className={`${this.props.classes.headerText} ${
                 this.props.classes.mainHeader
               }`}
@@ -120,7 +121,8 @@ class LandingPageHero extends React.Component {
             >
               TravelX
             </Typography>
-            <Typography color="textPrimary"
+            <Typography
+              color="textPrimary"
               className={`${this.props.classes.headerText} ${
                 this.props.classes.tagline
               }`}
