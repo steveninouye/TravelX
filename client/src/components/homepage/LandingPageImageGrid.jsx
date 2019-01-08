@@ -88,7 +88,6 @@ const styles = theme => ({
 
 let searchCity = (getRandCityItinerary, city, history) => {
   const that = this;
-  debugger;
   getRandCityItinerary(city).then(res => {
     history.push(`/plans/${res.itinerary._id}`);
   });

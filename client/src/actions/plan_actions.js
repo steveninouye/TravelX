@@ -20,7 +20,6 @@ export const fetchPlan = (city) => (dispatch) => {
   getRandCityItinerary(city)
     .then(plan => {
       console.log(plan)
-      debugger
       dispatch(receivePlan(plan));
     })
     .catch(err => console.log(err));
