@@ -5,15 +5,16 @@ import { closeModal } from "../../actions/modal_actions";
 import AuthModal from "./auth_modal";
 
 const mapStateToProps = (state) => ({
-  errors: state.errors.session,
-  open: !!state.ui.modal
+   session: state.session,
+   errors: state.errors.session,
+   open: !!state.ui.modal
 });
 
-const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(login(user)),
-  signup: user => dispatch(signup(user)),
-  clearErrors: () => dispatch(clearErrors()),
-  closeModal: () => dispatch(closeModal())
+const mapDispatchToProps = (dispatch) => ({
+   login: (user) => dispatch(login(user)),
+   signup: (user) => dispatch(signup(user)),
+   clearErrors: () => dispatch(clearErrors()),
+   closeModal: () => dispatch(closeModal())
 });
 
 export default withRouter(connect(
