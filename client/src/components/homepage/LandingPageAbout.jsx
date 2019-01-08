@@ -50,7 +50,8 @@ const LandingPageAbout = ({ classes }) => {
   return (
     <section className={classes.sectionContainer}>
       <div className={classes.contentContainer}>
-        <Typography color="textPrimary"
+        <Typography
+          color="primary"
           variant="h2"
           gutterBottom
           align="center"
@@ -61,7 +62,8 @@ const LandingPageAbout = ({ classes }) => {
         <div className={classes.teamPhotosContainer}>
           <div className={classes.teamFeatureContainer}>
             <img className={classes.teamPhoto} src={team1} alt="" />
-            <Typography color="textPrimary"
+            <Typography
+              color="primary"
               variant="body1"
               gutterBottom
               align="center"
@@ -72,7 +74,8 @@ const LandingPageAbout = ({ classes }) => {
           </div>
           <div className={classes.teamFeatureContainer}>
             <img className={classes.teamPhoto} src={team2} alt="" />
-            <Typography color="textPrimary"
+            <Typography
+              color="primary"
               variant="body1"
               gutterBottom
               align="center"
@@ -83,7 +86,8 @@ const LandingPageAbout = ({ classes }) => {
           </div>
           <div className={classes.teamFeatureContainer}>
             <img className={classes.teamPhoto} src={team3} alt="" />
-            <Typography color="textPrimary"
+            <Typography
+              color="primary"
               variant="body1"
               gutterBottom
               align="center"
@@ -94,7 +98,8 @@ const LandingPageAbout = ({ classes }) => {
           </div>
           <div className={classes.teamFeatureContainer}>
             <img className={classes.teamPhoto} src={team4} alt="" />
-            <Typography color="textPrimary"
+            <Typography
+              color="primary"
               variant="body1"
               gutterBottom
               align="center"
@@ -104,7 +109,8 @@ const LandingPageAbout = ({ classes }) => {
             </Typography>
           </div>
         </div>
-        <Typography color="textPrimary"
+        <Typography
+          color="primaryText"
           variant="body1"
           gutterBottom
           align="center"
