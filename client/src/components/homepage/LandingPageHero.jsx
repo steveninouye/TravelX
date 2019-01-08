@@ -14,10 +14,13 @@ import getRandCityItinerary from "../../utils/itinerary_ajax_utils";
 
 const styles = theme => ({
   background: {
-    backgroundImage: `url(${landingPhoto})`,
-    height: "100vh",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "-1320px -960px"
+    // backgroundImage: `url(${landingPhoto})`,
+    // height: "100vh",
+    // backgroundRepeat: "no-repeat",
+    // backgroundPosition: "-1320px -960px"
+    background: `url(${landingPhoto}) no-repeat center center fixed`,
+    backgroundSize: 'cover',
+    height: '100vh'
   },
   paper: {
     marginTop: theme.spacing.unit * 10,
