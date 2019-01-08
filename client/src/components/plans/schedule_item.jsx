@@ -4,7 +4,6 @@ import ListItem from "@material-ui/core/ListItem";
 import Typography from "@material-ui/core/Typography";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
-// import StarRatings from "react-star-ratings";
 import AttractionRating from "./AttractionRating";
 
 class ScheduleItem extends React.Component {
@@ -26,8 +25,21 @@ class ScheduleItem extends React.Component {
     );
   }
 
+  selectBestReview() {
+    const { details } = this.state;
+
+    if (!details) {
+      return "No reviews available."
+    } else {
+      const filteredReviews = details.reviews.filter(
+        review => review.rating === 5 && review.text.length > 450
+      );
+
+      return filteredReviews.length > 0 ? filteredReviews[0] : "No reviews available."
+    }
+  }
+
   render() {
-    console.log(this.state);
     const { attraction } = this.props;
 
     const styles = {
