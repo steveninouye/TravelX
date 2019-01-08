@@ -49,7 +49,6 @@ class PlanShowNavBar extends React.Component {
 
     this.state = {
       value: 0,
-      modal: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -67,7 +66,6 @@ class PlanShowNavBar extends React.Component {
     if (session) {
       saveItinerary(planId).then(history.push('/plans'))
     } else {
-      console.log("not logged in");
       openModal("login");
     }
   }
@@ -90,16 +88,23 @@ class PlanShowNavBar extends React.Component {
       <div className={classes.root}>
         <LoginFormContainer saveCallback={saveCallback}/>
 
-        <AppBar position="sticky">
+        <AppBar 
+          position="sticky"
+          color="secondary"
+        >
           <Toolbar className={classes.toolbar}>
-            <Tabs value={value} onChange={this.handleChange}>
+            <Tabs 
+              value={value} 
+              onChange={this.handleChange}
+              indicatorColor="primary"
+            >
               <Tab label="Schedule" />
               <Tab label="Map" />
             </Tabs>
             <Toolbar className={classes.buttonContainer}>
               <Button
                 onClick={this.handleSaveClick}
-                color="secondary"
+                color="primary"
                 variant="contained"
                 className={classes.button}
               >
@@ -107,7 +112,7 @@ class PlanShowNavBar extends React.Component {
               </Button>
               <Button
                 onClick={this.handleNewPlan}
-                color="secondary"
+                color="primary"
                 variant="contained"
                 className={classes.button}
               >

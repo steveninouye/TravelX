@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import ThemeProvider from "../ThemeProvider";
 import { withRouter } from "react-router-dom"
 import PlanShowNavBar from "./plan_show_nav_bar";
 import { openModal } from '../../actions/modal_actions';
@@ -23,7 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
   saveItinerary: (id) => dispatch(saveItinerary(id))
 });
 
-export default withRouter(connect(
+export default ThemeProvider(withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(PlanShowNavBar));
+)(PlanShowNavBar)));
