@@ -40,6 +40,6 @@ export const getItineraries = () => (dispatch) => {
 
 export const saveItinerary = (id) => (dispatch) => {
   return ItineraryAjaxUtil.saveItinerary(id)
-    .then(itinerary => dispatch(receiveItinerary(itinerary.data)))
+    .then(itinerary => dispatch(receiveCityItinerary(itinerary.data)))
     .catch(err => dispatch(receiveGetItineraryErrors(err)))
 }

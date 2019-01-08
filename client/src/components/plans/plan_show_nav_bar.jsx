@@ -62,12 +62,14 @@ class PlanShowNavBar extends React.Component {
   }
 
   handleSaveClick() {
-    if (this.props.session) {
-      console.log("save plan to user");
+    const { session, saveItinerary, openModal, planId, history } = this.props;
+
+    if (session) {
+      console.log('-------------------------', planId)
+      saveItinerary(planId).then(history.push('/plans'))
     } else {
       console.log("not logged in");
-      this.props.openModal("login");
-      console.log(this.state);
+      openModal("login");
     }
   }
 
