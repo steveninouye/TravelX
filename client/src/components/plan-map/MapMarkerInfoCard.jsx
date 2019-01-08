@@ -16,7 +16,7 @@ import AttractionRating from "../plans/AttractionRating";
 
 const styles = theme => ({
   infoCard: {
-    width: "600px",
+    width: "700px",
     position: "relative",
     bottom: "170px",
     left: "70px"
@@ -25,12 +25,12 @@ const styles = theme => ({
   },
   closeButton: {
     position: "relative",
-    bottom: "-5px",
-    left: "89%",
+    bottom: "-10px",
+    left: "95%",
     padding: "0px"
   },
   photo: {
-    width: "50%",
+    // width: "50%",
     objectFit: "none"
   },
   container: {
@@ -54,6 +54,11 @@ const MapMarkerInfoCard = ({ attraction, classes, closeHandler }) => {
 
   const { name } = attraction;
 
+  let imgSrc = "";
+  try {
+    imgSrc = `api/places/photo/${attraction.photos[0].photo_reference}`;
+  } catch {}
+
   return (
     <Card lat={lat} lng={lng} className={classes.infoCard} raised>
       {/* <CardHeader
@@ -69,7 +74,7 @@ const MapMarkerInfoCard = ({ attraction, classes, closeHandler }) => {
       <div className={classes.container}>
         <div className={classes.imgContainer}>
           <img
-            src={`api/places/photo/${attraction.photos[0].photo_reference}`}
+            src={imgSrc}
             title="attraction photo"
             className={classes.photo}
           />
