@@ -5,3 +5,6 @@ export const getRandCityItinerary = (city) =>
 
 export const getItinerary = (id) => 
    axios.get(`/api/itineraries/${id}`);
+
+  export const getItineraries = () =>
+    axios.get('/api/itineraries');
