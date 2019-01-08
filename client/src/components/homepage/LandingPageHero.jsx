@@ -43,7 +43,9 @@ const styles = theme => ({
   },
   headerText: { color: theme.palette.common.black },
   mainHeader: {
-    fontSize: "92px"
+    fontSize: "92px",
+    letterSpacing: "23px",
+    paddingLeft: "15px"
   },
   tagline: {
     fontSize: "48px",
