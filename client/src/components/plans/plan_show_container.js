@@ -9,6 +9,7 @@ import PlanShow from "./plan_show";
 import {
   selectCity
 } from "../../reducers/selectors";
+import ThemeProvider from "../ThemeProvider";
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -26,7 +27,7 @@ const mapDispatchToProps = dispatch => ({
   getItinerary: (id) => dispatch(getItinerary(id))
 });
 
-export default connect(
+export default ThemeProvider(connect(
   mapStateToProps,
   mapDispatchToProps
-)(PlanShow);
+)(PlanShow));
