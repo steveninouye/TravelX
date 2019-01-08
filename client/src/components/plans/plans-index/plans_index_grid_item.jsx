@@ -27,25 +27,21 @@ class GridCard extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    // const { classes, plan.attractions[0].city.photos[0] } = this.props;
     
-    return (
-      <React.Fragment>
+    return <React.Fragment>
         <Card className={classes.card}>
-          <CardMedia
-            className={classes.cardMedia}
-            image={require('./machu.jpg')}
-            title="Image title"
-          />
+        <CardMedia className={classes.cardMedia} image={`${plan.attractions[0].city.photos[0]}`} title="Image title" />
           <CardContent className={classes.cardContent}>
             <Typography gutterBottom variant="h5" component="h2">
               8 days in Cusco
             </Typography>
             <Typography>
               Machu Picchu, one of the New 7 Wonders of the World, is a
-              hidden gem that is the pride of Peru. Nestled within the Urubamba
-              River valley, it houses what once was a bustling center of royal
-              and religious activity of the famed Incan Empire.            
+              hidden gem that is the pride of Peru. Nestled within the
+              Urubamba River valley, it houses what once was a bustling
+              center of royal and religious activity of the famed Incan
+              Empire.
             </Typography>
           </CardContent>
           <CardActions>
@@ -57,9 +53,11 @@ class GridCard extends React.Component {
             </Button>
           </CardActions>
         </Card>
-      </React.Fragment>
-    );
+      </React.Fragment>;
   }
 }
 
 export default withStyles(styles)(GridCard);
+// Get request api/itineraries
+// Make a POST request to
+// Whoever's logged in 
