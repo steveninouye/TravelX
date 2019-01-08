@@ -127,7 +127,6 @@ class PlanMap extends Component {
     // if (!this.state.center) {
     const { center, zoom } = this.fitMapToMarkers();
 
-    debugger;
     return (
       <div style={{ height: "100vh", width: "100%" }}>
         <GoogleMapReact
