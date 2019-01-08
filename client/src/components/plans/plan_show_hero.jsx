@@ -4,9 +4,10 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
   background: {
-    background: `url("https://cdn.pixabay.com/photo/2016/11/18/19/01/paris-1836415__340.jpg") no-repeat center center fixed`,
-    backgroundSize: 'cover',
-    height: "calc(100vh * 0.75)"
+    background: `no-repeat center center fixed`,
+    backgroundSize: "cover",
+    // height: "calc(100vh * 0.75)",
+    height: "600px"
   },
   contentContainer: {
     display: "flex",
@@ -20,7 +21,7 @@ const styles = theme => ({
     justifyContent: "center",
     alignItems: "center"
   },
-  headerText: { 
+  headerText: {
     color: "white",
     textTransform: "uppercase",
     fontWeight: "300"
@@ -30,7 +31,15 @@ const styles = theme => ({
 class PlanShowHero extends React.Component {
   render() {
     return (
-      <section className={this.props.classes.background}>
+      <section
+        className={this.props.classes.background}
+        style={{
+          background: `url(${
+            this.props.city.photos[0]
+          }) no-repeat center center fixed`
+        }}
+      >
+        {`${this.props.city.photos[0]}`}
         <div className={this.props.classes.contentContainer}>
           <div className={this.props.classes.headerContainer}>
             <Typography
@@ -38,7 +47,7 @@ class PlanShowHero extends React.Component {
               component="h3"
               variant="h1"
             >
-              {this.props.city}
+              {this.props.city.name}
             </Typography>
           </div>
         </div>
