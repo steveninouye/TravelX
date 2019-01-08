@@ -109,8 +109,8 @@ const LandingPageAbout = ({ classes }) => {
           className={classes.aboutText}
         >
           This project was created by a team of software developers at{" "}
-          <a href="http://appacademy.io">App Academy</a>, the #1 coding bootcamp
-          with a 3% acceptance rate.
+          <a href="http://appacademy.io">App Academy</a>, the #1 software engineering 
+          bootcamp in the nation, with a 3% acceptance rate.
         </Typography>
       </div>
     </section>
