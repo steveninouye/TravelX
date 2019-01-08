@@ -67,7 +67,7 @@ const NavBar = (props) => {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar className={classes.toolBar}>
           <Button color="inherit">
-            <Typography variant="h6" color="inherit" className={classes.grow}>
+            <Typography color="textPrimary" variant="h6" color="inherit" className={classes.grow}>
               <Link to="/" className={classes.link}>
                 TravelX
               </Link>

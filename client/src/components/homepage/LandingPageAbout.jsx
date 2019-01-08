@@ -50,7 +50,7 @@ const LandingPageAbout = ({ classes }) => {
   return (
     <section className={classes.sectionContainer}>
       <div className={classes.contentContainer}>
-        <Typography
+        <Typography color="textPrimary"
           variant="h2"
           gutterBottom
           align="center"
@@ -61,7 +61,7 @@ const LandingPageAbout = ({ classes }) => {
         <div className={classes.teamPhotosContainer}>
           <div className={classes.teamFeatureContainer}>
             <img className={classes.teamPhoto} src={team1} alt="" />
-            <Typography
+            <Typography color="textPrimary"
               variant="body1"
               gutterBottom
               align="center"
@@ -72,7 +72,7 @@ const LandingPageAbout = ({ classes }) => {
           </div>
           <div className={classes.teamFeatureContainer}>
             <img className={classes.teamPhoto} src={team2} alt="" />
-            <Typography
+            <Typography color="textPrimary"
               variant="body1"
               gutterBottom
               align="center"
@@ -83,7 +83,7 @@ const LandingPageAbout = ({ classes }) => {
           </div>
           <div className={classes.teamFeatureContainer}>
             <img className={classes.teamPhoto} src={team3} alt="" />
-            <Typography
+            <Typography color="textPrimary"
               variant="body1"
               gutterBottom
               align="center"
@@ -94,7 +94,7 @@ const LandingPageAbout = ({ classes }) => {
           </div>
           <div className={classes.teamFeatureContainer}>
             <img className={classes.teamPhoto} src={team4} alt="" />
-            <Typography
+            <Typography color="textPrimary"
               variant="body1"
               gutterBottom
               align="center"
@@ -104,7 +104,7 @@ const LandingPageAbout = ({ classes }) => {
             </Typography>
           </div>
         </div>
-        <Typography
+        <Typography color="textPrimary"
           variant="body1"
           gutterBottom
           align="center"

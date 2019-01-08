@@ -111,7 +111,7 @@ class LandingPageHero extends React.Component {
         {/* <Paper elevation={1} className={this.props.classes.paper}> */}
         <div className={this.props.classes.contentContainer}>
           <div className={this.props.classes.headerContainer}>
-            <Typography
+            <Typography color="textPrimary"
               className={`${this.props.classes.headerText} ${
                 this.props.classes.mainHeader
               }`}
@@ -120,7 +120,7 @@ class LandingPageHero extends React.Component {
             >
               TravelX
             </Typography>
-            <Typography
+            <Typography color="textPrimary"
               className={`${this.props.classes.headerText} ${
                 this.props.classes.tagline
               }`}

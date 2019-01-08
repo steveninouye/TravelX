@@ -81,7 +81,7 @@ const MapMarkerInfoCard = ({ attraction, classes, closeHandler }) => {
         </div>
         <div className={classes.textContainer}>
           <CardContent>
-            <Typography variant="h4">{name}</Typography>
+            <Typography color="textPrimary" variant="h4">{name}</Typography>
             <AttractionRating attraction={attraction} />
           </CardContent>
         </div>

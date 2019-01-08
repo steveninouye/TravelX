@@ -1,4 +1,4 @@
-import React from "react"; 
+import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -13,7 +13,11 @@ import PlanMapContainer from "../plan-map/PlanMapContainer";
 
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
+    <Typography
+      color="textSecondary"
+      component="div"
+      style={{ padding: 8 * 3 }}
+    >
       {props.children}
     </Typography>
   );
@@ -40,6 +44,9 @@ const styles = theme => ({
   },
   button: {
     width: "42%"
+  },
+  indicator: {
+    color: theme.palette.text.secondary
   }
 });
 
@@ -48,7 +55,7 @@ class PlanShowNavBar extends React.Component {
     super(props);
 
     this.state = {
-      value: 0,
+      value: 0
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -64,7 +71,7 @@ class PlanShowNavBar extends React.Component {
     const { session, saveItinerary, openModal, planId, history } = this.props;
 
     if (session) {
-      saveItinerary(planId).then(history.push('/plans'))
+      saveItinerary(planId).then(history.push("/plans"));
     } else {
       openModal("login");
     }
@@ -72,39 +79,37 @@ class PlanShowNavBar extends React.Component {
 
   handleNewPlan() {
     const { getRandCityItinerary, city } = this.props;
-    
-    getRandCityItinerary(city.name).then(
-      res => this.props.history.push(`/plans/${res.itinerary._id}`)
+
+    getRandCityItinerary(city.name).then(res =>
+      this.props.history.push(`/plans/${res.itinerary._id}`)
     );
   }
 
   render() {
     const { classes, saveItinerary, planId, history } = this.props;
     const { value } = this.state;
-    const saveCallback = () => 
-      saveItinerary(planId).then(history.push('/plans'));
+    const saveCallback = () =>
+      saveItinerary(planId).then(history.push("/plans"));
 
     return (
       <div className={classes.root}>
-        <LoginFormContainer saveCallback={saveCallback}/>
+        <LoginFormContainer saveCallback={saveCallback} />
 
-        <AppBar 
-          position="sticky"
-          color="secondary"
-        >
+        <AppBar position="sticky" color="primary">
           <Toolbar className={classes.toolbar}>
-            <Tabs 
-              value={value} 
+            <Tabs
+              value={value}
               onChange={this.handleChange}
-              indicatorColor="primary"
+              indicatorColor="secondary"
+              textColor="secondary"
             >
-              <Tab label="Schedule" />
-              <Tab label="Map" />
+              <Tab label="Schedule" textColor="inherit" />
+              <Tab label="Map" textColor="inherit" />
             </Tabs>
             <Toolbar className={classes.buttonContainer}>
               <Button
                 onClick={this.handleSaveClick}
-                color="primary"
+                color="secondary"
                 variant="contained"
                 className={classes.button}
               >
@@ -112,7 +117,7 @@ class PlanShowNavBar extends React.Component {
               </Button>
               <Button
                 onClick={this.handleNewPlan}
-                color="primary"
+                color="secondary"
                 variant="contained"
                 className={classes.button}
               >

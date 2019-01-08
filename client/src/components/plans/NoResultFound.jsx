@@ -1,5 +1,5 @@
 import React from "react";
-import NoResultFoundHero from "./noResultFoundHero";
+import NoResultFoundHero from "./NoResultFoundHero";
 import PlanShowNavBarContainer from "./plan_show_nav_bar_container";
 import NavBar from "./navbar";
 import { Link } from "react-router-dom";

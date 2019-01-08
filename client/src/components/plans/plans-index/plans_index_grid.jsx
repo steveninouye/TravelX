@@ -89,7 +89,7 @@ class PlansIndexGrid extends React.Component {
                       }
                     />
                     <CardContent className={classes.cardContent}>
-                      <Typography
+                      <Typography color="textPrimary"
                         gutterBottom
                         variant="h5"
                         component="h2"
@@ -113,7 +113,7 @@ class PlansIndexGrid extends React.Component {
                         {plan.attractions[0].city.name[0].toUpperCase() +
                           plan.attractions[0].city.name.slice(1)}
                       </Typography>
-                      <Typography />
+                      <Typography color="textPrimary" />
                     </CardContent>
                     <CardActions>
                       {/* <Button onClick={this.handleCardView(plan._id)} size="small" color="primary">

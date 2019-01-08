@@ -60,7 +60,7 @@ const styles = theme => ({
 const LandingPageFeatures = ({ classes }) => {
   return (
     <section className={classes.container}>
-      <Typography
+      <Typography color="textPrimary"
         variant="h2"
         color="textPrimary"
         align="center"
@@ -76,7 +76,7 @@ const LandingPageFeatures = ({ classes }) => {
         >
           <img className={classes.featureImage} src={feature1} alt="" />
 
-          <Typography
+          <Typography color="textPrimary"
             variant="body1"
             color="textPrimary"
             className={`${classes.featureText} ${classes.featureElement}`}
@@ -92,7 +92,7 @@ const LandingPageFeatures = ({ classes }) => {
           }`}
         >
           <img className={classes.featureImage} src={feature2} alt="" />
-          <Typography
+          <Typography color="textPrimary"
             variant="body1"
             color="textPrimary"
             className={`${classes.featureText} ${classes.featureElement}`}
@@ -109,7 +109,7 @@ const LandingPageFeatures = ({ classes }) => {
           }`}
         >
           <img className={classes.featureImage} src={feature3} alt="" />
-          <Typography
+          <Typography color="textPrimary"
             variant="body1"
             color="textPrimary"
             className={`${classes.featureText} ${classes.featureElement}`}
@@ -126,7 +126,7 @@ const LandingPageFeatures = ({ classes }) => {
           }`}
         >
           <img className={classes.featureImage} src={feature4} alt="" />
-          <Typography
+          <Typography color="textPrimary"
             variant="body1"
             color="textPrimary"
             className={`${classes.featureText} ${classes.featureElement}`}

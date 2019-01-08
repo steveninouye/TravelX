@@ -151,7 +151,7 @@ function ProductCategories(props) {
   return (
     <section className={classes.container}>
       <div className={classes.contentContainer}>
-        {/* <Typography variant="h2" marked="center" align="center" component="h2">
+        {/* <Typography color="textPrimary" variant="h2" marked="center" align="center" component="h2">
           Choose a sample trip
         </Typography> */}
         <div className={classes.images}>
@@ -175,7 +175,7 @@ function ProductCategories(props) {
               />
               <div className={classes.imageBackdrop} />
               <div className={classes.imageButton}>
-                <Typography
+                <Typography color="textPrimary"
                   component="h3"
                   variant="h6"
                   color="inherit"

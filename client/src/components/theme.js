@@ -7,20 +7,48 @@ import red from '@material-ui/core/colors/red';
 
 const rawTheme = createMuiTheme({
   palette: {
+
+    // tan
+    // primary: {
+    //   light: '#ffffff',
+    //   main: '#eae7dc',
+    //   dark: '#b8b5aa',
+    // },
+
+    // green
+    // primary: {
+    //   light: '#bfb76e',
+    //   main: '#8d8741',
+    //   dark: '#5e5a15',
+    // },
+    // blue
     primary: {
-      light: '#ffffff',
-      main: '#eae7dc',
-      dark: '#b8b5aa',
+      light: '#95cdef',
+      main: '#649cbc',
+      dark: '#326e8c',
     },
     // primary: {
     //   light: '#69696a',
     //   main: '#659dbd',
     //   dark: '#1e1e1f',
     // },
+    // pink
+    // secondary: {
+    //   light: '#ff8c7b',
+    //   main: '#e85a4f',
+    //   dark: '#b02626',
+    // },
+    // panera blue
+    // secondary: {
+    //   light: '#95cdef',
+    //   main: '#649cbc',
+    //   dark: '#326e8c',
+    // },
+    // panera green
     secondary: {
-      light: '#ff8c7b',
-      main: '#e85a4f',
-      dark: '#b02626',
+      light: '#bfb76e',
+      main: '#8d8741',
+      dark: '#5e5a15',
     },
     warning: {
       main: '#ffc071',
@@ -36,8 +64,8 @@ const rawTheme = createMuiTheme({
       dark: green[700],
     },
     text: {
-      primary: "#e85a4f",
-      secondary: "#000000"
+      primary: "#000000",
+      secondary: "#ffffff"
     }
   },
   typography: {

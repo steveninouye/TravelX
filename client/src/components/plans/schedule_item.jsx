@@ -127,11 +127,11 @@ class ScheduleItem extends React.Component {
           <ListItem style={styles.listItem}>
             <div style={styles.iconContainer}>
               <div style={styles.timingContainer}>
-                <Typography style={styles.dayofWeek}>
+                <Typography color="textPrimary" style={styles.dayofWeek}>
                   {this.props.block.dow}
                 </Typography>
 
-                <Typography style={styles.timeOfDay}>
+                <Typography color="textPrimary" style={styles.timeOfDay}>
                   {this.props.block.time}
                 </Typography>
               </div>
@@ -142,11 +142,11 @@ class ScheduleItem extends React.Component {
             </div>
 
             <div style={styles.infoContainer}>
-              <Typography style={styles.attractionName}>
+              <Typography color="textPrimary" style={styles.attractionName}>
                 {attraction.name}
               </Typography>
 
-              <Typography
+              <Typography color="textPrimary"
                 gutterBottom
                 paragraph
                 variant="body1"
