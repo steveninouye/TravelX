@@ -6,7 +6,7 @@ export default class ScheduleShow extends React.Component {
   mapIndexToBlock(idx) {
     const dow = [
       "Monday",
-      "Tuesday",
+      "Wednesday", // change this back
       "Wednesday",
       "Thursday",
       "Friday",

@@ -12,7 +12,7 @@ class ScheduleItem extends React.Component {
 
     this.state = {
       details: {
-        reviews: [{ text: "" }]
+        reviews: [{ text: "", rating: 0 }]
       }
     };
   }
@@ -32,10 +32,10 @@ class ScheduleItem extends React.Component {
       return "No reviews available."
     } else {
       const filteredReviews = details.reviews.filter(
-        review => review.rating === 5 && review.text.length > 450
+        review => review.rating === 5 && review.text.length > 300
       );
 
-      return filteredReviews.length > 0 ? filteredReviews[0] : "No reviews available."
+      return filteredReviews.length > 0 ? filteredReviews[0].text : "No reviews available."
     }
   }
 
@@ -146,9 +146,7 @@ class ScheduleItem extends React.Component {
                 variant="body1"
                 style={styles.description}
               >
-                {this.state.details.reviews
-                  ? this.state.details.reviews[0].text
-                  : "No reviews available."}
+                {this.selectBestReview()}
               </Typography>
 
               <AttractionRating attraction={attraction} />

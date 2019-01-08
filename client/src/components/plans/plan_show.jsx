@@ -6,7 +6,9 @@ import NavBar from "./navbar";
 
 export default class PlanShow extends React.Component {
   componentDidMount() {
-    const { getRandCityItinerary, city } = this.props;
+    const { getItinerary, getRandCityItinerary, city, planId } = this.props;
+
+    getItinerary(planId)
 
     let node = ReactDOM.findDOMNode(this);
     while (node.parentNode) {
