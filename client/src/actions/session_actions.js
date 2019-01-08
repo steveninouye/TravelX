@@ -46,6 +46,7 @@ export const logout = () => (dispatch) => {
 };
 
 const logUserIn = (dispatch) => (res) => {
+   debugger;
    const { token } = res.data;
    localStorage.setItem('jwtToken', token);
    APIUtil.setAuthToken(token);

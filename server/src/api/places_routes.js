@@ -13,13 +13,16 @@ places.post('/city', (req, res) => {
    const { city } = req.body;
    getCityAttractions(city)
       .then((attractions) => {
+         console.log('attractions: ', attractions);
          if (attractions.length === 0)
             return res.status(500).json('City could not be found');
-         let randAttractions = [1, 2, 3, 4, 5];
-         randAttractions = randAttractions.map((_, idx) => {
-            let attractionIdx = randNum(attractions.length - idx, 0);
-            return attractions.splice(attractionIdx, 1)[0];
-         });
+         const randAttractions = [];
+         for (let i = 0; i < 10; i++) {
+            const attractionIdx = randNum(attractions.length - i, 0);
+            const attraction = attractions.splice(attractionIdx, 1)[0];
+            if (attraction) randAttractions.push(attraction);
+         }
+
          getItinerary(randAttractions).then((itinerary) => {
             res.json(itinerary);
          });
