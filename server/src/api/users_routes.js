@@ -39,7 +39,7 @@ users.post('/register', (req, res) => {
                   jwt.sign(
                      payload,
                      secretOrKey,
-                     { expiresIn: 3600 },
+                     { expiresIn: 7200 },
                      (err, token) => {
                         res.json({ success: true, token: `Bearer ${token}` });
                      }
