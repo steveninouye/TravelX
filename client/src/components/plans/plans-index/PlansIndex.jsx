@@ -7,7 +7,7 @@ import NavBar from "../navbar";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import PlansIndexGrid from "./plans_index_grid"
+import PlansIndexGridContainer from "./plans_index_grid_container"
 import Grid from "@material-ui/core/Grid";
 
 
@@ -99,7 +99,7 @@ class Plan extends React.Component{
           {/* End of header */}
   
           {/* Start of the card grid */}
-          <PlansIndexGrid/>
+          <PlansIndexGridContainer/>
         </article>
         {/* End of card grid */}
       </React.Fragment>
