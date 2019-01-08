@@ -25,16 +25,16 @@ export const logoutUser = () => ({
 export const clearErrors = (errors) => ({
    type: CLEAR_SESSION_ERRORS,
    errors
-})
+});
 
 export const signup = (user) => (dispatch) =>
-   APIUtil.signup(user).then(logUserIn, (err) =>
+   APIUtil.signup(user).then(logUserIn(dispatch), (err) =>
       dispatch(receiveErrors(err.response.data))
    );
 
 export const login = (user) => (dispatch) =>
    APIUtil.login(user)
-      .then(logUserIn)
+      .then(logUserIn(dispatch))
       .catch((err) => {
          dispatch(receiveErrors(err.response.data));
       });
@@ -45,7 +45,8 @@ export const logout = () => (dispatch) => {
    dispatch(logoutUser());
 };
 
-const logUserIn = (res) => {
+const logUserIn = (dispatch) => (res) => {
+   debugger;
    const { token } = res.data;
    localStorage.setItem('jwtToken', token);
    APIUtil.setAuthToken(token);
