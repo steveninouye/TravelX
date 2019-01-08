@@ -10,7 +10,9 @@ import team4 from "../../img/team/josh.jpeg";
 
 const styles = theme => ({
   sectionContainer: {
-    background: theme.palette.primary.main
+    // background: theme.palette.primary.main,
+    background: theme.palette.common.white,
+    marginTop: "-37px"
   },
   contentContainer: {
     width: "50%",
@@ -109,8 +111,8 @@ const LandingPageAbout = ({ classes }) => {
           className={classes.aboutText}
         >
           This project was created by a team of software developers at{" "}
-          <a href="http://appacademy.io">App Academy</a>, the #1 software engineering 
-          bootcamp in the nation, with a 3% acceptance rate.
+          <a href="http://appacademy.io">App Academy</a>, the #1 software
+          engineering bootcamp in the nation, with a 3% acceptance rate.
         </Typography>
       </div>
     </section>

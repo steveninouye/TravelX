@@ -15,7 +15,7 @@ const styles = theme => ({
     margin: "0 auto"
   },
   images: {
-    marginTop: theme.spacing.unit * 8,
+    // marginTop: theme.spacing.unit * 8,
     display: "flex",
     flexWrap: "wrap",
     margin: "0 auto"

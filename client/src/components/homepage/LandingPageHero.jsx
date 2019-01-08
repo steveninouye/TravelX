@@ -19,8 +19,8 @@ const styles = theme => ({
     // backgroundRepeat: "no-repeat",
     // backgroundPosition: "-1320px -960px"
     background: `url(${landingPhoto}) no-repeat center center fixed`,
-    backgroundSize: 'cover',
-    height: '100vh'
+    backgroundSize: "cover",
+    height: "100vh"
   },
   paper: {
     marginTop: theme.spacing.unit * 10,
@@ -40,7 +40,7 @@ const styles = theme => ({
     justifyContent: "center",
     alignItems: "center"
   },
-  headerText: { color: theme.palette.primary.main },
+  headerText: { color: theme.palette.common.black },
   searchContainer: {
     display: "flex",
     justifyContent: "center",
