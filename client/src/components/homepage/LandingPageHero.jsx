@@ -59,6 +59,8 @@ class LandingPageHero extends React.Component {
     this.state = {
       city: ""
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(name) {
@@ -68,7 +70,13 @@ class LandingPageHero extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     const city = this.state.city;
+
+    let that = this;
+    this.props.getRandCityItinerary(city).then(res => {
+      this.props.history.push(`/plans/${res.itinerary._id}`);
+    });
   }
 
   render() {
@@ -98,8 +106,7 @@ class LandingPageHero extends React.Component {
             <Button
               variant="contained"
               color="secondary"
-              component={Link}
-              to="/plans/123"
+              onClick={this.handleSubmit}
             >
               See your plan
             </Button>

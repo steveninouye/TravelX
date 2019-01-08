@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import ThemeProvider from "../ThemeProvider";
 
-import LandingPageHero from "./LandingPageHero";
+import LandingPageHeroContainer from "./LandingPageHeroContainer";
 import LandingPageFeatures from "./LandingPageFeatures";
 import LandingPageAbout from "./LandingPageAbout";
 import LandingPageImageGrid from "./LandingPageImageGrid";
@@ -17,7 +17,7 @@ class LandingPage extends Component {
     return (
       <div>
         <NavBar />
-        <LandingPageHero />
+        <LandingPageHeroContainer />
         <LandingPageFeatures />
         <LandingPageImageGrid />
         <LandingPageAbout />
