@@ -10,46 +10,47 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Divider from '@material-ui/core/Divider';
 
 export default class AuthModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      type: 'login',
-      email: '',
-      password: '',
-      password2: ''
-    };
+   constructor(props) {
+      super(props);
+      this.state = {
+         type: 'login',
+         email: '',
+         password: '',
+         password2: ''
+      };
 
-    this.handleClose = this.handleClose.bind(this);
-    this.handleSignupClick = this.handleSignupClick.bind(this);
-    this.handleSessionAction = this.handleSessionAction.bind(this);
-    this.handleDemoLogin = this.handleDemoLogin.bind(this);
-  };
+      this.handleClose = this.handleClose.bind(this);
+      this.handleSignupClick = this.handleSignupClick.bind(this);
+      this.handleSessionAction = this.handleSessionAction.bind(this);
+      this.handleDemoLogin = this.handleDemoLogin.bind(this);
+   }
 
-  handleClose() {
-    this.props.closeModal();
-    this.props.clearErrors();
-    if (!!this.props.saveCallback) {
-      this.props.saveCallback();
-    }
-  };
-
-  handleSignupClick() {
-    this.props.clearErrors();
-    this.setState({ type: 'signup' });
-  }
-
-  handleInput(field) {
-    return e => this.setState({ [field]: e.target.value });
-  };
-
-  handleSessionAction(e) {
-    e.preventDefault();
-    const { email, password, password2 } = this.state;
-
-    const closeOnSuccess = () => {
-      if (Object.keys(this.props.errors).length === 0) {
-        this.handleClose();
+   handleClose() {
+      this.props.closeModal();
+      this.props.clearErrors();
+      if (!!this.props.saveCallback) {
+         this.props.saveCallback();
       }
+   }
+
+   handleSignupClick() {
+      this.props.clearErrors();
+      this.setState({ type: 'signup' });
+   }
+
+   handleInput(field) {
+      return (e) => this.setState({ [field]: e.target.value });
+   }
+
+   handleSessionAction(e) {
+      e.preventDefault();
+      const { email, password, password2 } = this.state;
+
+      const closeOnSuccess = () => {
+         if (Object.keys(this.props.errors).length === 0) {
+            this.handleClose();
+         }
+      };
    }
 
    handleDemoLogin(e) {
