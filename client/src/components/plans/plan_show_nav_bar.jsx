@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; 
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -72,8 +72,11 @@ class PlanShowNavBar extends React.Component {
   }
 
   handleNewPlan() {
-    // Will need to store city name before commenting this out
-    // this.props.fetchPlan(city)
+    const { getRandCityItinerary, city } = this.props;
+    
+    getRandCityItinerary(city.name).then(
+      res => this.props.history.push(`/plans/${res.itinerary._id}`)
+    );
   }
 
   render() {
