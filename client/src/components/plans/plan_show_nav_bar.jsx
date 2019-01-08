@@ -67,7 +67,6 @@ class PlanShowNavBar extends React.Component {
     if (session) {
       saveItinerary(planId).then(history.push('/plans'))
     } else {
-      console.log("not logged in");
       openModal("login");
     }
   }

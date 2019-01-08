@@ -21,13 +21,11 @@ places.post('/city', (req, res) => {
             const attraction = attractions.splice(attractionIdx, 1)[0];
             if (attraction) randAttractions.push(attraction);
          }
-
          getItinerary(randAttractions).then((itinerary) => {
             res.json(itinerary);
          });
       })
       .catch((err) => {
-         console.log(err);
          res.status(500).json('Googe API could not be reached');
       });
 });
@@ -40,7 +38,6 @@ places.get('/attraction/:reference', (req, res) => {
          res.json(attraction);
       })
       .catch((err) => {
-         console.log(err);
          res.status(500).json('Google API could not be reached');
       });
 });

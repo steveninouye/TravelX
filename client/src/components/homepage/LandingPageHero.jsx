@@ -85,7 +85,6 @@ class LandingPageHero extends React.Component {
         this.props.history.push(`/plans/${res.itinerary._id}`);
       })
       .catch(err => {
-        console.log("error");
         this.props.history.push(`/city-not-found`);
       });
   }
