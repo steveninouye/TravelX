@@ -19,8 +19,8 @@ const styles = theme => ({
     // backgroundRepeat: "no-repeat",
     // backgroundPosition: "-1320px -960px"
     background: `url(${landingPhoto}) no-repeat center center fixed`,
-    backgroundSize: 'cover',
-    height: '100vh'
+    backgroundSize: "cover",
+    height: "100vh"
   },
   paper: {
     marginTop: theme.spacing.unit * 10,
@@ -77,9 +77,15 @@ class LandingPageHero extends React.Component {
     const city = this.state.city;
 
     let that = this;
-    this.props.getRandCityItinerary(city).then(res => {
-      this.props.history.push(`/plans/${res.itinerary._id}`);
-    });
+    this.props
+      .getRandCityItinerary(city)
+      .then(res => {
+        this.props.history.push(`/plans/${res.itinerary._id}`);
+      })
+      .catch(err => {
+        console.log("error");
+        this.props.history.push(`/city-not-found`);
+      });
   }
 
   render() {
