@@ -7,6 +7,7 @@ import ItinerarySchedule from "./itinerary-schedule/ItinerarySchedule";
 import PlanMapContainer from "./plan-map/PlanMapContainer";
 import PlansIndex from "./plans/plans-index/PlansIndex";
 import NoResultFound from "./plans/NoResultFound";
+import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
 const Router = () => {
   return (
@@ -18,7 +19,7 @@ const Router = () => {
 
         <Route path="/schedule" component={ItinerarySchedule} />
         <Route path="/map/:planId" component={PlanMapContainer} />
-        <Route path="/plans" component={PlansIndex} />
+        <AuthRoute path="/plans" component={PlansIndex} />
       </Switch>
     </>
   );

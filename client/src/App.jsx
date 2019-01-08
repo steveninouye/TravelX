@@ -13,7 +13,7 @@ import { setCurrentUser } from "./utils/set_current_user";
 
 // TESTING
 import configureStore from './reducers/root_reducer';
-import { login } from './actions/session_actions';
+import { login, logout } from './actions/session_actions';
 import { getAttractionDetails } from './actions/places_actions';
 import { getRandCityItinerary, getItinerary, getItineraries } from './actions/itinerary_actions';
 //
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
    window.dispatch = store.dispatch;
    window.store = store;
    window.login = login;
+   window.logout = logout;
    window.getAttractionDetails = getAttractionDetails
    window.getRandCityItinerary = getRandCityItinerary
    window.getItinerary = getItinerary

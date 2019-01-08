@@ -15,7 +15,7 @@ const styles = theme => ({
     margin: "0 auto"
   },
   images: {
-    marginTop: theme.spacing.unit * 8,
+    // marginTop: theme.spacing.unit * 8,
     display: "flex",
     flexWrap: "wrap",
     margin: "0 auto"
@@ -86,8 +86,15 @@ const styles = theme => ({
   }
 });
 
+let searchCity = (getRandCityItinerary, city, history) => {
+  const that = this;
+  getRandCityItinerary(city).then(res => {
+    history.push(`/plans/${res.itinerary._id}`);
+  });
+};
+
 function ProductCategories(props) {
-  const { classes } = props;
+  const { classes, history, getRandCityItinerary } = props;
 
   const images = [
     {
@@ -151,10 +158,14 @@ function ProductCategories(props) {
           {images.map(image => (
             <ButtonBase
               key={image.title}
+              id={image.title}
               className={classes.imageWrapper}
               style={{
                 width: image.width
               }}
+              onClick={e =>
+                searchCity(getRandCityItinerary, image.title, history)
+              }
             >
               <div
                 className={classes.imageSrc}

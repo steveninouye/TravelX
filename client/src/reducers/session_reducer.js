@@ -4,6 +4,7 @@ import {
 } from '../actions/session_actions';
 
 export default function(state = null, action) {
+   // debugger;
    switch (action.type) {
       case RECEIVE_CURRENT_USER:
          return action.currentUser.id;

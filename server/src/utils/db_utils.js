@@ -66,7 +66,9 @@ export const getCity = (cityName) =>
 export const requestCityAttractions = (url, city, resolve, reject) => {
    rp(url)
       .then((json1) => {
+         console.log('json1: ', json1);
          let { results, next_page_token } = JSON.parse(json1);
+         console.log('results: ', results);
          if (results.length > 0) {
             const attractions = results.map((attraction) => {
                attraction.city = city._id;
@@ -113,9 +115,11 @@ export const requestCityAttractions = (url, city, resolve, reject) => {
                         }
                      });
                   }, 5000);
-                  resolve(attractions);
                }
+               resolve(attractions);
             });
+         } else {
+            reject('No Results found');
          }
       })
       .catch((err) => {

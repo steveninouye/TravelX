@@ -2,26 +2,25 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom"
 import PlanShowNavBar from "./plan_show_nav_bar";
 import { openModal } from '../../actions/modal_actions';
-import { getRandCityItinerary } from "../../actions/itinerary_actions";
+import { getRandCityItinerary, saveItinerary } from "../../actions/itinerary_actions";
 import { selectCity } from "../../reducers/selectors";
 
 const mapStateToProps = (state, ownProps) => {
   const planId = ownProps.match.params.planId;
   const city = selectCity(state.entities, planId);
-  // Comment this out when there is a plans table up
-  // const plan = selectPlan(state.entities, planId);
+  const session = state.session;
   
   return {
     city,
-    planId
-    // Comment this out when there is a plans table up
-    // plan
+    planId,
+    session
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   openModal: (modal) => dispatch(openModal(modal)),
-  getRandCityItinerary: (city) => dispatch(getRandCityItinerary(city))
+  getRandCityItinerary: (city) => dispatch(getRandCityItinerary(city)),
+  saveItinerary: (id) => dispatch(saveItinerary(id))
 });
 
 export default withRouter(connect(
