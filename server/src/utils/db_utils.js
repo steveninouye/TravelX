@@ -7,7 +7,7 @@ import { googleApi } from '../config/keys';
 import City from '../models/City';
 import Attraction from '../models/Attraction';
 import ItineraryPackage from '../models/ItineraryPackage';
-import { cityUrl, unsplashUrl } from '../utils/api_urls';
+import { cityUrl, unsplashUrl, photoUrl } from '../utils/api_urls';
 import { unzipSync } from 'zlib';
 
 export const getItinerary = (attractions) =>
@@ -147,8 +147,7 @@ export const savePhoto = (
     if (fileResponseBoolean) res.sendFile(filePath);
   } else {
     const file = fs.createWriteStream(filePath);
-    const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApi}`;
-    request(photoUrl).on('response', (response) => {
+    request(photoUrl(photoRef)).on('response', (response) => {
       response.pipe(file);
       file.on('finish', () => {
         file.close(() => {
