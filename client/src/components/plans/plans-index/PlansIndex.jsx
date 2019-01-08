@@ -9,6 +9,8 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import PlansIndexGridContainer from "./plans_index_grid_container"
 import Grid from "@material-ui/core/Grid";
+import ThemeProvider from "../../ThemeProvider";
+
 
 
 const styles = theme => ({
@@ -117,4 +119,4 @@ Plan.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Plan);
+export default ThemeProvider(withStyles(styles)(Plan));
