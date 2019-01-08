@@ -67,38 +67,56 @@ export const requestCityAttractions = (url, city, resolve, reject) => {
    rp(url)
       .then((json1) => {
          let { results, next_page_token } = JSON.parse(json1);
-         const attractions = results.map((attraction) => {
-            attraction.city = city._id;
-            return attraction;
-         });
-         Attraction.create(attractions).then((attractions) => {
-            setTimeout(() => {
-               rp(`${url}&pagetoken=${next_page_token}`).then((json2) => {
-                  let { results, next_page_token } = JSON.parse(json2);
-                  const attractions = results.map((attraction) => {
-                     attraction.city = city._id;
-                     return attraction;
-                  });
-                  Attraction.create(attractions).then(() => {
-                     setTimeout(() => {
-                        rp(`${url}&pagetoken=${next_page_token}`).then(
-                           (json2) => {
-                              let { results } = JSON.parse(json2);
-                              const attractions = results.map((attraction) => {
-                                 attraction.city = city._id;
-                                 return attraction;
-                              });
-                              Attraction.create(attractions)
-                                 .then(() => console.log('Attractions created'))
-                                 .catch(() => console.log('error occured'));
-                           }
-                        );
-                     }, 5000);
-                  });
-               });
-            }, 5000);
-            resolve(attractions);
-         });
+         if (results.length > 0) {
+            const attractions = results.map((attraction) => {
+               attraction.city = city._id;
+               return attraction;
+            });
+            Attraction.create(attractions).then((attractions) => {
+               if (next_page_token) {
+                  setTimeout(() => {
+                     rp(`${url}&pagetoken=${next_page_token}`).then((json2) => {
+                        let { results, next_page_token } = JSON.parse(json2);
+                        if (results.length > 0) {
+                           const attractions = results.map((attraction) => {
+                              attraction.city = city._id;
+                              return attraction;
+                           });
+                           Attraction.create(attractions).then(() => {
+                              if (next_page_token) {
+                                 setTimeout(() => {
+                                    rp(
+                                       `${url}&pagetoken=${next_page_token}`
+                                    ).then((json2) => {
+                                       let { results } = JSON.parse(json2);
+                                       if (results.length > 0) {
+                                          const attractions = results.map(
+                                             (attraction) => {
+                                                attraction.city = city._id;
+                                                return attraction;
+                                             }
+                                          );
+                                          Attraction.create(attractions)
+                                             .then(() =>
+                                                console.log(
+                                                   'Attractions created'
+                                                )
+                                             )
+                                             .catch(() =>
+                                                console.log('error occured')
+                                             );
+                                       }
+                                    });
+                                 }, 5000);
+                              }
+                           });
+                        }
+                     });
+                  }, 5000);
+                  resolve(attractions);
+               }
+            });
+         }
       })
       .catch((err) => {
          reject(err);
