@@ -103,16 +103,6 @@ class ScheduleItem extends React.Component {
       }
     };
 
-    const dow = [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ];
-    console.log(attraction);
     return (
       <>
         <Card raised>
@@ -120,10 +110,12 @@ class ScheduleItem extends React.Component {
             <div style={styles.iconContainer}>
               <div style={styles.timingContainer}>
                 <Typography style={styles.dayofWeek}>
-                  {dow[Math.floor(Math.random() * dow.length)]}
+                  {this.props.block.dow}
                 </Typography>
 
-                <Typography style={styles.timeOfDay}>10a-12p</Typography>
+                <Typography style={styles.timeOfDay}>
+                  {this.props.block.time}
+                </Typography>
               </div>
 
               <ListItemAvatar style={styles.avatar}>
@@ -148,19 +140,6 @@ class ScheduleItem extends React.Component {
               </Typography>
 
               <AttractionRating attraction={attraction} />
-              {/* <div style={styles.ratingContainer}>
-                  <StarRatings
-                    rating={attraction.rating}
-                    starRatedColor="black"
-                    numberOfStars={5}
-                    starDimension="30px"
-                    starSpacing="5px"
-                  />
-
-                  <Typography style={styles.rating}>
-                    {attraction.rating}
-                  </Typography>
-                </div>   */}
             </div>
 
             <div style={styles.imageContainer}>
