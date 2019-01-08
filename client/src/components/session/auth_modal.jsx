@@ -28,6 +28,9 @@ export default class AuthModal extends React.Component {
   handleClose() {
     this.props.closeModal();
     this.props.clearErrors();
+    if (!!this.props.saveCallback) {
+      this.props.saveCallback();
+    }
   };
 
   handleSignupClick() {
