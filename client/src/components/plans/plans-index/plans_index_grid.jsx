@@ -31,6 +31,7 @@ const styles = theme => ({
     flexDirection: "column"
   },
   cardMedia: {
+    height: "100%",
     paddingTop: "56.25%" // 16:9
   },
   cardContent: {
@@ -47,6 +48,8 @@ class PlansIndexGrid extends React.Component {
         itinerary_packages: []
       }
     }
+
+    this.handleCardView = this.handleCardView.bind(this);
   }
 
   componentDidMount() {
@@ -57,6 +60,10 @@ class PlansIndexGrid extends React.Component {
         this.setState({itinerary_packages: res.itineraries.itinerary_packages })
         )
     console.log(this.state)
+  }
+
+  handleCardView(itineraryId) {
+    this.props.history.push(`/plans/${itineraryId}`);
   }
   
   render() {
@@ -76,8 +83,15 @@ class PlansIndexGrid extends React.Component {
                     <CardMedia
                       className={classes.cardMedia}
                       // src={plan.attractions[0].city.photos[0]}
-                      image={plan.attractions[0].city.photos[Math.floor(Math.random() * (10 - 1) + 1)]}
-                      title="Image title"
+                      image={
+                        plan.attractions[0].city.photos[
+                          Math.floor(Math.random() * (10 - 1) + 1)
+                        ]
+                      }
+                      title={
+                        plan.attractions[0].city.name[0].toUpperCase() +
+                        plan.attractions[0].city.name.slice(1)
+                      }
                     />
                     <CardContent className={classes.cardContent}>
                       <Typography
@@ -85,23 +99,31 @@ class PlansIndexGrid extends React.Component {
                         variant="h5"
                         component="h2"
                       >
-                        {['Quest to', 'Journey to', 
-                        'Escape to', 'A vacation in',
-                        'Adventure to', 'Get lost in',
-                        'Respite in', 'A fantasy in',
-                        'Magic in', 'Find yourself in',
-                        'Freedom in', 'One Night in'][Math.floor(Math.random() * (12-1) + 1)]} {plan.attractions[0].city.name[0].toUpperCase() + plan.attractions[0].city.name.slice(1)}
+                        {
+                          [
+                            "Quest to",
+                            "Journey to",
+                            "Escape to",
+                            "A vacation in",
+                            "Adventure to",
+                            "Get lost in",
+                            "Respite in",
+                            "A fantasy in",
+                            "Magic in",
+                            "Find yourself in",
+                            "Freedom in",
+                            "One Night in"
+                          ][Math.floor(Math.random() * (12 - 1) + 1)]
+                        }{" "}
+                        {plan.attractions[0].city.name[0].toUpperCase() +
+                          plan.attractions[0].city.name.slice(1)}
                       </Typography>
-                      <Typography>
-                      </Typography>
+                      <Typography />
                     </CardContent>
                     <CardActions>
-                      <Button size="small" color="primary">
+                      {/* <Button onClick={this.handleCardView(plan._id)} size="small" color="primary">
                         View
-                      </Button>
-                      <Button size="small" color="primary">
-                        Edit
-                      </Button>
+                      </Button> */}
                     </CardActions>
                   </Card>
                 </Grid>
