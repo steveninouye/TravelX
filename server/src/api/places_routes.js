@@ -21,7 +21,6 @@ places.post('/city', (req, res) => {
             const attraction = attractions.splice(attractionIdx, 1)[0];
             if (attraction) randAttractions.push(attraction);
          }
-
          getItinerary(randAttractions).then((itinerary) => {
             res.json(itinerary);
          });
