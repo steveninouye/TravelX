@@ -37,3 +37,9 @@ export const getItineraries = () => (dispatch) => {
     .then(itineraries => dispatch(receiveItineraries(itineraries.data)))
     .catch(err => dispatch(receiveGetItineraryErrors(err)));
 };
+
+export const saveItinerary = (id) => (dispatch) => {
+  return ItineraryAjaxUtil.saveItinerary(id)
+    .then(itinerary => dispatch(receiveItinerary(itinerary.data)))
+    .catch(err => dispatch(receiveGetItineraryErrors(err)))
+}
