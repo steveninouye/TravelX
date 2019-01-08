@@ -6,8 +6,7 @@ const styles = theme => ({
   background: {
     background: `no-repeat center center fixed`,
     backgroundSize: "cover",
-    // height: "calc(100vh * 0.75)",
-    height: "600px"
+    height: "calc(100vh - 72px)",
   },
   contentContainer: {
     display: "flex",

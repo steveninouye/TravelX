@@ -16,6 +16,7 @@ import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 // import ProductResultsRoot from './productResults/ProductResultsRoot';
 // import ProductDetailsContainer from './product_details/ProductDetailsContainer';
 
+
 const Router = () => {
   return (
     <>
