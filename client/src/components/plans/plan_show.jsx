@@ -6,7 +6,9 @@ import NavBar from "./navbar";
 
 export default class PlanShow extends React.Component {
   componentDidMount() {
-    const { getRandCityItinerary, city } = this.props;
+    const { getItinerary, getRandCityItinerary, city, planId } = this.props;
+
+    getItinerary(planId)
 
     let node = ReactDOM.findDOMNode(this);
     while (node.parentNode) {
@@ -18,7 +20,7 @@ export default class PlanShow extends React.Component {
       this.props.history.push(`/plans/${res.itinerary._id}`)
     );
 
-    document.title = `TravelX | ${city.name}`;
+    document.title = `TravelX | Discover Your World`;
   }
 
   render() {

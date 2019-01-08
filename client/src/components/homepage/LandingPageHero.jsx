@@ -79,9 +79,15 @@ class LandingPageHero extends React.Component {
     const city = this.state.city;
 
     let that = this;
-    this.props.getRandCityItinerary(city).then(res => {
-      this.props.history.push(`/plans/${res.itinerary._id}`);
-    });
+    this.props
+      .getRandCityItinerary(city)
+      .then(res => {
+        this.props.history.push(`/plans/${res.itinerary._id}`);
+      })
+      .catch(err => {
+        console.log("error");
+        this.props.history.push(`/city-not-found`);
+      });
   }
 
   handleKeyPress(e) {
