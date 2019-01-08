@@ -65,7 +65,6 @@ class PlanShowNavBar extends React.Component {
     const { session, saveItinerary, openModal, planId, history } = this.props;
 
     if (session) {
-      console.log('-------------------------', planId)
       saveItinerary(planId).then(history.push('/plans'))
     } else {
       console.log("not logged in");
@@ -82,12 +81,14 @@ class PlanShowNavBar extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, saveItinerary, planId, history } = this.props;
     const { value } = this.state;
+    const saveCallback = () => 
+      saveItinerary(planId).then(history.push('/plans'));
 
     return (
       <div className={classes.root}>
-        <LoginFormContainer />
+        <LoginFormContainer saveCallback={saveCallback}/>
 
         <AppBar position="sticky">
           <Toolbar className={classes.toolbar}>

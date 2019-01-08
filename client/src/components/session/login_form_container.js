@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { login, signup, clearErrors } from "../../actions/session_actions";
 import { closeModal } from "../../actions/modal_actions";
 import AuthModal from "./auth_modal";
@@ -15,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal())
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(AuthModal);
+)(AuthModal));
