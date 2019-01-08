@@ -1,6 +1,6 @@
 # TravelX
 
-_travelx_ helps travelers create travel plans and discover popular attractions.
+_TravelX_ helps travelers create travel plans and discover popular attractions.
 
 Key features:
 
@@ -37,11 +37,31 @@ Our goal was to create a useful and beautiful travel planning app that anyone co
 
 ## Technical Showcase
 
+Steven Inouye
+
+- Work with MongoDB\*\*
+- Google Places\*\*
+- Interaction between FE and BE
+- Routes
+- Permalinks\*\*
+- Edge Cases
+- UX
+- Material UI
+- Custom React Maps Component\*\*
+- Themeing+
+- Scoping
+- Git Workflow
+-
+
 Each person choose one thing and add here
 
 ## Screenshots of code, and snippets
 
-## Feature Features
+- landing page
+- search results
+- MAP
+
+## Future Features
 
 - Add, edit, and remove attractions from a generated plan
 - Browse accomodations from AirBnb API
@@ -60,3 +80,10 @@ What needs to be done (delete when finished):
 - Include links to the neatest parts of the code, or embed snippets
 - Include screenshots of anything that looks pretty
 - To-dos and future features
+
+## Team Members
+
+[Josh Stroud](link)
+[Steven Inouye]()
+[Micah Jaffe]()
+[Taran Cacacho]()
