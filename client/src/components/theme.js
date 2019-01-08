@@ -41,12 +41,14 @@ const rawTheme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: "'Work Sans', sans-serif",
+    // fontFamily: "'Work Sans', sans-serif",
     fontSize: 14,
     fontWeightLight: 300, // Work Sans
     fontWeightRegular: 400, // Work Sans
     fontWeightMedium: 700, // Roboto Condensed
-    fontFamilySecondary: "'Roboto Condensed', sans-serif",
+    // fontFamilySecondary: "'Roboto Condensed', sans-serif",
+    fontFamilySecondary: "'Oswald', sans-serif",
+    fontFamily: "'Roboto', sans-serif",
     useNextVariants: true,
   },
 });
