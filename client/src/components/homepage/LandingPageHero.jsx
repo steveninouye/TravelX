@@ -42,6 +42,16 @@ const styles = theme => ({
     alignItems: "center"
   },
   headerText: { color: theme.palette.common.black },
+  mainHeader: {
+    fontSize: "92px",
+    letterSpacing: "23px",
+    paddingLeft: "15px"
+  },
+  tagline: {
+    fontSize: "48px",
+    padding: "10px",
+    fontWeight: "200"
+  },
   searchContainer: {
     display: "flex",
     justifyContent: "center",
@@ -102,13 +112,20 @@ class LandingPageHero extends React.Component {
         <div className={this.props.classes.contentContainer}>
           <div className={this.props.classes.headerContainer}>
             <Typography
-              className={this.props.classes.headerText}
+              className={`${this.props.classes.headerText} ${
+                this.props.classes.mainHeader
+              }`}
               component="h3"
               variant="h1"
             >
               TravelX
             </Typography>
-            <Typography className={this.props.classes.headerText} variant="h2">
+            <Typography
+              className={`${this.props.classes.headerText} ${
+                this.props.classes.tagline
+              }`}
+              variant="h2"
+            >
               Discover your world
             </Typography>
           </div>
