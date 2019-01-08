@@ -27,15 +27,15 @@ class ScheduleItem extends React.Component {
 
   selectBestReview() {
     const { details } = this.state;
-
-    if (!details) {
-      return "No reviews available."
-    } else {
+      
+    if (details.reviews && details.reviews.length > 0) {
       const filteredReviews = details.reviews.filter(
         review => review.rating === 5 && review.text.length > 300
       );
 
       return filteredReviews.length > 0 ? filteredReviews[0].text : "No reviews available."
+    } else {
+      return "No reviews available."
     }
   }
 
