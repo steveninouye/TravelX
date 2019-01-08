@@ -22,32 +22,48 @@ const styles = (theme) => ({
     flexDirection: 'row',
     flexWrap: 'nowrap',
     justifyContent: 'space-between'
+  },
+  button: {
+    color: theme.palette.background.paper
+  },
+  link: {
+    textDecoration: 'none',
+    color: theme.palette.background.paper
   }
 });
 
 const NavBar = (props) => {
   const { classes, isLoggedIn } = props;
   const button = isLoggedIn ? (
-    <Button color="inherit" onClick={props.logout}>
+    <Button 
+      color="inherit" 
+      onClick={props.logout}
+      className={classes.button}
+    >
       Logout
     </Button>
   ) : (
-    <Button color="inherit" onClick={() => props.openModal('login')}>
+    <Button 
+      color="inherit" 
+      onClick={() => props.openModal('login')}
+      className={classes.button}
+    >
       Log In
     </Button>
   );
-  return (
-    <React.Fragment>
+  return <React.Fragment>
       <LoginFormContainer />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar className={classes.toolBar}>
           <Button color="inherit">
             <Typography variant="h6" color="inherit" className={classes.grow}>
-              <Link to="/">TravelX</Link>
+              <Link to="/" className={classes.link}>
+                TravelX
+              </Link>
             </Typography>
           </Button>
           <div>
-            <Link to="/plans">
+            <Link to="/plans" className={classes.link}>
               <Button color="inherit">My Plans</Button>
             </Link>
             {button}
@@ -55,8 +71,7 @@ const NavBar = (props) => {
           </div>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
-  );
+    </React.Fragment>;
 };
 
 NavBar.propTypes = {
