@@ -35,13 +35,24 @@ const styles = (theme) => ({
 const NavBar = (props) => {
   const { classes, isLoggedIn } = props;
   const button = isLoggedIn ? (
-    <Button 
-      color="inherit" 
-      onClick={props.logout}
-      className={classes.button}
-    >
-      Logout
-    </Button>
+    <>
+      <Link to="/plans">
+        <Button 
+          color="inherit" 
+          onClick={props.logout}
+          className={classes.button}
+        >
+          My Plans
+        </Button>
+      </Link>
+      <Button 
+        color="inherit" 
+        onClick={props.logout}
+        className={classes.button}
+       >
+        Logout
+      </Button>
+    </>
   ) : (
     <Button 
       color="inherit" 
@@ -62,13 +73,7 @@ const NavBar = (props) => {
               </Link>
             </Typography>
           </Button>
-          <div>
-            <Link to="/plans" className={classes.link}>
-              <Button color="inherit">My Plans</Button>
-            </Link>
-            {button}
-            {/* <Button color="inherit">Logout</Button> */}
-          </div>
+          <div>{button}</div>
         </Toolbar>
       </AppBar>
     </React.Fragment>;

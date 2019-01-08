@@ -11,17 +11,17 @@ import apiRoutes from './api_routes';
 
 const app = express();
 mongoose
-   .connect(
-      dbUri,
-      { useNewUrlParser: true, useCreateIndex: true }
-   )
-   .then(() => console.log('Connected to Mongo DB'))
-   .catch((err) => console.log(`DB Error: ${err}`));
-   
+  .connect(
+    dbUri,
+    { useNewUrlParser: true, useCreateIndex: true }
+  )
+  .then(() => console.log('Connected to Mongo DB'))
+  .catch((err) => console.log(`DB Error: ${err}`));
+
 const clientPath =
-   process.env.NODE_ENV === 'production'
-      ? resolve(__dirname, '../../client/dist')
-      : resolve(__dirname, '../../client/src');
+  process.env.NODE_ENV === 'production'
+    ? resolve(__dirname, '../../client/dist')
+    : resolve(__dirname, '../../client/src');
 
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
@@ -32,12 +32,11 @@ app.use('/api', apiRoutes);
 
 app.use(express.static(clientPath));
 app.get('*', (req, res) => {
-   res.sendFile(resolve(clientPath, 'index.html'));
+  res.sendFile(resolve(clientPath, 'index.html'));
 });
-
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-   console.log(`you are running in ${process.env.NODE_ENV}`);
-   console.log(`Server listening on port ${PORT}`);
+  console.log(`you are running in ${process.env.NODE_ENV || 'development'}`);
+  console.log(`Server listening on port ${PORT}`);
 });
