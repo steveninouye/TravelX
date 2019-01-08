@@ -55,7 +55,7 @@ const MapMarkerInfoCard = ({ attraction, classes, closeHandler }) => {
   const { name } = attraction;
 
   return (
-    <Card lat={lat} lng={lng} className={classes.infoCard}>
+    <Card lat={lat} lng={lng} className={classes.infoCard} raised>
       {/* <CardHeader
         action={
           <IconButton className={classes.closeButton}>
