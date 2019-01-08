@@ -28,9 +28,14 @@ const styles = (theme) => ({
 const NavBar = (props) => {
   const { classes, isLoggedIn } = props;
   const button = isLoggedIn ? (
-    <Button color="inherit" onClick={props.logout}>
-      Logout
-    </Button>
+    <>
+      <Link to="/plans">
+        <Button color="inherit">My Plans</Button>
+      </Link>
+      <Button color="inherit" onClick={props.logout}>
+        Logout
+      </Button>
+    </>
   ) : (
     <Button color="inherit" onClick={() => props.openModal('login')}>
       Log In
@@ -46,13 +51,7 @@ const NavBar = (props) => {
               <Link to="/">TravelX</Link>
             </Typography>
           </Button>
-          <div>
-            <Link to="/plans">
-              <Button color="inherit">My Plans</Button>
-            </Link>
-            {button}
-            {/* <Button color="inherit">Logout</Button> */}
-          </div>
+          <div>{button}</div>
         </Toolbar>
       </AppBar>
     </React.Fragment>
