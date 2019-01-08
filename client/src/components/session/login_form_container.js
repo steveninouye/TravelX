@@ -1,7 +1,8 @@
-import { connect } from 'react-redux';
-import { login, signup, clearErrors } from '../../actions/session_actions';
-import { closeModal } from '../../actions/modal_actions';
-import AuthModal from './auth_modal';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { login, signup, clearErrors } from "../../actions/session_actions";
+import { closeModal } from "../../actions/modal_actions";
+import AuthModal from "./auth_modal";
 
 const mapStateToProps = (state) => ({
    session: state.session,
@@ -16,7 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
    closeModal: () => dispatch(closeModal())
 });
 
-export default connect(
-   mapStateToProps,
-   mapDispatchToProps
-)(AuthModal);
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AuthModal));

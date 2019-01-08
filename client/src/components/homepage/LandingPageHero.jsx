@@ -11,13 +11,17 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import getRandCityItinerary from "../../utils/itinerary_ajax_utils";
+import { EBADF } from "constants";
 
 const styles = theme => ({
   background: {
-    backgroundImage: `url(${landingPhoto})`,
-    height: "100vh",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "-1320px -960px"
+    // backgroundImage: `url(${landingPhoto})`,
+    // height: "100vh",
+    // backgroundRepeat: "no-repeat",
+    // backgroundPosition: "-1320px -960px"
+    background: `url(${landingPhoto}) no-repeat center center fixed`,
+    backgroundSize: "cover",
+    height: "100vh"
   },
   paper: {
     marginTop: theme.spacing.unit * 10,
@@ -37,7 +41,7 @@ const styles = theme => ({
     justifyContent: "center",
     alignItems: "center"
   },
-  headerText: { color: theme.palette.primary.main },
+  headerText: { color: theme.palette.common.black },
   searchContainer: {
     display: "flex",
     justifyContent: "center",
@@ -61,6 +65,7 @@ class LandingPageHero extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   handleChange(name) {
@@ -77,6 +82,12 @@ class LandingPageHero extends React.Component {
     this.props.getRandCityItinerary(city).then(res => {
       this.props.history.push(`/plans/${res.itinerary._id}`);
     });
+  }
+
+  handleKeyPress(e) {
+    if (e.key === "Enter") {
+      this.handleSubmit(e);
+    }
   }
 
   render() {
@@ -102,6 +113,7 @@ class LandingPageHero extends React.Component {
               label="Enter destination city"
               value={this.state.city}
               onChange={this.handleChange("city")}
+              onKeyPress={this.handleKeyPress}
             />
             <Button
               variant="contained"

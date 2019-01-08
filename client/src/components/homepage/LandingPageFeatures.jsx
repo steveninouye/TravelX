@@ -20,7 +20,10 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   container: {
-    // background: theme.palette.primary.dark
+    // background: theme.palette.primary.dark,
+    // background: theme.palette.primary.main,
+    background: theme.palette.common.white,
+    paddingBottom: "30px"
   },
   header: {
     padding: "30px",

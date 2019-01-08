@@ -8,3 +8,6 @@ export const getItinerary = (id) =>
 
   export const getItineraries = () =>
     axios.get('/api/itineraries');
+
+export const saveItinerary = (_id) =>
+   axios.post('/api/itineraries', { _id })
