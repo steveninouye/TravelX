@@ -8,12 +8,14 @@ import { selectCity } from "../../reducers/selectors";
 const mapStateToProps = (state, ownProps) => {
   const planId = ownProps.match.params.planId;
   const city = selectCity(state.entities, planId);
+  const session = state.session;
   // Comment this out when there is a plans table up
   // const plan = selectPlan(state.entities, planId);
   
   return {
     city,
-    planId
+    planId,
+    session
     // Comment this out when there is a plans table up
     // plan
   };
