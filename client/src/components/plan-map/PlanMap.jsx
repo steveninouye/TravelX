@@ -124,6 +124,7 @@ class PlanMap extends Component {
   }
 
   render() {
+    console.log('Google API key');
     console.log(googleApi);
     const { center, zoom } = this.fitMapToMarkers();
 
