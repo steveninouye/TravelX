@@ -15,9 +15,9 @@ export default function (state = {}, action) {
         [action.itinerary._id]: action.itinerary
       })
     case RECEIVE_ITINERARIES:
-      return Object.assign({}, action.itineraries)
+      return Object.assign({}, state, action.itineraries)
     case RECEIVE_GOOGLE_API_KEY:
-      return Object.assign({}, {
+      return Object.assign({}, state, {
         googleApiKey: action.apiKey
       })
     default:

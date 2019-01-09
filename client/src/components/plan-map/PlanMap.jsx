@@ -33,6 +33,8 @@ class PlanMap extends Component {
     let markerLats = [];
     let markerLngs = [];
 
+    debugger;
+
     for (let i = 0; i < this.props.itinerary.attractions.length; i++) {
       markerLats.push(
         this.props.itinerary.attractions[i].geometry.location.lat
@@ -124,14 +126,12 @@ class PlanMap extends Component {
     if (!this.props.apiKey) {
       return null;
     }
-    console.log(this.props.apiKey);
-
     const { center, zoom } = this.fitMapToMarkers();
 
     return (
       <div style={{ height: "100vh", width: "100%" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: apiKey }}
+          bootstrapURLKeys={{ key: this.props.apiKey }}
           defaultCenter={center}
           defaultZoom={zoom}
           ref={map => (this.map = map)}

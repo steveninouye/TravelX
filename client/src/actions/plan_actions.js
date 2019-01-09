@@ -22,5 +22,5 @@ export const receiveGoogleApiKey = (apiKey) => ({
 
 export const fetchGoogleApiKey = () => (dispatch) => {
   return planUtils.fetchGoogleApiKey()
-    .then((apiKey) => debuggerdispatch(receiveGoogleApiKey(apiKey)))
+    .then((apiKey) => dispatch(receiveGoogleApiKey(apiKey.data)))
 }

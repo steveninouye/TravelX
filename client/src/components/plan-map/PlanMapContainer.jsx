@@ -7,7 +7,8 @@ import { fetchGoogleApiKey } from "../../actions/plan_actions";
 const mapStateToProps = (state, ownProps) => {
   const planId = ownProps.match.params.planId;
 
-  const apiKey = state.entities.itineraries.apiKey;
+  const apiKey = state.entities.itineraries.googleApiKey;
+  debugger;
   return {
     itinerary: state.entities.itineraries[planId],
     planId: ownProps.match.params.planId,
