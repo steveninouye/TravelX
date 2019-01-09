@@ -18,6 +18,7 @@ export default class PlanShow extends React.Component {
       <div>
         <NavBar />
         <NoResultFoundHero city={city} />
+        ''
       </div>
     );
   }
