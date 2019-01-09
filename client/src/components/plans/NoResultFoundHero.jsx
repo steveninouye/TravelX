@@ -32,11 +32,15 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: "10px"
   },
   button: {
     marginTop: "15px",
-    fontSize: "24px"
+    fontSize: "24px",
+    color: 'white',
+    fontSize: '16px',
+    fontWeight: '400'
   }
 });
 
@@ -70,6 +74,7 @@ class PlanShowHero extends React.Component {
               variant="contained"
               align="center"
               className={this.props.classes.button}
+              size="lg"
             >
               Return Home
             </Button>
