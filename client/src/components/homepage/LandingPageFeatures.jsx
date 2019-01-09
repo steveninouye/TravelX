@@ -23,7 +23,8 @@ const styles = theme => ({
     // background: theme.palette.primary.dark,
     // background: theme.palette.primary.main,
     background: theme.palette.common.white,
-    paddingBottom: "30px"
+    paddingBottom: "30px",
+    margin: "120px 0"
   },
   header: {
     padding: "30px",

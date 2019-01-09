@@ -132,7 +132,7 @@ class LandingPageHero extends React.Component {
           <Paper elevation={1} className={this.props.classes.searchContainer}>
             <TextField
               className={this.props.classes.searchInput}
-              label="Enter destination city"
+              label='Enter destination city (e.g. "San Francisco")'
               value={this.state.city}
               onChange={this.handleChange("city")}
               onKeyPress={this.handleKeyPress}
