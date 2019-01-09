@@ -110,7 +110,7 @@ const LandingPageAbout = ({ classes }) => {
           </div>
         </div>
         <Typography
-          color="primaryText"
+          color="textPrimary"
           variant="body1"
           gutterBottom
           align="center"
