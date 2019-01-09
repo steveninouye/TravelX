@@ -16,7 +16,7 @@ import AttractionRating from "../plans/AttractionRating";
 
 const styles = theme => ({
   infoCard: {
-    width: "700px",
+    width: "400px",
     position: "relative",
     bottom: "170px",
     left: "70px"
@@ -25,8 +25,8 @@ const styles = theme => ({
   },
   closeButton: {
     position: "relative",
-    bottom: "-10px",
-    left: "95%",
+    bottom: "-1px",
+    left: "94%",
     padding: "0px"
   },
   photo: {
@@ -34,7 +34,9 @@ const styles = theme => ({
     objectFit: "none"
   },
   container: {
-    display: "flex"
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flexStart"
   },
   imgContainer: {
     display: "flex",
@@ -81,7 +83,9 @@ const MapMarkerInfoCard = ({ attraction, classes, closeHandler }) => {
         </div>
         <div className={classes.textContainer}>
           <CardContent>
-            <Typography color="textPrimary" variant="h4">{name}</Typography>
+            <Typography color="textPrimary" variant="h4">
+              {name}
+            </Typography>
             <AttractionRating attraction={attraction} />
           </CardContent>
         </div>
