@@ -47,14 +47,15 @@ export default class AuthModal extends React.Component {
 
       const closeOnSuccess = () => {
          if (Object.keys(this.props.errors).length === 0) {
-            this.handleClose();
+            this.props.closeModal();
+            this.props.clearErrors();
          }
       };
 
       if (this.props.modal === 'login') {
-         this.props.login({ email, password }).then(res => console.log(res))
+         this.props.login({ email, password }).then(closeOnSuccess);
       } else if (this.props.modal === 'signup') {
-         this.props.signup({ email, password, password2 })//.then(this.handleClose);
+         this.props.signup({ email, password, password2 }).then(closeOnSuccess);
       }
    }
 
