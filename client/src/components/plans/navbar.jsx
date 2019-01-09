@@ -39,7 +39,6 @@ const NavBar = (props) => {
       <Link to="/plans" className={classes.link}>
         <Button 
           color="inherit" 
-          onClick={props.logout}
           className={classes.button}
         >
           My Plans
