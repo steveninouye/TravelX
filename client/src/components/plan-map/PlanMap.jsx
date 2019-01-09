@@ -33,8 +33,6 @@ class PlanMap extends Component {
     let markerLats = [];
     let markerLngs = [];
 
-    debugger;
-
     for (let i = 0; i < this.props.itinerary.attractions.length; i++) {
       markerLats.push(
         this.props.itinerary.attractions[i].geometry.location.lat
