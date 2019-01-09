@@ -3,3 +3,6 @@ export const fetchPlans = () => {
     method: ''
   })
 }
+
+export const fetchGoogleApiKey = () =>
+  axios.get(`/api/google`);
