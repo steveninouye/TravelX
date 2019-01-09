@@ -1,5 +1,3 @@
-import { googleApi } from "../../../../server/src/config/keys";
-
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import { fitBounds } from "google-map-react/utils";
@@ -127,6 +125,7 @@ class PlanMap extends Component {
       return null;
     }
     console.log(this.props.apiKey);
+
     const { center, zoom } = this.fitMapToMarkers();
 
     return (
