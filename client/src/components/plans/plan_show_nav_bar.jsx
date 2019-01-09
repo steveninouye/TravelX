@@ -48,8 +48,10 @@ const styles = theme => ({
     color: theme.palette.primary.main
   },
   indicator: {
-    // color: theme.palette.text.secondary
-    color: 'red'
+    backgroundColor: 'white'
+  },
+  tab: {
+    color: 'white'
   }
 });
 
@@ -103,12 +105,24 @@ class PlanShowNavBar extends React.Component {
             <Tabs
               value={value}
               onChange={this.handleChange}
-              // indicatorColor="secondary"
-              // textColor="secondary"
-              classes={{indicator: classes.indicator}}
+              classes={{
+                indicator: classes.indicator
+              }}
             >
-              <Tab label="Schedule" textColor="inherit" />
-              <Tab label="Map" textColor="inherit" />
+              <Tab 
+                label="Schedule" 
+                textColor="inherit"
+                classes={{
+                  textColorInherit: classes.tab
+                }}
+              />
+              <Tab
+                label="Map" 
+                textColor="inherit" 
+                classes={{
+                  textColorInherit: classes.tab
+                }}
+              />
             </Tabs>
             <Toolbar className={classes.buttonContainer}>
               <Button
