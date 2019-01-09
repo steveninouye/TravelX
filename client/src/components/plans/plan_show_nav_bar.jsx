@@ -98,7 +98,10 @@ class PlanShowNavBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <LoginFormContainer saveCallback={saveCallback} session={session} />
+        <LoginFormContainer 
+          saveCallback={saveCallback} 
+          session={session} 
+        />
 
         <AppBar position="sticky" color="primary">
           <Toolbar className={classes.toolbar}>

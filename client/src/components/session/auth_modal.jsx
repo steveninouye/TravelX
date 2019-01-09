@@ -13,7 +13,6 @@ export default class AuthModal extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-         type: 'login',
          email: '',
          password: '',
          password2: ''
@@ -35,7 +34,7 @@ export default class AuthModal extends React.Component {
 
    handleSignupClick() {
       this.props.clearErrors();
-      this.setState({ type: 'signup' });
+      this.props.openModal('signup')
    }
 
    handleInput(field) {
@@ -51,6 +50,12 @@ export default class AuthModal extends React.Component {
             this.handleClose();
          }
       };
+
+      if (this.props.modal === 'login') {
+         this.props.login({ email, password }).then(res => console.log(res))
+      } else if (this.props.modal === 'signup') {
+         this.props.signup({ email, password, password2 })//.then(this.handleClose);
+      }
    }
 
    handleDemoLogin(e) {
@@ -89,7 +94,7 @@ export default class AuthModal extends React.Component {
    renderFormHeader() {
       return (
          <DialogTitle id="form-dialog-title">
-            {this.state.type === 'login' ? 'Log in' : 'Create account'}
+            {this.props.modal === 'login' ? 'Log in' : 'Create account'}
          </DialogTitle>
       );
    }
@@ -100,7 +105,6 @@ export default class AuthModal extends React.Component {
             <TextField
                autoFocus
                margin="dense"
-               // id="email"
                label="Email Address"
                type="email"
                fullWidth
@@ -112,7 +116,6 @@ export default class AuthModal extends React.Component {
             {this.renderErrorMessage('email')}
             <TextField
                margin="dense"
-               // id="password"
                label="Password"
                type="password"
                fullWidth
@@ -133,7 +136,7 @@ export default class AuthModal extends React.Component {
          margin: '0 auto'
       };
 
-      if (this.state.type === 'login') {
+      if (this.props.modal === 'login') {
          return (
             <>
                <DialogActions>
@@ -182,7 +185,7 @@ export default class AuthModal extends React.Component {
                <DialogContent />
             </>
          );
-      } else if (this.state.type === 'signup') {
+      } else if (this.props.modal === 'signup') {
          return (
             <>
                <DialogActions>
@@ -202,12 +205,11 @@ export default class AuthModal extends React.Component {
    }
 
    renderPasswordConfirmation() {
-      if (this.state.type === 'signup') {
+      if (this.props.modal === 'signup') {
          return (
             <>
                <TextField
                   margin="dense"
-                  // id="password2"
                   label="Confirm Password"
                   type="password"
                   fullWidth
