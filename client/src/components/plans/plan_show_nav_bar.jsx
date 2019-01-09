@@ -43,10 +43,13 @@ const styles = theme => ({
     justifyContent: "space-between"
   },
   button: {
-    width: "42%"
+    width: "42%",
+    backgroundColor: 'white',
+    color: theme.palette.primary.main
   },
   indicator: {
-    color: theme.palette.text.secondary
+    // color: theme.palette.text.secondary
+    color: 'red'
   }
 });
 
@@ -100,8 +103,9 @@ class PlanShowNavBar extends React.Component {
             <Tabs
               value={value}
               onChange={this.handleChange}
-              indicatorColor="secondary"
-              textColor="secondary"
+              // indicatorColor="secondary"
+              // textColor="secondary"
+              classes={{indicator: classes.indicator}}
             >
               <Tab label="Schedule" textColor="inherit" />
               <Tab label="Map" textColor="inherit" />
@@ -109,7 +113,6 @@ class PlanShowNavBar extends React.Component {
             <Toolbar className={classes.buttonContainer}>
               <Button
                 onClick={this.handleSaveClick}
-                color="secondary"
                 variant="contained"
                 className={classes.button}
               >
@@ -117,7 +120,6 @@ class PlanShowNavBar extends React.Component {
               </Button>
               <Button
                 onClick={this.handleNewPlan}
-                color="secondary"
                 variant="contained"
                 className={classes.button}
               >
