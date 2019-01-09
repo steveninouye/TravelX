@@ -36,7 +36,7 @@ const NavBar = (props) => {
   const { classes, isLoggedIn } = props;
   const button = isLoggedIn ? (
     <>
-      <Link to="/plans">
+      <Link to="/plans" className={classes.link}>
         <Button 
           color="inherit" 
           onClick={props.logout}
