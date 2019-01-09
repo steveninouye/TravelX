@@ -74,7 +74,7 @@ class PlansIndexGrid extends React.Component {
             <Grid container spacing={40}>
               {itineraries.itinerary_packages.map((plan, idx) => (
                 <Grid item key={idx} sm={6} md={6} lg={3}>
-                  <Card className={classes.card}>
+                  <Card className={classes.card} onClick={() => this.props.history.push(`/plans/${plan._id}`)} >
                     <CardMedia
                       className={classes.cardMedia}
                       // src={plan.attractions[0].city.photos[0]}
@@ -116,9 +116,11 @@ class PlansIndexGrid extends React.Component {
                       <Typography color="textPrimary" />
                     </CardContent>
                     <CardActions>
-                      {/* <Button onClick={this.handleCardView(plan._id)} size="small" color="primary">
-                        View
-                      </Button> */}
+                      {/* <Link to={`/plans/${plan._id}`}>
+                        <Button size="small" color="primary">
+                          View
+                        </Button>
+                      </Link> */}
                     </CardActions>
                   </Card>
                 </Grid>
