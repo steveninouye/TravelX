@@ -1,15 +1,15 @@
-import { googleApi } from '../../../../server/src/config/keys';
+import { googleApi } from "../../../../server/src/config/keys";
 
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-import { fitBounds } from 'google-map-react/utils';
+import React, { Component } from "react";
+import GoogleMapReact from "google-map-react";
+import { fitBounds } from "google-map-react/utils";
 
-import MapMarker from './MapMarker';
-import MapMarkerInfoCard from './MapMarkerInfoCard';
+import MapMarker from "./MapMarker";
+import MapMarkerInfoCard from "./MapMarkerInfoCard";
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
 
-const styles = (theme) => ({});
+const styles = theme => ({});
 
 class PlanMap extends Component {
   constructor(props) {
@@ -28,8 +28,7 @@ class PlanMap extends Component {
   }
 
   componentDidMount() {
-    // const { fetchPlan, planId } = this.props;
-    // fetchPlan(planId);
+    this.props.fetchGoogleApiKey();
   }
 
   fitMapToMarkers() {
@@ -79,7 +78,7 @@ class PlanMap extends Component {
   }
 
   renderMarkers() {
-    let markers = this.props.itinerary.attractions.map((attraction) => {
+    let markers = this.props.itinerary.attractions.map(attraction => {
       let { lat, lng } = attraction.geometry.location;
       let id = attraction._id;
       let selected = false;
@@ -124,17 +123,19 @@ class PlanMap extends Component {
   }
 
   render() {
-    console.log('process.env.GOOGLE_API: ', process.env.GOOGLE_API);
-    const googleApi = googleApi || process.env.GOOGLE_API;
+    if (!this.props.apiKey) {
+      return null;
+    }
+    console.log(this.props.apiKey);
     const { center, zoom } = this.fitMapToMarkers();
 
     return (
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: "100vh", width: "100%" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: googleApi }}
+          bootstrapURLKeys={{ key: apiKey }}
           defaultCenter={center}
           defaultZoom={zoom}
-          ref={(map) => (this.map = map)}
+          ref={map => (this.map = map)}
         >
           {this.renderMarkers()}
           {this.renderInfoCards()}

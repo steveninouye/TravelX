@@ -1,6 +1,7 @@
 import {
   getRandCityItinerary
 } from '../utils/itinerary_ajax_utils';
+import * as planUtils from "../utils/plans_api_util"
 
 export const FETCH_PLAN = 'FETCH_PLAN';
 export const RECEIVE_GOOGLE_API_KEY = 'RECEIVE_GOOGLE_API_KEY';
@@ -19,7 +20,7 @@ export const receiveGoogleApiKey = (apiKey) => ({
   apiKey
 })
 
-export const fetchGoogleApiKey = (city) => (dispatch) => {
-  return fetchGoogleAPiKey
-    .then((apiKey) => dispatch(receiveGoogleApiKey(plan)))
+export const fetchGoogleApiKey = () => (dispatch) => {
+  return planUtils.fetchGoogleApiKey()
+    .then((apiKey) => debuggerdispatch(receiveGoogleApiKey(apiKey)))
 }
