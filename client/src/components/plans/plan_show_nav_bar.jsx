@@ -91,14 +91,14 @@ class PlanShowNavBar extends React.Component {
   }
 
   render() {
-    const { classes, saveItinerary, planId, history } = this.props;
+    const { classes, saveItinerary, planId, history, session } = this.props;
     const { value } = this.state;
     const saveCallback = () =>
       saveItinerary(planId).then(history.push("/plans"));
 
     return (
       <div className={classes.root}>
-        <LoginFormContainer saveCallback={saveCallback} />
+        <LoginFormContainer saveCallback={saveCallback} session={session} />
 
         <AppBar position="sticky" color="primary">
           <Toolbar className={classes.toolbar}>

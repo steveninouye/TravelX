@@ -25,10 +25,10 @@ export default class AuthModal extends React.Component {
       this.handleDemoLogin = this.handleDemoLogin.bind(this);
    }
 
-   handleClose() {
+   handleClose() { 
       this.props.closeModal();
       this.props.clearErrors();
-      if (!!this.props.saveCallback) {
+      if (!!this.props.saveCallback && this.props.session) {
          this.props.saveCallback();
       }
    }
@@ -100,7 +100,7 @@ export default class AuthModal extends React.Component {
             <TextField
                autoFocus
                margin="dense"
-               id="email"
+               // id="email"
                label="Email Address"
                type="email"
                fullWidth
@@ -112,7 +112,7 @@ export default class AuthModal extends React.Component {
             {this.renderErrorMessage('email')}
             <TextField
                margin="dense"
-               id="password"
+               // id="password"
                label="Password"
                type="password"
                fullWidth
@@ -207,7 +207,7 @@ export default class AuthModal extends React.Component {
             <>
                <TextField
                   margin="dense"
-                  id="password2"
+                  // id="password2"
                   label="Confirm Password"
                   type="password"
                   fullWidth
