@@ -65,7 +65,7 @@ const rawTheme = createMuiTheme({
     },
     text: {
       primary: "#000000",
-      secondary: "#ffffff"
+      secondary: "rgba(0, 0, 0, 0.54)"
     }
   },
   typography: {
