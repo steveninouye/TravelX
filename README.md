@@ -2,6 +2,11 @@
 
 _TravelX_ helps travelers create travel plans and discover popular attractions.
 
+![landing page](https://github.com/Fwep/TravelX/blob/master/docs/readme/landing-page.png?raw=true)
+![schedule]:(https://github.com/Fwep/TravelX/blob/master/docs/readme/schedule.png?raw=true)
+
+![map](https://github.com/Fwep/TravelX/blob/master/docs/readme/map.png?raw=true)
+
 Key features:
 
 - Generate a travel plan based on a destination city
@@ -56,10 +61,6 @@ Steven Inouye
 Each person choose one thing and add here
 
 ## Screenshots of code, and snippets
-
-- landing page
-- search results
-- MAP
 
 ## Future Features
 
