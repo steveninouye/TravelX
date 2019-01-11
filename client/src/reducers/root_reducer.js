@@ -14,16 +14,9 @@ const rootReducer = combineReducers({
   ui
 });
 
-const configureStore = (preloadedState = {}) => {
-  if (process.env.NODE_ENV === 'production') {
-    return createStore(rootReducer, preloadedState, applyMiddleware(thunk));
-  } else {
-    return createStore(
-      rootReducer,
-      preloadedState,
-      applyMiddleware(thunk, logger)
-    );
-  }
-};
+const configureStore = (preloadedState = {}) => 
+	process.env.NODE_ENV === 'production' ? 
+	createStore(rootReducer, preloadedState, applyMiddleware(thunk)) :
+  createStore( rootReducer, preloadedState, applyMiddleware(thunk, logger))
 
 export default configureStore;
