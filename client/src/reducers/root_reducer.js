@@ -8,13 +8,22 @@ import errors from './errors_reducer';
 import ui from './ui_reducer';
 
 const rootReducer = combineReducers({
-   entities,
-   session,
-   errors,
-   ui
+  entities,
+  session,
+  errors,
+  ui
 });
 
-const configureStore = (preloadedState = {}) =>
-   createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger));
+const configureStore = (preloadedState = {}) => {
+  if (process.env.NODE_ENV === 'production') {
+    return createStore(rootReducer, preloadedState, applyMiddleware(thunk));
+  } else {
+    return createStore(
+      rootReducer,
+      preloadedState,
+      applyMiddleware(thunk, logger)
+    );
+  }
+};
 
 export default configureStore;
