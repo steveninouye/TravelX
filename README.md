@@ -18,7 +18,7 @@ This project was created in 7 days by a team of software developers at App Acade
 
 Our goal was to create a useful and beautiful travel planning app that anyone could use to make travel planning easier. As a team, we were also interested in learning Material UI, the most popular React library, and the Google Places API.
 
-[Visit the live site](http://travelx-aa.herokuapp.com)
+[Visit the live site](https://travelx-app.herokuapp.com/#/)
 
 ## Technologies
 
